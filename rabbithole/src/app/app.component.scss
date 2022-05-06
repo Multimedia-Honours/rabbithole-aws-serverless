@@ -1,0 +1,34 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(155, 184, 26,0);
+    height: 100%;
+    width: 100%;
+}
+
+html{
+    background-color: #212121;
+}
+
+.example-sidenav
+{
+    background: #212121;
+    // background: red;
+    color: #636363;
+}    
+
+mat-icon:hover{
+    color: #A7FF2D;  //will have to have a way to show which section we are currently in so may need to change hover color
+}
+
+mat-icon{
+    color: #636363;
+}
+
+.nav-button{
+    background-color: #212121;
+    border-style: none;
+}

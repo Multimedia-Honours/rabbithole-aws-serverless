@@ -1,0 +1,85 @@
+// @font-face {
+//     font-family: "Avenir";
+//     src: local("Avenir"), url(../../assets/fonts/Avenir/AvenirLTStd-Book.otf) format("opentype");
+// }
+
+// @font-face {
+//     font-family: "Avenir-roman";
+//     src: local("Avenir-roman"), url(../../assets/fonts/Avenir/AvenirLTStd-Roman.otf) format("opentype");
+// }
+
+div{
+    text-align: center;
+}
+
+#home-page{
+    background-color: #212121;
+}
+
+#homePageHeader{
+    color: #A7FF2D;
+    font-family: "Avenir";
+    font-size: 30pt;
+    margin-bottom: 10%;
+}
+
+.mat-flat-button{
+    background-color: #A7FF2D;
+    color:#212121;
+    font-family: "Avenir-roman";
+    font-size: 16pt;
+    //padding: 100%;
+    //border-radius: 50%;
+    
+}
+
+.button-hover:hover{
+    box-shadow: 0 5px 15px rgba(167, 255, 45, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+#homeMiddle
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#homescreenImage1 img{
+    position: absolute;
+    height: 30%;
+    // width: 30%;
+    left: 20%;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+#homescreenImage2 img
+{
+    position: absolute;
+    height: 60%;
+    // width: 60%;
+    left: 5%; 
+    bottom: 5%;
+
+    animation: float 5s ease-in-out infinite;
+}
+
+#homescreenImage3 img{
+    position: absolute;
+    height: 60%;
+    // width: 60%;
+    right: 5%; 
+    bottom: 10%;
+
+    animation: float 6s ease-in-out infinite;
+
+}
+
+@keyframes float {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 10px); }
+    100%   { transform: translate(0, -0px); }  
+}

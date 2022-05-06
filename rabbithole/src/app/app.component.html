@@ -1,0 +1,16 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+      <button class="nav-button"><mat-icon>keyboard_arrow_left</mat-icon></button> <button class="nav-button"><mat-icon>keyboard_arrow_right</mat-icon></button><br/><br />
+      <button class="nav-button"><mat-icon>chat_bubble_outline</mat-icon></button><br/><br/>  <!-- Get icon names from material.io/icons -->
+      <button class="nav-button"><mat-icon>groups</mat-icon></button><br/><br/>
+      <button class="nav-button"><mat-icon>calendar_month</mat-icon></button><br/><br/>
+      <button class="nav-button"><mat-icon>videocam</mat-icon></button><br/><br/>
+      <button class="nav-button"><mat-icon>playlist_add_check</mat-icon></button><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <!--Dont do this in final lmao this is just to simulate moving the bottom two alligned to button probably can be done in css-->
+      <button class="nav-button"><mat-icon>person_outline</mat-icon></button><br/><br/>
+      <button class="nav-button"><mat-icon>settings</mat-icon></button>
+  </mat-drawer>
+
+  <mat-drawer-content>
+      <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
