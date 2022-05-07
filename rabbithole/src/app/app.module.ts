@@ -15,11 +15,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { LandingpageComponent } from './components/home/landingpage/landingpage.component';
+import { ChatscreenComponent } from './components/chat/chatscreen/chatscreen.component';
+import { ChathomeComponent } from './components/chat/chathome/chathome.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
+    ChatscreenComponent,
+    ChathomeComponent,
+    
+   
   ],
   imports: [
     AppRoutingModule,
