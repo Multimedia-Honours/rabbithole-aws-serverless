@@ -17,6 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { LandingpageComponent } from './components/home/landingpage/landingpage.component';
 import { ChatscreenComponent } from './components/chat/chatscreen/chatscreen.component';
 import { ChathomeComponent } from './components/chat/chathome/chathome.component';
+import { GroupsComponent } from './components/groups/groups.component';
 
 
 
@@ -26,6 +27,7 @@ import { ChathomeComponent } from './components/chat/chathome/chathome.component
     LandingpageComponent,
     ChatscreenComponent,
     ChathomeComponent,
+    GroupsComponent,
     
    
   ],
