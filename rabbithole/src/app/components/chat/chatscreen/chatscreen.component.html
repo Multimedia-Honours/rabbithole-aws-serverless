@@ -58,11 +58,11 @@
         <input type="text" name="MessageSearchInput" id="MessageSearchInput" onfocus="recolorInput(this)" placeholder="Search for people to message"/>
         
         <textarea id="messageTextbox" name="messageTextbox" rows="4" cols="50" placeholder="Type a new message..."  onfocus="recolorInput(this)"></textarea>
-        <button class="send-button material-icons">send</button>
+        <button id="send" class="send-button material-icons">send</button>
         <!-- <button class="attach-button"><p><mat-icon>attach_file</mat-icon></p></button> -->
         <div id="MessageOptions">
-        <span class="attach-button material-icons">attach_file</span>
-        <span class="broadcast-button material-icons">podcasts</span>
+        <button class="attach-button material-icons" id="attach">attach_file</button>
+        <button class="broadcast-button material-icons"id="broadcast">podcasts</button>
         </div>
         
     </form>

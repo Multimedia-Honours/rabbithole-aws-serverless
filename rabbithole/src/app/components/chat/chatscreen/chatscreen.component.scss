@@ -140,6 +140,8 @@
     padding: 10px;
     margin-top: 5px; 
     margin-bottom: 5px; 
+    position: relative;
+    left: 1.9em;
     // margin-left: auto;
     // margin-right: auto;
     
@@ -228,3 +230,20 @@ mat-icon
     color: #ABFF4F;
     font-size: 22pt;
 }
+
+#broadcast{
+    position: relative;
+    right:9.4em;
+}
+
+#attach{
+    position: relative;
+    right:9em;
+}
+
+#send{
+    position: relative;
+    bottom: 0.25em;
+    left: 1em;
+}
+
