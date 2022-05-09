@@ -1,12 +1,12 @@
-// @font-face {
-//     font-family: "Avenir";
-//     src: local("Avenir"), url(../../assets/fonts/Avenir/AvenirLTStd-Book.otf) format("opentype");
-// }
+@font-face {
+    font-family: "Avenir";
+    src: local("Avenir"), url(../../../../assets/fonts/Avenir/AvenirLTStd-Book.otf) format("opentype");
+}
 
-// @font-face {
-//     font-family: "Avenir-roman";
-//     src: local("Avenir-roman"), url(../../assets/fonts/Avenir/AvenirLTStd-Roman.otf) format("opentype");
-// }
+@font-face {
+    font-family: "Avenir-roman";
+    src: local("Avenir-roman"), url(../../../../assets/fonts/Avenir/AvenirLTStd-Roman.otf) format("opentype");
+}
 
 div{
     text-align: center;
@@ -52,7 +52,7 @@ div{
     height: 30%;
     // width: 30%;
     left: 20%;
-
+   
     animation: float 4s ease-in-out infinite;
 }
 
