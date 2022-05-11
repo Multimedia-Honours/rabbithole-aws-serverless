@@ -3,6 +3,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingpageComponent } from './components/home/landingpage/landingpage.component';
 import { GroupsComponent } from './components/groups/groups.component';
+import { AuthComponent } from './components/home/auth/auth.component';
 
 const routes: Routes = [
   {
@@ -10,9 +11,12 @@ const routes: Routes = [
     component: LandingpageComponent
   },
   {
+    path: 'login',
+    component: AuthComponent
+  },
+  {
     path: 'chat',
     component: ChathomeComponent
-    
   },
   {
     path: 'groups',

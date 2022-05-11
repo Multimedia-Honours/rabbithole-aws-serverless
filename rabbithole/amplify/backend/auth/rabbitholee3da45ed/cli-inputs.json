@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "rabbithole80cf7702_identitypool_80cf7702",
+    "identityPoolName": "rabbitholee3da45ed_identitypool_e3da45ed",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "rabbit80cf7702",
-    "userPoolName": "rabbithole80cf7702_userpool_80cf7702",
+    "resourceNameTruncated": "rabbite3da45ed",
+    "userPoolName": "rabbitholee3da45ed_userpool_e3da45ed",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "rabbit80cf7702_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "rabbite3da45ed_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "80cf7702",
-    "resourceName": "rabbithole80cf7702",
+    "sharedId": "e3da45ed",
+    "resourceName": "rabbitholee3da45ed",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "defaultSocial",
     "hostedUI": true,
@@ -46,7 +46,7 @@
       "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://rabbithole-aws.shop/\"],\"LogoutURLs\":[\"https://rabbithole-aws.shop/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://rabbithole-aws.shop/chat/\",\"http://localhost:4200/chat/\"],\"LogoutURLs\":[\"https://rabbithole-aws.shop/\",\"http://localhost:4200/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
