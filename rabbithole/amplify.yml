@@ -1,6 +1,7 @@
 version: 1
 applications:
-  - backend:
+  - appRoot: rabbithole
+    backend:
       phases:
         build:
           commands:
@@ -21,4 +22,3 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-    appRoot: rabbithole
