@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rabbithole';
+  public show:boolean = false;
+  public buttonName:any = 'Show';
+
+  ngOnInit () {  }
+
+  toggle() {
+    this.show = !this.show;
+  }
 }
