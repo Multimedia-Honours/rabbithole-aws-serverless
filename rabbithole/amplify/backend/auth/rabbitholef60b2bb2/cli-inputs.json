@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "rabbitholee3da45ed_identitypool_e3da45ed",
+    "identityPoolName": "rabbitholef60b2bb2_identitypool_f60b2bb2",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "rabbite3da45ed",
-    "userPoolName": "rabbitholee3da45ed_userpool_e3da45ed",
+    "resourceNameTruncated": "rabbitf60b2bb2",
+    "userPoolName": "rabbitholef60b2bb2_userpool_f60b2bb2",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,22 +31,27 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "rabbite3da45ed_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "rabbitf60b2bb2_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "e3da45ed",
-    "resourceName": "rabbitholee3da45ed",
+    "sharedId": "f60b2bb2",
+    "resourceName": "rabbitholef60b2bb2",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "defaultSocial",
     "hostedUI": true,
     "usernameAttributes": [
       "email"
     ],
+    "triggers": {
+      "PreSignup": [
+        "email-filter-allowlist"
+      ]
+    },
     "hostedUIDomainName": "rabbithole",
     "authProvidersUserPool": [
       "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://rabbithole-aws.shop/chat/\",\"http://localhost:4200/chat/\"],\"LogoutURLs\":[\"https://rabbithole-aws.shop/\",\"http://localhost:4200/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:4200/chat/\"],\"LogoutURLs\":[\"http://localhost:4200/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
