@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "rabbithole80cf7702_identitypool_80cf7702",
+    "identityPoolName": "rabbitholef60b2bb2_identitypool_f60b2bb2",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "rabbit80cf7702",
-    "userPoolName": "rabbithole80cf7702_userpool_80cf7702",
+    "resourceNameTruncated": "rabbitf60b2bb2",
+    "userPoolName": "rabbitholef60b2bb2_userpool_f60b2bb2",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,22 +31,27 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "rabbit80cf7702_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "rabbitf60b2bb2_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "80cf7702",
-    "resourceName": "rabbithole80cf7702",
+    "sharedId": "f60b2bb2",
+    "resourceName": "rabbitholef60b2bb2",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "defaultSocial",
     "hostedUI": true,
     "usernameAttributes": [
       "email"
     ],
+    "triggers": {
+      "PreSignup": [
+        "email-filter-allowlist"
+      ]
+    },
     "hostedUIDomainName": "rabbithole",
     "authProvidersUserPool": [
       "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://rabbithole-aws.shop/\"],\"LogoutURLs\":[\"https://rabbithole-aws.shop/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:4200/chat/\"],\"LogoutURLs\":[\"http://localhost:4200/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

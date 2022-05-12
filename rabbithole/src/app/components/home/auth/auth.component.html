@@ -1,0 +1,47 @@
+<amplify-authenticator [socialProviders]="['google']">
+    <ng-template amplifySlot="header">
+      <div>
+        <img class="amplify-image" alt="Amplify logo" src="../../../../assets/images/rabbithole-logo.png"/>
+      </div>
+    </ng-template>
+  
+    <ng-template amplifySlot="sign-in-header">
+        <h3 class="amplify-heading">
+          Sign in to your account
+        </h3>
+    </ng-template>
+    
+    <ng-template amplifySlot="sign-up-header">
+        <h3 class="amplify-heading">
+          Create a new account
+        </h3>
+    </ng-template>
+    
+      <ng-template amplifySlot="sign-up-footer">
+        <div style="text-align: center">
+          <button
+            (click)="authenticator.toSignIn()"
+            class="amplify-button amplify-field-group__control"
+            data-fullwidth="false"
+            data-size="small"
+            data-variation="link"
+            type="button"
+            style="font-weight: normal">
+            Back to Sign In
+          </button>
+        </div>
+      </ng-template>
+    
+      <ng-template amplifySlot="footer">
+        <div style="padding: var(--amplify-space-large); text-align: center">
+          <p class="amplify-text" style="color: var(--amplify-colors-neutral-80)">
+            © All Rights Reserved, Rabbithole LLC
+          </p>
+        </div>
+      </ng-template>
+    
+    
+      <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+        <button (click)="signOut()">Sign Out</button>
+      </ng-template>
+  </amplify-authenticator>

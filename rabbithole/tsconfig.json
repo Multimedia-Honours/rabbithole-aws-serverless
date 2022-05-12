@@ -4,6 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "allowJs": true,
+    "skipLibCheck": true, 
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,

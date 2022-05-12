@@ -18,8 +18,9 @@ import { LandingpageComponent } from './components/home/landingpage/landingpage.
 import { ChatscreenComponent } from './components/chat/chatscreen/chatscreen.component';
 import { ChathomeComponent } from './components/chat/chathome/chathome.component';
 import { GroupsComponent } from './components/groups/groups.component';
+import { AuthComponent } from './components/home/auth/auth.component';
 
-
+import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,13 @@ import { GroupsComponent } from './components/groups/groups.component';
     ChatscreenComponent,
     ChathomeComponent,
     GroupsComponent,
-    
-    
-   
+    AuthComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    AmplifyAuthenticatorModule,
     MatListModule,
     MatSelectModule,
     MatSidenavModule,
