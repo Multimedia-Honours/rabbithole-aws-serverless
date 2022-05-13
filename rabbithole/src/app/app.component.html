@@ -1,34 +1,7 @@
-<mat-drawer-container class="example-container" autosize >
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-      <button class="nav-button-top"><mat-icon>keyboard_arrow_left</mat-icon></button> <button class="nav-button-top"><mat-icon>keyboard_arrow_right</mat-icon></button>
-      <button class="nav-button" (click)="toggle()"><mat-icon>chat_bubble_outline</mat-icon></button>  <!-- Get icon names from material.io/icons -->
-      <button class="nav-button"><mat-icon>groups</mat-icon></button>
-      <button class="nav-button"><mat-icon>calendar_month</mat-icon></button>
-      <button class="nav-button"><mat-icon>videocam</mat-icon></button>
-      <button class="nav-button"><mat-icon>playlist_add_check</mat-icon></button>
-      <button class="nav-button-bottom" id="profile"><mat-icon>person_outline</mat-icon></button>
-      <button class="nav-button-bottom"><mat-icon>settings</mat-icon></button>
-  </mat-drawer>
-  
-  <mat-drawer-content>
-   
-      <router-outlet></router-outlet>
-      <div id="sidetab" *ngIf="show">
-        
-        <h1>Tab Heading</h1><button><mat-icon>push_pin</mat-icon></button>
-        <div class="tabBlockSelected">
-          <h2>Name</h2>
-          <p>Content</p>
-          <p class="dateTime">Date/Time</p>
-        </div>
-        <div class="tabBlock">
-          <h2>Name</h2>
-          <p>Content</p>
-          <p class="dateTime">Date/Time</p>
-        </div>
-        
-      </div>  
+<ng-container *ngIf="authenticator.route === 'authenticated'">
+  <router-outlet></router-outlet>
+</ng-container>
 
-      
-  </mat-drawer-content>
-</mat-drawer-container>
+<ng-container *ngIf="authenticator.route !== 'authenticated'">
+  <app-landingpage></app-landingpage>
+</ng-container>

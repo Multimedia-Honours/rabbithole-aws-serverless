@@ -7,21 +7,12 @@ import { AuthComponent } from './components/home/auth/auth.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: LandingpageComponent
-  },
-  {
-    path: 'login',
-    component: AuthComponent
-  },
-  {
     path: 'chat',
     component: ChathomeComponent
   },
   {
     path: 'groups',
     component: GroupsComponent
-    
   }
 ];
 
