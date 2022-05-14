@@ -3,8 +3,15 @@
             
         <h1 id="homePageHeader">JUMP DOWN THE RABBITHOLE</h1>
         
-        <!-- <button mat-flat-button color="#A7FF2D" class="button-hover">Login</button> -->
-        <app-auth></app-auth>
+        <!-- Default screen the user sees -->
+        <div *ngIf="toggle">
+            <button mat-flat-button color="#A7FF2D" (click)="loginToggle();" class="button-hover">Login / Sign-Up </button>
+        </div>
+
+        <!-- When login button is pressed -->
+        <div @authTransition *ngIf="!toggle">
+            <app-auth></app-auth>
+        </div>
 
     </div>
 
