@@ -1,21 +1,18 @@
 <div id="home-page">
-    <div id="homeMiddle">
+        <div id="homeMiddle">
+                
+            <h1 id="homePageHeader">JUMP DOWN THE RABBITHOLE</h1>
             
-        <h1 id="homePageHeader">JUMP DOWN THE RABBITHOLE</h1>
-        
-        <!-- Default screen the user sees -->
-        <div *ngIf="toggle">
-            <button mat-flat-button color="#A7FF2D" (click)="loginToggle();" class="button-hover">Login / Sign-Up </button>
+            <div *ngIf="authenticator.authStatus === 'configuring'">
+                <h1 style="color: white;">LOADING...</h1>
+            </div> 
+            <div>
+                <app-auth></app-auth>
+            </div>
+    
         </div>
-
-        <!-- When login button is pressed -->
-        <div @authTransition *ngIf="!toggle">
-            <app-auth></app-auth>
-        </div>
-
-    </div>
-
-    <div id="homescreenImage1"><img src="../../../../assets/images/bolder.svg"></div>
-    <div id="homescreenImage2"><img src="../../../../assets/images/tree-bolder.svg"></div> 
-    <div id="homescreenImage3"><img src="../../../../assets/images/retrorabbit_pillar.svg"></div>
+    
+        <div id="homescreenImage1"><img src="../../../../assets/images/bolder.svg"></div>
+        <div id="homescreenImage2"><img src="../../../../assets/images/tree-bolder.svg"></div> 
+        <div id="homescreenImage3"><img src="../../../../assets/images/retrorabbit_pillar.svg"></div>
 </div>
