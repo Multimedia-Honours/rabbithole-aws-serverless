@@ -1,13 +1,32 @@
 $retroGrey: #212121;
 $retroGreen: #A7FF2D;
 
+@font-face {
+    font-family: "Avenir";
+    src: local("Avenir"), url(../../../../assets/fonts/Avenir/AvenirLTStd-Book.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Avenir-roman";
+    src: local("Avenir-roman"), url(../../../../assets/fonts/Avenir/AvenirLTStd-Roman.otf) format("opentype");
+}
+
 .amplify-heading {
     color: $retroGrey;
     padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl);
+    font-family: Avenir;
 }
 
 .amplify-image{
+    position: relative;
     padding: 2px; 
     text-align: center; 
+    margin: auto;
     width: 50%;
 }
+
+.amplify-signup
+{
+    text-align: left;
+}
+
