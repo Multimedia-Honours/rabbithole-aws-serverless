@@ -1,24 +1,20 @@
 <amplify-authenticator [socialProviders]="['google']">
     <ng-template amplifySlot="header">
-      <div>
+      <!-- <div>
         <img class="amplify-image" alt="Amplify logo" src="../../../../assets/images/rabbithole-logo.png"/>
-      </div>
+      </div> -->
     </ng-template>
   
-    <ng-template amplifySlot="sign-in-header">
-        <h3 class="amplify-heading">
-          Sign in to your account
-        </h3>
+    <ng-template amplifySlot="sign-in-header" >
+      <img class="amplify-image" alt="Amplify logo" src="../../../../assets/images/rabbithole-logo.png"/>
     </ng-template>
     
     <ng-template amplifySlot="sign-up-header">
-        <h3 class="amplify-heading">
-          Create a new account
-        </h3>
+      <img class="amplify-image" alt="Amplify logo" src="../../../../assets/images/rabbithole-logo.png"/>
     </ng-template>
     
       <ng-template amplifySlot="sign-up-footer">
-        <div style="text-align: center">
+        <div class="amplify-signup">
           <button
             (click)="authenticator.toSignIn()"
             class="amplify-button amplify-field-group__control"

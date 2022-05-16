@@ -1,6 +1,13 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../../../services/auth.service';
+
+import { Amplify } from 'aws-amplify';
+import { AuthenticatorService } from '@aws-amplify/ui-angular';
+
+import awsExports from '../../../../aws-exports';
+
 @Component({
   selector: 'app-landingpage',
   templateUrl: './landingpage.component.html',
@@ -17,14 +24,12 @@ import { Component, OnInit } from '@angular/core';
   ]),]
 })
 export class LandingpageComponent implements OnInit {
-  toggle = true;
 
-  constructor() { }
+  constructor(public authenticator: AuthenticatorService, private authservice: AuthService) {
+    Amplify.configure(awsExports);
+  }
 
   ngOnInit(): void {
   }
 
-  loginToggle(){
-    this.toggle = false;
-  }
 }

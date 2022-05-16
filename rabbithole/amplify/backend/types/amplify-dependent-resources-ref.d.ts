@@ -1,12 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "authGetUser": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        },
-        "rabbitholef60b2bb2PreSignup": {
+        "rabbitholeAuthPreSignup": {
             "Name": "string",
             "Arn": "string",
             "LambdaExecutionRole": "string",
@@ -14,9 +8,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "auth": {
-        "rabbitholef60b2bb2": {
-            "IdentityPoolId": "string",
-            "IdentityPoolName": "string",
+        "rabbitholeAuth": {
             "HostedUIDomain": "string",
             "OAuthMetadata": "string",
             "UserPoolId": "string",
@@ -24,13 +16,6 @@ export type AmplifyDependentResourcesAttributes = {
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string"
-        }
-    },
-    "api": {
-        "authAPI": {
-            "RootUrl": "string",
-            "ApiName": "string",
-            "ApiId": "string"
         }
     }
 }

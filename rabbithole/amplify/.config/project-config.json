@@ -1,4 +1,7 @@
 {
+  "providers": [
+    "awscloudformation"
+  ],
   "projectName": "rabbithole",
   "version": "3.1",
   "frontend": "javascript",
@@ -7,11 +10,8 @@
     "config": {
       "SourceDir": "src",
       "DistributionDir": "dist/rabbithole",
-      "BuildCommand": "npm run-script build",
+      "BuildCommand": "npm.cmd run-script build",
       "StartCommand": "ng serve"
     }
-  },
-  "providers": [
-    "awscloudformation"
-  ]
+  }
 }

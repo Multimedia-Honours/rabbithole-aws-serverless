@@ -10,23 +10,17 @@
       "StackName": "amplify-rabbithole-dev-201018",
       "StackId": "arn:aws:cloudformation:us-east-1:530803797840:stack/amplify-rabbithole-dev-201018/9f88e250-cc9e-11ec-8484-0eeb86d7cbcd",
       "AmplifyAppId": "d2vexy11uhscqy",
-      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-rabbithole-dev-201018-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
       "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-rabbithole-dev-201018-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
-        "undefined": {},
-        "rabbitholef60b2bb2": {}
+        "rabbitholeAuth": {}
       },
       "function": {
-        "authGetUser": {
-          "deploymentBucketName": "amplify-rabbithole-dev-201018-deployment",
-          "s3Key": "amplify-builds/authGetUser-5446624d626176494e7a-build.zip"
-        },
-        "rabbitholef60b2bb2PreSignup": {
+        "rabbitholeAuthPreSignup": {
           "DOMAINALLOWLIST": "tuks.co.za, retrorabbit.co.za",
           "deploymentBucketName": "amplify-rabbithole-dev-201018-deployment",
-          "s3Key": "amplify-builds/rabbitholef60b2bb2PreSignup-365a4a394230414a3253-build.zip"
+          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-73764b516c6463626135-build.zip"
         }
       }
     }

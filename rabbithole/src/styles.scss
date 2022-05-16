@@ -1,8 +1,175 @@
 /* You can add global styles to this file, and also import other style files */
-
+$retroGrey: #212121;
+$retroGreen: #A7FF2D;
 
 // This must be here in order to access the default CSS from Amplify's UI 
 @import '~@aws-amplify/ui-angular/theme.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 html, body { height: 100%; background-color: #212121; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//apparently we need to put the auth css in Global, because it gets called later. 
+
+[data-amplify-authenticator-signin]
+{
+    --amplify-colors-background-primary: black;
+    --amplify-colors-background-secondary: black;
+}
+
+.amplify-button[data-variation='primary'] 
+{
+    background: $retroGreen;
+    height: 4vh;
+    color: $retroGrey;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.amplify-button[data-variation='primary']:hover 
+{
+    background: #74b120;
+}
+
+[data-amplify-authenticator] [data-amplify-router]
+{
+    box-shadow: 'var(--amplify-components-authenticator-router-box-shadow)';
+    background: $retroGrey;
+    border: 1px solid #707070;
+    border-radius: 15px;
+    width: 85%;
+}
+
+.amplify-input
+{
+    background-color: #3E3D3D;
+}
+
+.amplify-button[data-variation=link]
+{
+    color: #A7FF2D;
+    border-radius: 15px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+
+.amplify-heading[_ngcontent-sed-c62]
+{
+    color: #bfbfbf;
+}
+
+.amplify-heading
+{
+    color: #bfbfbf;
+    
+}
+
+[data-amplify-authenticator] [data-state=inactive] 
+{
+    background-color: #A7FF2D;
+}
+
+.amplify-tabs
+{
+    border: none;
+}
+
+.amplify-tabs-item[data-state=active]
+{
+    border-color: none !important;
+    // color: #bfbfbf;
+    color: $retroGreen;
+    // font-weight: bold;
+    // text-decoration: underline $retroGreen;
+    // text-underline-offset: 2px;
+    //border-radius: 10px;
+}
+
+.amplify-tabs-item[data-state=active]:hover
+{
+    cursor:default;
+}
+
+
+.amplify-tabs-item
+{
+    border: none !important;
+    color: $retroGrey;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.amplify-text
+{
+    color: #bfbfbf;
+    text-align: center;
+    padding: 0;
+    vertical-align: middle;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+p.amplify-text
+{
+    margin-top: 0; margin-bottom: 0; padding: 4px;
+    color: grey;
+}
+
+.amplify-button:hover
+{
+    background: rgb(248, 248, 248);
+    
+}
+
+.amplify-divider--label::after
+{
+    border-radius: 20px;
+    color: black;
+}
+
+.amplify-divider--label
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.amplify-icon
+{
+    fill: #A7FF2D;
+}
+
+.amplify-button[data-variation=link]:hover
+{
+    background: none;
+    // width: 30%;
+    color: white;
+
+}
+
+[data-amplify-authenticator] [data-state=inactive]
+{
+    background-color: $retroGreen;
+    border-radius: 5px;
+}
+
+.amplify-input
+{
+    font-family: 'Open Sans', sans-serif;
+    color: #bfbfbf;
+}
+
+.amplify-input:focus
+{
+    outline: none;
+    // border: none;
+}
+
+h3.amplify-heading 
+{
+    font-family: 'Open Sans', sans-serif; 
+}
