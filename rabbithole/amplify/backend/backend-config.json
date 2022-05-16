@@ -1,24 +1,19 @@
 {
   "function": {
-    "authGetUser": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "authPreSignup": {
+    "rabbitholeAuthPreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "auth": {
-    "rabbitholef60b2bb2": {
+    "rabbitholeAuth": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "authPreSignup",
+          "resourceName": "rabbitholeAuthPreSignup",
           "triggerProvider": "Cognito",
           "attributes": [
             "Arn",
@@ -51,20 +46,5 @@
       }
     }
   },
-  "api": {
-    "authAPI": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "authGetUser",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
-    }
-  }
+  "api": {}
 }

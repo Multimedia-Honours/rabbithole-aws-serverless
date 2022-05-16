@@ -1,6 +1,8 @@
-export async function handler(event) {
-  
-  // allowed domains (@retrorabbit.co.za & @tuks.co.za [for testing])
+/**
+ * @type {import('@types/aws-lambda').PreSignUpTriggerHandler}
+ */
+exports.handler = async event => {
+  // allowed domains
   const ald = process.env.DOMAINALLOWLIST.split(',').map(d => d.trim());
 
   const { email } = event.request.userAttributes;
@@ -11,4 +13,4 @@ export async function handler(event) {
   }
 
   return event;
-}
+};
