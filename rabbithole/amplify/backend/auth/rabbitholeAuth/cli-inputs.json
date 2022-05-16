@@ -1,8 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "resourceNameTruncated": "rabbitd30952e0",
-    "userPoolName": "rabbithole-user-pools",
+    "resourceNameTruncated": "rabbit0e629283",
+    "userPoolName": "rabbithole_userpool",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -12,7 +12,7 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Welcome to Rabbtihole! Verification code awaits :)",
+    "emailVerificationSubject": "Welcome to Rabbtihole, here is your verification code!",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
@@ -29,9 +29,9 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "rabbitd30952e0_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "rabbit0e629283_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "d30952e0",
+    "sharedId": "0e629283",
     "resourceName": "rabbitholeAuth",
     "authSelections": "userPoolOnly",
     "useDefault": "manual",
@@ -46,7 +46,7 @@
       ]
     },
     "hostedUI": true,
-    "hostedUIDomainName": "rabbithole-auth",
+    "hostedUIDomainName": "rabbithole",
     "authProvidersUserPool": [
       "Google"
     ],
