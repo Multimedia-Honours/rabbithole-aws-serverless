@@ -4,8 +4,8 @@
 const awsmobile = {
     "aws_project_region": "us-east-1",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_3OboiKLrP",
-    "aws_user_pools_web_client_id": "7rohjc1b2jos6591g3jqmoo9o6",
+    "aws_user_pools_id": "us-east-1_cVEXwpZpc",
+    "aws_user_pools_web_client_id": "6g3dihf3l0ngh9oedtnqaap9r8",
     "oauth": {
         "domain": "rabbithole-staging.auth.us-east-1.amazoncognito.com",
         "scope": [
