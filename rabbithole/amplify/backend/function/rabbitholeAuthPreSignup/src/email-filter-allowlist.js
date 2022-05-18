@@ -1,3 +1,4 @@
+
 /**
  * @type {import('@types/aws-lambda').PreSignUpTriggerHandler}
  */
