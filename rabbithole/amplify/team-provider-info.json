@@ -20,7 +20,7 @@
         "rabbitholeAuthPreSignup": {
           "DOMAINALLOWLIST": "tuks.co.za, retrorabbit.co.za",
           "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
-          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-4478695876484e486943-build.zip"
+          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-73764b516c6463626135-build.zip"
         }
       }
     }
