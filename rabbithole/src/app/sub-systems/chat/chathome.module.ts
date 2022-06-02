@@ -13,24 +13,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ChatLandingComponent } from './components/chat-landing/chat-landing.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
     ChathomeComponent,
     ChatLandingComponent,
+    TestComponent,
   ],
   imports: [
     CommonModule,
-    ChathomeRoutingModule,
-    MatListModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatDividerModule,
-    MatIconModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatCardModule,
+    ChathomeRoutingModule
   ]
 })
 export class ChathomeModule { }
