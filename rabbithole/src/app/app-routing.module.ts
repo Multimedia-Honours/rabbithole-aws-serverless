@@ -5,15 +5,6 @@ import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage
 import { AuthComponent } from './sub-systems/home/auth/auth.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'chat',
-  //   children: [
-  //       {
-  //           path: '',
-  //           component: ChathomeComponent
-  //       }
-  //   ]
-  // },
   {
     path: 'chat', 
     loadChildren: () => import('./sub-systems/chat/chathome.module').then(m => m.ChathomeModule) 
