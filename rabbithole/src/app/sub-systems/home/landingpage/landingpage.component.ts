@@ -1,8 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService } from '../../../services/auth.service';
-
 import { Amplify } from 'aws-amplify';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
@@ -25,7 +23,7 @@ import awsExports from '../../../../aws-exports';
 })
 export class LandingpageComponent implements OnInit {
 
-  constructor(public authenticator: AuthenticatorService, private authservice: AuthService) {
+  constructor(public authenticator: AuthenticatorService) {
     Amplify.configure(awsExports);
   }
 

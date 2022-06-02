@@ -7,9 +7,8 @@ $retroGreen: #A7FF2D;
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-html, body { height: 100%; background-color: #212121; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html { background-color: #212121;}
 //apparently we need to put the auth css in Global, because it gets called later. 
 
 [data-amplify-authenticator-signin]
