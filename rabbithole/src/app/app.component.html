@@ -9,15 +9,13 @@
         <button class="nav-button"><mat-icon>playlist_add_check</mat-icon></button>
         <button class="nav-button-bottom" id="profile"><mat-icon>person_outline</mat-icon></button>
         <button class="nav-button-bottom"><mat-icon>settings</mat-icon></button>
+        <button (click)="authenticator.signOut()" style="color:blue">SIGN OUT</button>
     </mat-drawer>
 
     <mat-drawer-content>
-
       <router-outlet></router-outlet>
-      <button (click)="authenticator.signOut()" style="color:blue">SIGN OUT</button>
-
     </mat-drawer-content>
-    
+  
 </mat-drawer-container>
 </ng-container>
 
