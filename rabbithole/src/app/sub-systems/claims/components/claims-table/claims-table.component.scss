@@ -14,3 +14,7 @@ td tr{
 mat-paginator{
     background-color: transparent;
 }
+
+.mat-cell, .mat-header-cell{
+    color: $greenColour;
+}

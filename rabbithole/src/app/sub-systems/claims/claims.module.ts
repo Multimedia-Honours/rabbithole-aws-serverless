@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ClaimsRoutingModule } from './claims-routing.module';
-import { ClaimsComponent } from './claims.component';
 import { ViewClaimsComponent } from './screens/view-claims/view-claims.component';
 import { ClaimsTableComponent } from './components/claims-table/claims-table.component';
 
@@ -13,7 +12,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
-    ClaimsComponent,
     ViewClaimsComponent,
     ClaimsTableComponent
   ],
