@@ -7,6 +7,16 @@ $retroGreen: #A7FF2D;
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+@font-face {
+    font-family: "Avenir";
+    src: local("Avenir"), url(/assets/fonts/Avenir/AvenirLTStd-Book.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Avenir-roman";
+    src: local("Avenir-roman"), url(/assets/fonts/Avenir/AvenirLTStd-Roman.otf) format("opentype");
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html { background-color: #212121;}
 //apparently we need to put the auth css in Global, because it gets called later. 
@@ -48,11 +58,25 @@ html { background-color: #212121;}
 {
     color: #A7FF2D;
     border-radius: 15px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
     text-align: center;
     width: 100%;
     justify-content: center;
     margin-bottom: 10px;
+    border: none;
+    font-size: 12pt;
+}
+
+.amplify-button[data-variation=link]:hover
+{
+    color: red;
+    border-radius: 15px;
+    // font-family: 'Open Sans', sans-serif;
+    // text-align: center;
+    // width: 100%;
+    // justify-content: center;
+    // margin-bottom: 10px;
+    border: none;
 }
 
 
@@ -117,6 +141,8 @@ p.amplify-text
 {
     margin-top: 0; margin-bottom: 0; padding: 4px;
     color: grey;
+    // background-color: red;
+    // align-content: center;
 }
 
 .amplify-button:hover
@@ -160,6 +186,7 @@ p.amplify-text
 {
     font-family: 'Open Sans', sans-serif;
     color: #bfbfbf;
+    text-align: left;
 }
 
 .amplify-input:focus
@@ -172,3 +199,7 @@ h3.amplify-heading
 {
     font-family: 'Open Sans', sans-serif; 
 }
+
+// this might cause issues later
+
+div {margin: auto;}
