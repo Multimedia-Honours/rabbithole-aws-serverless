@@ -1,0 +1,20 @@
+$greyColour: #212121;
+$greenColour: #A7FF2D;
+
+table{
+    width: 100vw;
+    height: 20vh;
+    background-color: transparent;
+}
+
+td tr{
+    color: $greenColour;
+}
+
+mat-paginator{
+    background-color: transparent;
+}
+
+.mat-cell, .mat-header-cell{
+    color: $greenColour;
+}

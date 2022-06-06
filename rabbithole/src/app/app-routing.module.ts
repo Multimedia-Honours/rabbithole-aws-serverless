@@ -9,6 +9,10 @@ const routes: Routes = [
     path: 'chat', 
     loadChildren: () => import('./sub-systems/chat/chathome.module').then(m => m.ChathomeModule) 
   },
+  { 
+    path: 'claims', 
+    loadChildren: () => import('./sub-systems/claims/claims.module').then(m => m.ClaimsModule) 
+  },
   {
     path: '**',
     redirectTo: 'chat'

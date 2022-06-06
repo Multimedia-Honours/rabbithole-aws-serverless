@@ -19,6 +19,7 @@ import { AuthComponent } from './sub-systems/home/auth/auth.component';
 
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { ChathomeModule } from './sub-systems/chat/chathome.module';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ChathomeModule } from './sub-systems/chat/chathome.module';
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    MatCardModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
