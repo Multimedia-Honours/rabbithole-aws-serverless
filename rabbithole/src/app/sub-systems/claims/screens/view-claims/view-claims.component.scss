@@ -2,13 +2,26 @@ $greenColour: #A7FF2D;
 $greyColour: #212121;
 $lightGreyColour: #6D6D6D;
 
-#claims-heading{
+#claims-heading-left{
     color: $greenColour;
     font-size: 30px;
     margin-left: 15px;
     margin-top: 15px;
     margin-bottom: 0px;
+    float: left;
+    
 }
+
+#claims-heading-right{
+    float: right;
+    background-color: $greenColour;
+    transform: scale(0.7);
+}
+
+#add-claim-icon{
+    color: $greyColour;
+}
+
 
 .mat-badge-content {
     background: $lightGreyColour;
