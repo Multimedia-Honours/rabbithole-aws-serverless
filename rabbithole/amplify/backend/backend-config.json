@@ -45,5 +45,12 @@
         ]
       }
     }
+  },
+  "storage": {
+    "rabbitholeClaims": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
   }
 }

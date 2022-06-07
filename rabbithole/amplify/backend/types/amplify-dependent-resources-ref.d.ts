@@ -9,6 +9,8 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "auth": {
         "rabbitholeAuth": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string",
             "HostedUIDomain": "string",
             "OAuthMetadata": "string",
             "UserPoolId": "string",
@@ -16,6 +18,12 @@ export type AmplifyDependentResourcesAttributes = {
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string"
+        }
+    },
+    "storage": {
+        "rabbitholeClaims": {
+            "BucketName": "string",
+            "Region": "string"
         }
     }
 }
