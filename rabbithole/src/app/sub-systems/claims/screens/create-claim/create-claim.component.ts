@@ -12,5 +12,16 @@ export class CreateClaimComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  files: File[] = [];
+
+  onSelect(event: { addedFiles: any; }) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event: File) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
   
 }

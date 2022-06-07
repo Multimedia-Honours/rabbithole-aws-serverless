@@ -13,19 +13,18 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {  MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { ClaimDirective } from './screens/create-claim/claim.directive';
-
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
     ViewClaimsComponent,
     ClaimsTableComponent,
-    CreateClaimComponent,
-    ClaimDirective
+    CreateClaimComponent
   ],
   imports: [
     CommonModule,
     ClaimsRoutingModule,
+    NgxDropzoneModule,
     MatTabsModule,
     MatBadgeModule,
     MatTableModule,
