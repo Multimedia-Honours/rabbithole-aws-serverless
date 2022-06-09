@@ -15,9 +15,15 @@
     <div class="uploadClaim">
         <ngx-dropzone (change)="onSelect($event)">
             <ngx-dropzone-label>Upload invoice or reciept</ngx-dropzone-label>
-            <ngx-dropzone-preview *ngIf="file" [removable]="true" (removed)="onRemove()">
+            <!-- <ngx-dropzone-preview *ngIf="file" [removable]="true" (removed)="onRemove()">
                 <ngx-dropzone-label> {{ fileName }} </ngx-dropzone-label>
-            </ngx-dropzone-preview>
+            </ngx-dropzone-preview> -->
+            <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngIf= "file" [file]="file">
+                <ngx-dropzone-label>{{ fileName }} </ngx-dropzone-label>
+              </ngx-dropzone-image-preview> -->
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove($event)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-image-preview>
         </ngx-dropzone>
     </div>
 </ng-container>
