@@ -6,22 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-claim.component.scss']
 })
 export class CreateClaimComponent implements OnInit {
-
+  file: File | undefined;
+  fileName: string | undefined;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  files: File[] = [];
-
+  
   onSelect(event: { addedFiles: any; }) {
-    console.log(event);
-    this.files.push(...event.addedFiles);
+    console.log(event.addedFiles);
+    this.file = event.addedFiles;
+    this.fileName = event.addedFiles[0].name;
   }
 
-  onRemove(event: File) {
-    console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
+  onRemove(){
+    this.file = undefined;
   }
   
 }

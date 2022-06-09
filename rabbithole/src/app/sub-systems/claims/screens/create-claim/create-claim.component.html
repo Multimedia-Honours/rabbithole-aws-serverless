@@ -14,9 +14,9 @@
 <ng-container>
     <div class="uploadClaim">
         <ngx-dropzone (change)="onSelect($event)">
-            <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
-            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-                <ngx-dropzone-label> {{ f.name }} </ngx-dropzone-label>
+            <ngx-dropzone-label>Upload invoice or reciept</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngIf="file" [removable]="true" (removed)="onRemove()">
+                <ngx-dropzone-label> {{ fileName }} </ngx-dropzone-label>
             </ngx-dropzone-preview>
         </ngx-dropzone>
     </div>
