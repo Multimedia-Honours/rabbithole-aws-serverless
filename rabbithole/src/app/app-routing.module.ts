@@ -3,6 +3,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage.component';
 import { AuthComponent } from './sub-systems/home/auth/auth.component';
+import { ProfileComponent } from './sub-systems/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   { 
     path: 'claims', 
     loadChildren: () => import('./sub-systems/claims/claims.module').then(m => m.ClaimsModule) 
+  },
+  {
+    path: 'profile', component: ProfileComponent  
   },
   {
     path: '**',
