@@ -1,0 +1,35 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifybd31f0bc4a2f4-staging-203631-authRole",
+      "UnauthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplifybd31f0bc4a2f4-staging-203631-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplifybd31f0bc4a2f4-staging-203631-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+      "UnauthRoleName": "amplify-amplifybd31f0bc4a2f4-staging-203631-unauthRole",
+      "StackName": "amplify-amplifybd31f0bc4a2f4-staging-203631",
+      "StackId": "arn:aws:cloudformation:us-east-1:530803797840:stack/amplify-amplifybd31f0bc4a2f4-staging-203631/096e9670-d621-11ec-a6c3-127dfa5eb70f",
+      "AmplifyAppId": "d3ryha3440ugsf",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplifybd31f0bc4a2f4-staging-203631-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "rabbitholeAuth": {}
+      },
+      "function": {
+        "rabbitholeAuthPreSignup": {
+          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-412f53487767306a754f-build.zip"
+        },
+        "pocNodeModules": {
+          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+          "s3Key": "amplify-builds/pocNodeModules-347856597253626e435a-build.zip"
+        },
+        "rabbitholeUser": {
+          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+          "s3Key": "amplify-builds/rabbitholeUser-577058544b714a784165-build.zip"
+        }
+      }
+    }
+  }
+}
