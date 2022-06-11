@@ -11,7 +11,8 @@ import { Auth } from 'aws-amplify';
 export class ProfileComponent implements OnInit {
 
   constructor(public authenticator: AuthenticatorService) {this.LogUser() }
-
+  //first check if user is in db
+  //if not add user to db
   async LogUser(){
     try{
       const cognitoUser = await Auth.currentAuthenticatedUser();
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
       const email =  await Auth.currentUserInfo();
       cognitoUser.refreshSession(currentSession.getRefreshToken(), ( err: any, session: any) => {
         console.log('session', err, session);
-        const { idToken, refreshToken, accessToken } = session;
+         const { idToken, refreshToken, accessToken } = session;
          console.log(email.attributes.email);               
       });
     } catch (authError) {
