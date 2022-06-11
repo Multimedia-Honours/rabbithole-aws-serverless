@@ -1,4 +1,3 @@
-<p>create-claim works!</p>
 <div id="backgroundRocks">
     <img id= "spaceRock001" src="../../../../assets/images/spaceRock2.svg">
     <img id= "spaceRock002" src="../../../../assets/images/spaceRock3.svg">
@@ -11,19 +10,22 @@
     <img id= "spaceRock009" src="../../../../assets/images/spaceRock4.svg">
 </div>
 
-<ng-container>
-    <div class="uploadClaim">
-        <ngx-dropzone (change)="onSelect($event)">
-            <ngx-dropzone-label>Upload invoice or reciept</ngx-dropzone-label>
-            <!-- <ngx-dropzone-preview *ngIf="file" [removable]="true" (removed)="onRemove()">
-                <ngx-dropzone-label> {{ fileName }} </ngx-dropzone-label>
-            </ngx-dropzone-preview> -->
-            <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngIf= "file" [file]="file">
-                <ngx-dropzone-label>{{ fileName }} </ngx-dropzone-label>
-              </ngx-dropzone-image-preview> -->
-              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove($event)">
-                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-              </ngx-dropzone-image-preview>
-        </ngx-dropzone>
+<ng-container *ngIf="!testing">
+    <div class="claim-box">
+        <app-upload-claim></app-upload-claim>
+        <div class="upload-button-row">
+            <button mat-raised-button (click)="goBack();">Go Back</button>
+            <button mat-raised-button (click)="uploadClaim(true);">Reveiw Claim</button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="testing">
+    <div class="claim-box">
+        <app-review-claim></app-review-claim>
+        <div class="upload-button-row">
+            <button mat-raised-button (click)="cancelClaim(false);">Cancel Claim</button>
+            <button mat-raised-button (click)="submitClaim();">Submit Claim</button>
+        </div>
     </div>
 </ng-container>

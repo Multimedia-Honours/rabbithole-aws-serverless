@@ -1,0 +1,29 @@
+<mat-radio-group
+  class="expenseTypeSelection"
+  aria-label="What type of claim is it?"
+>
+  <h4>CLAIM TYPE:</h4>
+  <mat-radio-button value="invoice"> Invoice </mat-radio-button>
+  <mat-radio-button value="receipt"> Receipt </mat-radio-button>
+</mat-radio-group>
+<br />
+<ngx-dropzone (change)="onSelect($event)">
+  <ngx-dropzone-label
+    >Drag & Drop invoice or reciept <br />
+    or <br />
+    Click to upload
+  </ngx-dropzone-label>
+  <ngx-dropzone-image-preview
+    ngProjectAs="ngx-dropzone-preview"
+    *ngFor="let f of files"
+    [file]="f"
+    [removable]="true"
+    (removed)="onRemove($event)"
+  >
+  </ngx-dropzone-image-preview>
+  <br />
+  <ng-container *ngIf="fileName">
+    <ngx-dropzone-label>{{ fileName }} </ngx-dropzone-label>
+  </ng-container>
+</ngx-dropzone>
+<br />

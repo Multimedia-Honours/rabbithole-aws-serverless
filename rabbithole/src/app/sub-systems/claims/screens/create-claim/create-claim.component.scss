@@ -1,28 +1,20 @@
-$greenColour: #A7FF2D;
-$greyColour: #636363;
-$darkColour: #212121;
-
-ngx-dropzone-label{
+.claim-box{
     padding: 10px;
+    align-content: center;
+    border: rgba(167, 255, 45, 0.7);
+    border-style: dotted;
+    border-width: 0.5px;
+    border-radius: 5px;
 }
 
-ngx-dropzone{
-    width: 30%;
-    height: 250px;
-    margin: auto;
-    background-color: $greyColour;
-    color: $greenColour;
-    border: $greenColour 1px dashed;
-    justify-content: center;
+.upload-button-row {
+    display: table-cell;
+    width: 490px;
 }
-
-::ng-deep ngx-dropzone-preview {
-    max-width: 100% !important; 
-    max-height: 100% !important;
-    background-color: $greenColour !important;
-    color: $darkColour;
+  
+.upload-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
 }
-
 
 #backgroundRocks{
     z-index: -1000;
