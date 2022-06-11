@@ -50,10 +50,10 @@ $lightGreyColour: #6D6D6D;
 }
   
 ::ng-deep .mat-tab-label {
-    min-width: 110px !important;
+    min-width: 150px !important;
     padding: 2px !important;
     justify-content: left !important;
-    margin-left: 10px;
+    margin-left: 0px;
     color: $lightGreyColour;
     font-weight: 10;
 }

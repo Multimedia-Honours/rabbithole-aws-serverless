@@ -14,8 +14,8 @@
     <div class="claim-box">
         <app-upload-claim></app-upload-claim>
         <div class="upload-button-row">
-            <button mat-raised-button (click)="goBack();">Go Back</button>
-            <button mat-raised-button (click)="uploadClaim(true);">Reveiw Claim</button>
+            <button mat-raised-button color="success" (click)="goBack();">Go Back</button>
+            <button mat-raised-button color="success"  (click)="uploadClaim(true);">Reveiw Claim</button>
         </div>
     </div>
 </ng-container>
@@ -24,8 +24,8 @@
     <div class="claim-box">
         <app-review-claim></app-review-claim>
         <div class="upload-button-row">
-            <button mat-raised-button (click)="cancelClaim(false);">Cancel Claim</button>
-            <button mat-raised-button (click)="submitClaim();">Submit Claim</button>
+            <button mat-raised-button color="success" (click)="cancelClaim(false);">Cancel Claim</button>
+            <button mat-raised-button color="success" (click)="submitClaim();">Submit Claim</button>
         </div>
     </div>
 </ng-container>

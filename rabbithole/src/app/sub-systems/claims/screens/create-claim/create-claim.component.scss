@@ -1,3 +1,7 @@
+$greenColour: #A7FF2D;
+$greyColour: #636363;
+$darkColour: #212121;
+
 .claim-box{
     padding: 10px;
     align-content: center;
@@ -147,3 +151,13 @@
     }
 }
 
+.mat-success {
+    background-color: $greenColour;
+    color: $greyColour;
+}
+
+.upload-button-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -2,9 +2,17 @@
   class="expenseTypeSelection"
   aria-label="What type of claim is it?"
 >
+<div id="claim-type-div" >
   <h4>CLAIM TYPE:</h4>
+  <br/>
+  <br/>
   <mat-radio-button value="invoice"> Invoice </mat-radio-button>
+  <br/>
+  <br/>
   <mat-radio-button value="receipt"> Receipt </mat-radio-button>
+  <br/>
+  <br/>
+</div>
 </mat-radio-group>
 <br />
 <ngx-dropzone (change)="onSelect($event)">
