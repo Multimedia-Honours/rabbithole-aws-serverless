@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { Auth } from 'aws-amplify';
 
 
 @NgModule({
@@ -9,4 +9,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class ProfileModule { }
+export class ProfileModule {
+ }
+
+
