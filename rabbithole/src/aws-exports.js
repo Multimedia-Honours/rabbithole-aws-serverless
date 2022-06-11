@@ -42,7 +42,14 @@ const awsmobile = {
         "EMAIL"
     ],
     "aws_user_files_s3_bucket": "rabbithole-claims203631-staging",
-    "aws_user_files_s3_bucket_region": "us-east-1"
+    "aws_user_files_s3_bucket_region": "us-east-1",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "userAPI",
+            "endpoint": "https://6anq91hq5i.execute-api.us-east-1.amazonaws.com/staging",
+            "region": "us-east-1"
+        }
+    ]
 };
 
 

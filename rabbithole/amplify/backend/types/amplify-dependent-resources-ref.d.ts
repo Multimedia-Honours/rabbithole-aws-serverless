@@ -5,6 +5,18 @@ export type AmplifyDependentResourcesAttributes = {
             "Arn": "string",
             "LambdaExecutionRole": "string",
             "Region": "string"
+        },
+        "pocNodeModules": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        },
+        "rabbitholeUser": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
         }
     },
     "auth": {
@@ -24,6 +36,13 @@ export type AmplifyDependentResourcesAttributes = {
         "rabbitholeClaims": {
             "BucketName": "string",
             "Region": "string"
+        }
+    },
+    "api": {
+        "userAPI": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
         }
     }
 }

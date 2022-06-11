@@ -20,12 +20,15 @@ import { AuthComponent } from './sub-systems/home/auth/auth.component';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ProfileComponent } from './sub-systems/profile/profile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
-    AuthComponent
+    AuthComponent,
+    ProfileComponent,
   ],
   imports: [
     AppRoutingModule,
