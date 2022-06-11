@@ -18,9 +18,16 @@
       },
       "function": {
         "rabbitholeAuthPreSignup": {
-          "DOMAINALLOWLIST": "tuks.co.za, retrorabbit.co.za",
           "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
-          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-73764b516c6463626135-build.zip"
+          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-412f53487767306a754f-build.zip"
+        },
+        "pocNodeModules": {
+          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+          "s3Key": "amplify-builds/pocNodeModules-347856597253626e435a-build.zip"
+        },
+        "rabbitholeUser": {
+          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+          "s3Key": "amplify-builds/rabbitholeUser-577058544b714a784165-build.zip"
         }
       }
     }
