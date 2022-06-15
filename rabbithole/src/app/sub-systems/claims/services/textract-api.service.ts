@@ -11,16 +11,17 @@ export class TextractApiService {
 
   async upLoadClaim(f: File){
     try {
-      // this needs to be the users details.
-      const keyFileName = "matthewnharty@gmail.com" + "-" + f.name;
-      const s3Response = await Storage.put(keyFileName, f, {
+      const s3Response = await Storage.put(f.name, f, {
         progressCallback(progress) {
           console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
         },
         completeCallback: (event) => {
           console.log(`Successfully uploaded ${event.key}`);
         },
-        contentType: f.type
+        contentType: f.type,
+        customPrefix: {
+          public: "public/matthewnharty@gmail.com"
+        }
       });
   
       return s3Response;
