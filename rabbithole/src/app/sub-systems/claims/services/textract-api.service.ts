@@ -20,7 +20,7 @@ export class TextractApiService {
         },
         contentType: f.type,
         customPrefix: {
-          public: "public/matthewnharty@gmail.com"
+          public: "public/matthewnharty@gmail.com/"
         }
       });
   
