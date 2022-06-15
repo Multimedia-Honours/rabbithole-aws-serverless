@@ -1,28 +1,100 @@
-<div id="backgroundRocks">
-    <img id= "spaceRock001" src="../../../../assets/images/spaceRock2.svg">
-    <img id= "spaceRock002" src="../../../../assets/images/spaceRock3.svg">
-    <img id= "spaceRock003" src="../../../../assets/images/spaceRock1.svg">
-    <img id= "spaceRock004" src="../../../../assets/images/spaceRock4.svg">
-    <img id= "spaceRock005" src="../../../../assets/images/spaceRock3.svg">
-    <img id= "spaceRock006" src="../../../../assets/images/spaceRock1.svg">
-    <img id= "spaceRock007" src="../../../../assets/images/spaceRock2.svg">
-    <img id= "spaceRock008" src="../../../../assets/images/spaceRock4.svg">
-    <img id= "spaceRock009" src="../../../../assets/images/spaceRock4.svg">
-</div>
+<claims-background></claims-background>
 
+
+<!-- UPLOAD CLAIM -->
+<!-- PROCESS : First uploads the image/file to S3 bucket -->
+<!-- SECOND  : Retrieves data back from Textract -->
 <ng-container *ngIf="!testing">
     <div class="claim-box">
-        <app-upload-claim></app-upload-claim>
+        <div class="upload-content-main">
+
+            <mat-radio-group class="expenseTypeSelection" aria-label="What type of claim is it?">
+              <h1 class="upload-heading">UPLOAD CLAIM</h1>
+              
+              </mat-radio-group>
+              <br />
+              <ngx-dropzone (change)="onSelect($event)">
+                <ngx-dropzone-label>Drag & Drop invoice or reciept <br /> or <br /> Click to upload</ngx-dropzone-label>
+              
+                <ngx-dropzone-image-preview
+                  ngProjectAs="ngx-dropzone-preview"
+                  *ngFor="let f of file"
+                  [file]="f"
+                  [removable]="true"
+                  (removed)="onRemove($event)"
+                >
+                </ngx-dropzone-image-preview>
+                <br />
+              
+                <ng-container *ngIf="fileName">
+                  <ngx-dropzone-label>{{ fileName }} </ngx-dropzone-label>
+                </ng-container>
+              
+              </ngx-dropzone>
+          </div>
         <div class="upload-button-row">
             <button mat-raised-button color="success" (click)="goBack();">Go Back</button>
-            <button mat-raised-button color="success"  (click)="uploadClaim(true);">Reveiw Claim</button>
+            <button mat-raised-button color="success"  (click)="uploadClaim();">Reveiw Claim</button>
         </div>
     </div>
 </ng-container>
 
+<!-- CREATE CLAIM (IN OUR DATABASE) -->
 <ng-container *ngIf="testing">
     <div class="claim-box">
-        <app-review-claim></app-review-claim>
+        <div class="form-div">
+            <h1 id="review-claims-heading">Review Claim</h1>
+          <form class="form-form">
+            <!-- [formGroup]="userAdd" (ngSubmit)="AddUser()" -->
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Type of claim</mat-label>
+              <mat-select>
+                <mat-option value="travel"> Travel </mat-option>
+                <mat-option value="entertainment"> Entertainment </mat-option>
+                <mat-option value="data&cellphone"> Data / Cellphone </mat-option>
+                <mat-option value="misc"> Miscellaneous </mat-option>
+              </mat-select>
+              <mat-hint>Select your claim category</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Claim Description </mat-label>
+              <textarea matInput></textarea>
+              <mat-hint>Input a description of your claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Vendor Name </mat-label>
+              <input matInput placeholder="Uber" />
+              <mat-hint>Name of vendor</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Total: </mat-label>
+              <input matInput placeholder="230 ZAR" />
+              <mat-hint>Total amount of claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> 2022/06/11 </mat-label>
+              <input matInput placeholder="2022/06/11" />
+              <mat-hint>Date of claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Notes on claim </mat-label>
+              <textarea matInput></textarea>
+              <mat-hint>Input any additional notes about your claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+          </form>
+        </div>
         <div class="upload-button-row">
             <button mat-raised-button color="success" (click)="cancelClaim(false);">Cancel Claim</button>
             <button mat-raised-button color="success" (click)="submitClaim();">Submit Claim</button>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClaimsService } from '../../services/claims.service';
+import { TextractApiService } from '../../services/textract-api.service';
 
 @Component({
   selector: 'app-create-claim',
@@ -8,11 +10,28 @@ import { Component, OnInit } from '@angular/core';
 export class CreateClaimComponent implements OnInit {
   
   testing: boolean = false;
-
-  constructor() {
+  file: File[] = [];
+  fileName: string | undefined;
+  
+  constructor(private textractAPI: TextractApiService, claimsService: ClaimsService) {
   }
 
   ngOnInit(): void {}
+
+  
+  onSelect(event: { addedFiles: any; }) {
+    console.log(event);
+    if(this.file.length < 1){
+      this.file.push(...event.addedFiles);
+      this.fileName = event.addedFiles[0].name;
+    }  
+  }
+
+  onRemove(event: File) {
+    console.log(event);
+    this.file.splice(this.file.indexOf(event), 1);
+    this.fileName = undefined;
+  }
 
   goBack(){
 
@@ -22,8 +41,10 @@ export class CreateClaimComponent implements OnInit {
 
   }
 
-  uploadClaim(t: boolean){
-    this.testing = true;
+  async uploadClaim(){
+    const res = await this.textractAPI.upLoadClaim(this.file[0]);
+
+    console.log(res);
   }
 
   cancelClaim(t: boolean){

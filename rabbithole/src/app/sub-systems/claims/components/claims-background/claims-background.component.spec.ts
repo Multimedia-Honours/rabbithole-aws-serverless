@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UploadClaimComponent } from './upload-claim.component';
+import { ClaimsBackgroundComponent } from './claims-background.component';
 
-describe('UploadClaimComponent', () => {
-  let component: UploadClaimComponent;
-  let fixture: ComponentFixture<UploadClaimComponent>;
+describe('ClaimsBackgroundComponent', () => {
+  let component: ClaimsBackgroundComponent;
+  let fixture: ComponentFixture<ClaimsBackgroundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UploadClaimComponent ]
+      declarations: [ ClaimsBackgroundComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UploadClaimComponent);
+    fixture = TestBed.createComponent(ClaimsBackgroundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,7 +5,7 @@ import { ViewClaimsComponent } from './screens/view-claims/view-claims.component
 
 const routes: Routes = [
   { path: '', component: ViewClaimsComponent },
-  { path: 'create-claim', component: CreateClaimComponent }
+  { path: 'create-claim', component: CreateClaimComponent },
 ];
 
 @NgModule({
