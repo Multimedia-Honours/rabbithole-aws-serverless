@@ -1,6 +1,6 @@
 {
-  "resourceName": "UserTable",
-  "tableName": "User",
+  "resourceName": "user",
+  "tableName": "user",
   "partitionKey": {
     "fieldName": "email",
     "fieldType": "string"

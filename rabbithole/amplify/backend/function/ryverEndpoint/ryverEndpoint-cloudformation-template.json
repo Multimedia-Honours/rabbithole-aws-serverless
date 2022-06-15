@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "rabbitholeUser",
+            "ryverEndpoint",
             {
               "Fn::Join": [
                 "",
                 [
-                  "rabbitholeUser",
+                  "ryverEndpoint",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "rabbitholeawsserverlLambdaRoleac011310",
+            "rabbitholeawsserverlLambdaRole5c00b037",
             {
               "Fn::Join": [
                 "",
                 [
-                  "rabbitholeawsserverlLambdaRoleac011310",
+                  "rabbitholeawsserverlLambdaRole5c00b037",
                   "-",
                   {
                     "Ref": "env"

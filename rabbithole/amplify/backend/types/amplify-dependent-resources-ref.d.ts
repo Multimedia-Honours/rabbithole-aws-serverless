@@ -17,6 +17,18 @@ export type AmplifyDependentResourcesAttributes = {
             "Arn": "string",
             "Region": "string",
             "LambdaExecutionRole": "string"
+        },
+        "ryverEndpoint": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        },
+        "getUser": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
         }
     },
     "auth": {
@@ -36,10 +48,23 @@ export type AmplifyDependentResourcesAttributes = {
         "rabbitholeClaims": {
             "BucketName": "string",
             "Region": "string"
+        },
+        "user": {
+            "Name": "string",
+            "Arn": "string",
+            "StreamArn": "string",
+            "PartitionKeyName": "string",
+            "PartitionKeyType": "string",
+            "Region": "string"
         }
     },
     "api": {
         "userAPI": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
+        },
+        "rabbitholeuserAPI": {
             "RootUrl": "string",
             "ApiName": "string",
             "ApiId": "string"

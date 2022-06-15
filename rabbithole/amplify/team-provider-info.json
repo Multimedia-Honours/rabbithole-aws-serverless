@@ -28,6 +28,14 @@
         "rabbitholeUser": {
           "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
           "s3Key": "amplify-builds/rabbitholeUser-577058544b714a784165-build.zip"
+        },
+        "ryverEndpoint": {
+          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+          "s3Key": "amplify-builds/ryverEndpoint-4e713147434d756a6d69-build.zip"
+        },
+        "getUser": {
+          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
+          "s3Key": "amplify-builds/getUser-59416e7a644159474359-build.zip"
         }
       }
     }
