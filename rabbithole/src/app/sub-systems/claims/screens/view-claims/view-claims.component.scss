@@ -1,0 +1,50 @@
+$greenColour: #A7FF2D;
+$greyColour: #212121;
+$lightGreyColour: #6D6D6D;
+
+#claims-heading{
+    color: $greenColour;
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.mat-badge-content {
+    background: $lightGreyColour;
+    color: $greenColour;
+    font-weight: 10;
+    width: 35px;
+    border-radius: 5px;
+    transform: scale(0.9);
+    right: unset !important;
+    margin-left: 8px;
+    margin-right: 0px;
+    top: unset !important;
+}
+
+.tab-content {
+    padding: 20px;
+    transform: scale(0.9);
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $greyColour;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color: $greenColour;
+}
+  
+::ng-deep .mat-tab-label {
+    min-width: 110px !important;
+    padding: 2px !important;
+    justify-content: left !important;
+    margin-left: 10px;
+    color: $lightGreyColour;
+    font-weight: 10;
+}
+
+::ng-deep .mat-ink-bar {
+    background-color: $greenColour !important;
+}

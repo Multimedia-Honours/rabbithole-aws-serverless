@@ -4,6 +4,7 @@ import { Amplify } from 'aws-amplify';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
 import awsExports from '../aws-exports';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,10 @@ import awsExports from '../aws-exports';
 export class AppComponent {
   title = 'rabbithole';
 
-  constructor(public authenticator: AuthenticatorService) {
+  constructor(public authenticator: AuthenticatorService , private router: Router) {
     Amplify.configure(awsExports);
+    
   }
   
   ngOnInit () {  }
-
 }

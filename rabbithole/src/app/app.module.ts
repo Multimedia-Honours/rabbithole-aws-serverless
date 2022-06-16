@@ -14,25 +14,25 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-import { LandingpageComponent } from './components/home/landingpage/landingpage.component';
-import { ChatscreenComponent } from './components/chat/chatscreen/chatscreen.component';
-import { ChathomeComponent } from './components/chat/chathome/chathome.component';
-import { GroupsComponent } from './components/groups/groups.component';
-import { AuthComponent } from './components/home/auth/auth.component';
+import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage.component';
+import { AuthComponent } from './sub-systems/home/auth/auth.component';
 
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
+import { ChathomeModule } from './sub-systems/chat/chathome.module';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ProfileComponent } from './sub-systems/profile/profile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
-    ChatscreenComponent,
-    ChathomeComponent,
-    GroupsComponent,
     AuthComponent,
+    ProfileComponent,
   ],
   imports: [
     AppRoutingModule,
+    ChathomeModule,
     BrowserModule,
     BrowserAnimationsModule,
     AmplifyAuthenticatorModule,
@@ -44,10 +44,10 @@ import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    MatCardModule,
+    MatCardModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule {}
