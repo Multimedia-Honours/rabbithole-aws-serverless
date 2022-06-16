@@ -1,19 +1,19 @@
 {
   "function": {
-    "rabbitholeAuthPreSignup": {
+    "rabbitholeAUTHPreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "auth": {
-    "rabbitholeAuth": {
+    "rabbitholeAUTH": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "rabbitholeAuthPreSignup",
+          "resourceName": "rabbitholeAUTHPreSignup",
           "triggerProvider": "Cognito",
           "attributes": [
             "Arn",
