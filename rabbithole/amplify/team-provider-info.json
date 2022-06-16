@@ -14,12 +14,16 @@
     },
     "categories": {
       "auth": {
-        "rabbitholeAUTH": {}
+        "rabbitholeAuth": {}
       },
       "function": {
-        "rabbitholeAUTHPreSignup": {
+        "getUser": {
           "deploymentBucketName": "amplify-amplifyb5a638b820e34-staging-95512-deployment",
-          "s3Key": "amplify-builds/rabbitholeAUTHPreSignup-52486a623968477a5a73-build.zip"
+          "s3Key": "amplify-builds/getUser-596e7550576d4b506a45-build.zip"
+        },
+        "rabbitholeAuthPreSignup": {
+          "deploymentBucketName": "amplify-amplifyb5a638b820e34-staging-95512-deployment",
+          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-6f507a4f61462b2b4246-build.zip"
         }
       }
     }

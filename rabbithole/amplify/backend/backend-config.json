@@ -1,19 +1,35 @@
 {
   "function": {
-    "rabbitholeAUTHPreSignup": {
+    "getUser": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "user",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
+    },
+    "rabbitholeAuthPreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "auth": {
-    "rabbitholeAUTH": {
+    "rabbitholeAuth": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "rabbitholeAUTHPreSignup",
+          "resourceName": "rabbitholeAuthPreSignup",
           "triggerProvider": "Cognito",
           "attributes": [
             "Arn",
@@ -44,6 +60,28 @@
           "EMAIL"
         ]
       }
+    }
+  },
+  "storage": {
+    "user": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "api": {
+    "userAPI": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "getUser",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
     }
   }
 }
