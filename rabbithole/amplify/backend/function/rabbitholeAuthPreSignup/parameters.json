@@ -1,4 +1,4 @@
 {
   "modules": "email-filter-allowlist",
-  "resourceName": "rabbitholeAuthPreSignup"
+  "resourceName": "rabbitholeAUTHPreSignup"
 }

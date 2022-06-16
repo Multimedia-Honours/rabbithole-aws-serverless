@@ -1,8 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "resourceNameTruncated": "rabbit784addf9",
-    "userPoolName": "rabbitholeUserPool",
+    "resourceNameTruncated": "rabbitdc5cec5d",
+    "userPoolName": "rabbithole_user_pools",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -12,7 +12,7 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Welcome to Rabbithole",
+    "emailVerificationSubject": "Welcome to Rabbithole!",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
@@ -29,10 +29,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "rabbit784addf9_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "rabbitdc5cec5d_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "784addf9",
-    "resourceName": "rabbitholeAuth",
+    "sharedId": "dc5cec5d",
+    "resourceName": "rabbitholeAUTH",
     "authSelections": "userPoolOnly",
     "useDefault": "manual",
     "usernameAttributes": [
