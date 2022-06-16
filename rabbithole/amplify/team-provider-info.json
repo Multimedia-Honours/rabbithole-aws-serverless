@@ -1,16 +1,16 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplifybd31f0bc4a2f4-staging-203631-authRole",
-      "UnauthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplifybd31f0bc4a2f4-staging-203631-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplifybd31f0bc4a2f4-staging-203631-authRole",
+      "AuthRoleName": "amplify-amplify6919b789d1c74-staging-84936-authRole",
+      "UnauthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplify6919b789d1c74-staging-84936-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplify6919b789d1c74-staging-84936-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
-      "UnauthRoleName": "amplify-amplifybd31f0bc4a2f4-staging-203631-unauthRole",
-      "StackName": "amplify-amplifybd31f0bc4a2f4-staging-203631",
-      "StackId": "arn:aws:cloudformation:us-east-1:530803797840:stack/amplify-amplifybd31f0bc4a2f4-staging-203631/096e9670-d621-11ec-a6c3-127dfa5eb70f",
-      "AmplifyAppId": "d3ryha3440ugsf",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplifybd31f0bc4a2f4-staging-203631-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "DeploymentBucketName": "amplify-amplify6919b789d1c74-staging-84936-deployment",
+      "UnauthRoleName": "amplify-amplify6919b789d1c74-staging-84936-unauthRole",
+      "StackName": "amplify-amplify6919b789d1c74-staging-84936",
+      "StackId": "arn:aws:cloudformation:us-east-1:530803797840:stack/amplify-amplify6919b789d1c74-staging-84936/403790c0-ed51-11ec-9010-126c9819350f",
+      "AmplifyAppId": "d2qsi58ywuw732",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplify6919b789d1c74-staging-84936-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -18,16 +18,9 @@
       },
       "function": {
         "rabbitholeAuthPreSignup": {
-          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
-          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-412f53487767306a754f-build.zip"
-        },
-        "pocNodeModules": {
-          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
-          "s3Key": "amplify-builds/pocNodeModules-347856597253626e435a-build.zip"
-        },
-        "rabbitholeUser": {
-          "deploymentBucketName": "amplify-amplifybd31f0bc4a2f4-staging-203631-deployment",
-          "s3Key": "amplify-builds/rabbitholeUser-577058544b714a784165-build.zip"
+          "DOMAINALLOWLIST": "tuks.co.za, retrorabbit.co.za",
+          "deploymentBucketName": "amplify-amplify6919b789d1c74-staging-84936-deployment",
+          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-6f507a4f61462b2b4246-build.zip"
         }
       }
     }
