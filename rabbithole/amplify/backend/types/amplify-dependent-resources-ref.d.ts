@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "rabbitholeAuthPreSignup": {
+        "rabbitholeAUTHPreSignup": {
             "Name": "string",
             "Arn": "string",
             "LambdaExecutionRole": "string",
@@ -8,7 +8,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "auth": {
-        "rabbitholeAuth": {
+        "rabbitholeAUTH": {
             "HostedUIDomain": "string",
             "OAuthMetadata": "string",
             "UserPoolId": "string",
