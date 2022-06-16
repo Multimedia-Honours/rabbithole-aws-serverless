@@ -1,15 +1,28 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplify8677bc47f5c04-staging-191955-authRole",
-      "UnauthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplify8677bc47f5c04-staging-191955-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplify8677bc47f5c04-staging-191955-authRole",
+      "AuthRoleName": "amplify-amplify6919b789d1c74-staging-84936-authRole",
+      "UnauthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplify6919b789d1c74-staging-84936-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::530803797840:role/amplify-amplify6919b789d1c74-staging-84936-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-amplify8677bc47f5c04-staging-191955-deployment",
-      "UnauthRoleName": "amplify-amplify8677bc47f5c04-staging-191955-unauthRole",
-      "StackName": "amplify-amplify8677bc47f5c04-staging-191955",
-      "StackId": "arn:aws:cloudformation:us-east-1:530803797840:stack/amplify-amplify8677bc47f5c04-staging-191955/23f43880-ece0-11ec-8ddc-1243c45d5f73",
-      "AmplifyAppId": "d3jpi2bo0wxhg3"
+      "DeploymentBucketName": "amplify-amplify6919b789d1c74-staging-84936-deployment",
+      "UnauthRoleName": "amplify-amplify6919b789d1c74-staging-84936-unauthRole",
+      "StackName": "amplify-amplify6919b789d1c74-staging-84936",
+      "StackId": "arn:aws:cloudformation:us-east-1:530803797840:stack/amplify-amplify6919b789d1c74-staging-84936/403790c0-ed51-11ec-9010-126c9819350f",
+      "AmplifyAppId": "d2qsi58ywuw732",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplify6919b789d1c74-staging-84936-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "rabbitholeAuth": {}
+      },
+      "function": {
+        "rabbitholeAuthPreSignup": {
+          "DOMAINALLOWLIST": "tuks.co.za, retrorabbit.co.za",
+          "deploymentBucketName": "amplify-amplify6919b789d1c74-staging-84936-deployment",
+          "s3Key": "amplify-builds/rabbitholeAuthPreSignup-6f507a4f61462b2b4246-build.zip"
+        }
+      }
     }
   }
 }
