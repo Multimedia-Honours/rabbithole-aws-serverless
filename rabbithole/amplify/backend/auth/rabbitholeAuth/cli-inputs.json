@@ -1,8 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "resourceNameTruncated": "rabbitdc5cec5d",
-    "userPoolName": "rabbithole_user_pools",
+    "resourceNameTruncated": "rabbit7ffe0d1a",
+    "userPoolName": "rabbitholeUserPool",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -12,7 +12,7 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Welcome to Rabbithole!",
+    "emailVerificationSubject": "Welcome to Rabbithole",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
@@ -29,10 +29,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "rabbitdc5cec5d_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "rabbit7ffe0d1a_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "dc5cec5d",
-    "resourceName": "rabbitholeAUTH",
+    "sharedId": "7ffe0d1a",
+    "resourceName": "rabbitholeAuth",
     "authSelections": "userPoolOnly",
     "useDefault": "manual",
     "usernameAttributes": [
@@ -40,11 +40,7 @@
     ],
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": {
-      "PreSignup": [
-        "email-filter-allowlist"
-      ]
-    },
+    "triggers": {},
     "hostedUI": true,
     "hostedUIDomainName": "rabbithole",
     "authProvidersUserPool": [

@@ -1,26 +1,10 @@
 {
-  "function": {
-    "rabbitholeAUTHPreSignup": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
+  "function": {},
   "auth": {
-    "rabbitholeAUTH": {
+    "rabbitholeAuth": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "rabbitholeAUTHPreSignup",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ],
+      "dependsOn": [],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [
@@ -45,5 +29,7 @@
         ]
       }
     }
-  }
+  },
+  "storage": {},
+  "api": {}
 }
