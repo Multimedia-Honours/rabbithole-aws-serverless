@@ -8,9 +8,11 @@ const setEnv = () => {
     require('dotenv').config({
       path: 'src/environments/.env'
     });
- 
+
     const envConfigFile = `export const environment = {
-        TEST_KEY: '${process.env["TEST_KEY"]}',
+        ACCESS_KEY: '${process.env["ACCESS_KEY"]}',
+        SECRET_ACCESS_KEY: '${process.env["SECRET_ACCESS_KEY"]}',
+        RYVER_API_KEY: '${process.env["RYVER_API_KEY"]}',
         production: true,
     };
   `;
