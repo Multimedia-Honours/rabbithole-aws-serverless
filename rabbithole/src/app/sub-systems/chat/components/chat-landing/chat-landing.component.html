@@ -54,19 +54,19 @@
             </div>
         
             
-            <form id="MessageForm">	
+            <div id="MessageForm">	
                     
-                <input type="text" name="MessageSearchInput" id="MessageSearchInput" onfocus="recolorInput(this)" placeholder="Search for people to message"/>
-                
-                <textarea id="messageTextbox" name="messageTextbox" rows="4" cols="50" placeholder="Type a new message..."  onfocus="recolorInput(this)"></textarea>
-                <button id="send" class="send-button material-icons">send</button>
+                <input type="text" name="MessageSearchInput" #receiverName id="MessageSearchInput" #MessageSearchInput (focus)="recolorInput(this)" placeholder="Search for people to message"/>
+                <!-- <h1>{{messageTextbox}}</h1> -->
+                <textarea #messageTextbox id="messageTextbox" name="messageTextbox" rows="4" cols="50" placeholder="Type a new message..."  (focus)="recolorInput(this)" ></textarea>
+                <button id="send" class="send-button material-icons" (click)="messageClickEvent(MessageSearchInput.value, messageTextbox.value)" >send</button>
                 <!-- <button class="attach-button"><p><mat-icon>attach_file</mat-icon></p></button> -->
                 <div id="MessageOptions">
                 <button class="attach-button material-icons" id="attach">attach_file</button>
-                <button class="broadcast-button material-icons"id="broadcast">podcasts</button>
+                <!-- <button class="broadcast-button material-icons"id="broadcast">podcasts</button> -->
                 </div>
                 
-            </form>
+            </div>
         
             
         </div>

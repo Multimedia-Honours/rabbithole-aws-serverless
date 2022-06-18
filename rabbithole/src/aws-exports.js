@@ -4,8 +4,8 @@
 const awsmobile = {
     "aws_project_region": "us-east-1",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_bcKiqHwdW",
-    "aws_user_pools_web_client_id": "8202pgpeakuagtqrgq450m08m",
+    "aws_user_pools_id": "us-east-1_GBRUxqRaJ",
+    "aws_user_pools_web_client_id": "4a0s57jqn571s7fuhff10ie9ol",
     "oauth": {
         "domain": "rabbithole-staging.auth.us-east-1.amazoncognito.com",
         "scope": [
@@ -39,20 +39,6 @@ const awsmobile = {
     },
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
-    ],
-    "aws_dynamodb_all_tables_region": "us-east-1",
-    "aws_dynamodb_table_schemas": [
-        {
-            "tableName": "user-staging",
-            "region": "us-east-1"
-        }
-    ],
-    "aws_cloud_logic_custom": [
-        {
-            "name": "userAPI",
-            "endpoint": "https://vw2j7nw2hc.execute-api.us-east-1.amazonaws.com/staging",
-            "region": "us-east-1"
-        }
     ]
 };
 
