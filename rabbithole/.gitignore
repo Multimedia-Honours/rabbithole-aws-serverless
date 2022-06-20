@@ -1,5 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+#env
+src/environments/environment.ts
+src/environments/.env
+
 # Compiled output
 /dist
 /tmp
@@ -51,7 +55,7 @@ amplify/backend/.temp
 build/
 dist/
 node_modules/
-aws-exports.js
+#aws-exports.js
 awsconfiguration.json
 amplifyconfiguration.json
 amplifyconfiguration.dart
