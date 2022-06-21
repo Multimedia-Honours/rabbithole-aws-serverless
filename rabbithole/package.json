@@ -27,6 +27,7 @@
     "angular-material-sidenav": "^0.1.1",
     "aws-amplify": "^4.3.21",
     "dotenv": "^16.0.1",
+    "ngx-dropzone": "^3.1.0",
     "rxjs": "~7.5.0",
     "ts-node": "^10.8.1",
     "tslib": "^2.3.0",
