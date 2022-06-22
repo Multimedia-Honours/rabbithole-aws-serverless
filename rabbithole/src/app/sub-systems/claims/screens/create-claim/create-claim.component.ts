@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ClaimsService } from '../../services/claims.service';
 import { TextractApiService } from '../../services/textract-api.service';
+import { TextractResponse } from '../../models/textract-response';
 
 @Component({
   selector: 'app-create-claim',
@@ -13,7 +14,8 @@ export class CreateClaimComponent implements OnInit {
   testing: boolean = false;
   file: File[] = [];
   fileName: string | undefined;
-  
+  textractObj = {} as TextractResponse;
+
   constructor(
     private textractAPI: TextractApiService, 
     private claimsService: ClaimsService,
@@ -48,9 +50,9 @@ export class CreateClaimComponent implements OnInit {
 
   async uploadClaim(){
     //const res = await this.textractAPI.upLoadClaim(this.file[0]);
-    const res = await this.textractAPI.processClaim(this.fileName);
+    this.textractObj = await this.textractAPI.processClaim(this.fileName);
     
-    //console.log(res);
+    console.log("Textract Response: " + this.textractObj);
   }
 
   cancelClaim(t: boolean){
