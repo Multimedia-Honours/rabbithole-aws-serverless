@@ -47,9 +47,10 @@ export class CreateClaimComponent implements OnInit {
   }
 
   async uploadClaim(){
-    const res = await this.textractAPI.upLoadClaim(this.file[0]);
-
-    console.log(res);
+    //const res = await this.textractAPI.upLoadClaim(this.file[0]);
+    const res = await this.textractAPI.processClaim(this.fileName);
+    
+    //console.log(res);
   }
 
   cancelClaim(t: boolean){
