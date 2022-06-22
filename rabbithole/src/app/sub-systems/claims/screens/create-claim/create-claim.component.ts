@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClaimsService } from '../../services/claims.service';
 import { TextractApiService } from '../../services/textract-api.service';
 import { TextractResponse } from '../../models/textract-response';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-claim',
@@ -11,20 +12,32 @@ import { TextractResponse } from '../../models/textract-response';
 })
 export class CreateClaimComponent implements OnInit {
   
-  testing: boolean = false;
-  file: File[] = [];
-  fileName: string | undefined;
-  textractObj = {} as TextractResponse;
+  public reviewing: boolean = false;
+  public file: File[] = [];
+  public fileName: string | undefined;
+  public textractObj = {} as TextractResponse;
+  public imgUploadResponse: Promise<any> | unknown;
+  public loader: boolean = false;
+  test: any = '';
 
   constructor(
     private textractAPI: TextractApiService, 
     private claimsService: ClaimsService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
     ) {
   }
 
-  ngOnInit(): void {}
+  claimForm = this.formBuilder.group({
+    claimType: new FormControl('', Validators.required),
+    claimDesc: new FormControl('', Validators.required),
+    claimVendorName: new FormControl('', Validators.required),
+    claimTotal: new FormControl('', Validators.required),
+    claimDate: new FormControl('', Validators.required),
+    claimNotes: new FormControl('', Validators.required)
+  });
 
+  ngOnInit(): void {}
   
   onSelect(event: { addedFiles: any; }) {
     console.log(event);
@@ -49,13 +62,19 @@ export class CreateClaimComponent implements OnInit {
   }
 
   async uploadClaim(){
-    //const res = await this.textractAPI.upLoadClaim(this.file[0]);
-    this.textractObj = await this.textractAPI.processClaim(this.fileName);
+    this.loader = true;
+    this.imgUploadResponse = await this.textractAPI.upLoadClaim(this.file);
     
-    console.log("Textract Response: " + this.textractObj);
+    setTimeout(async () =>{
+      this.textractObj = await this.textractAPI.processClaim(this.fileName);
+      console.log(JSON.stringify(this.textractObj));
+      this.reviewing = true;
+      this.loader = false;
+      console.log("Loaded.");
+    }, 5000);
   }
 
   cancelClaim(t: boolean){
-    this.testing = false;
+    this.reviewing = t;
   }
 }

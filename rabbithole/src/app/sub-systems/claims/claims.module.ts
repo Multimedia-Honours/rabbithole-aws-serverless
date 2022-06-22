@@ -16,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ClaimsBackgroundComponent } from './components/claims-background/claims-background.component';
@@ -40,7 +41,8 @@ import { ClaimsBackgroundComponent } from './components/claims-background/claims
     MatRadioModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class ClaimsModule { }
