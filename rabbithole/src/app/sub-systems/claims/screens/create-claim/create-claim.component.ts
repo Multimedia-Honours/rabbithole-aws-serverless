@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ClaimsService } from '../../services/claims.service';
 import { TextractApiService } from '../../services/textract-api.service';
@@ -13,7 +14,11 @@ export class CreateClaimComponent implements OnInit {
   file: File[] = [];
   fileName: string | undefined;
   
-  constructor(private textractAPI: TextractApiService, claimsService: ClaimsService) {
+  constructor(
+    private textractAPI: TextractApiService, 
+    private claimsService: ClaimsService,
+    private router: Router
+    ) {
   }
 
   ngOnInit(): void {}
@@ -34,7 +39,7 @@ export class CreateClaimComponent implements OnInit {
   }
 
   goBack(){
-
+    this.router.navigateByUrl('/claims');
   }
 
   submitClaim(){
