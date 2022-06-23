@@ -4,6 +4,7 @@ $retroGreen: #A7FF2D;
 
 // This must be here in order to access the default CSS from Amplify's UI 
 @import '~@aws-amplify/ui-angular/theme.css';
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
