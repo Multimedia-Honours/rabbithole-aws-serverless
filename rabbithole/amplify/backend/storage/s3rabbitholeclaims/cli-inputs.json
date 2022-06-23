@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3rabbitholeclaims",
+  "bucketName": "rabbithole-claims",
+  "policyUUID": "a94f511b",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

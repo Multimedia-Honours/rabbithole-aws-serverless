@@ -1,4 +1,13 @@
-<h1 id="claims-heading"> CLAIMS </h1>
+<div>
+    <h1 id="claims-heading-left"> CLAIMS </h1>
+    <h2 id="claims-heading-right"> Create a claim </h2>
+    <button (click)="createClaimNavigation()" id="claims-heading-right" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon id="add-claim-icon">add</mat-icon>
+    </button>
+</div>
+<br/>
+<br/>
+<br/>
 <mat-tab-group dynamicHeight animationDuration="1200ms">
     <mat-tab>
         <ng-template mat-tab-label>
@@ -25,3 +34,4 @@
         </div>
     </mat-tab>
 </mat-tab-group>
+

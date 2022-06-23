@@ -1,0 +1,109 @@
+<claims-background></claims-background>
+
+
+<!-- UPLOAD CLAIM -->
+<!-- PROCESS : First uploads the image/file to S3 bucket -->
+<!-- SECOND  : Retrieves data back from Textract -->
+<ng-container *ngIf="!reviewing">
+  <ng-container *ngIf="!loader">
+    <div class="claim-box">
+      <div class="upload-content-main">
+
+          <mat-radio-group class="expenseTypeSelection" aria-label="What type of claim is it?">
+            <h1 class="upload-heading">UPLOAD CLAIM</h1>
+            
+            </mat-radio-group>
+            <br />
+            <ngx-dropzone (change)="onSelect($event)">
+              <ngx-dropzone-label>Drag & Drop invoice or reciept <br /> or <br /> Click to upload</ngx-dropzone-label>
+            
+              <ngx-dropzone-image-preview
+                ngProjectAs="ngx-dropzone-preview"
+                *ngFor="let f of file"
+                [file]="f"
+                [removable]="true"
+                (removed)="onRemove($event)"
+              >
+              </ngx-dropzone-image-preview>
+              <br />
+            
+              <ng-container *ngIf="fileName">
+                <ngx-dropzone-label>{{ fileName }} </ngx-dropzone-label>
+              </ng-container>
+            
+            </ngx-dropzone>
+        </div>
+      <div class="upload-button-row">
+          <button mat-raised-button color="success" (click)="goBack();">Go Back</button>
+          <button mat-raised-button color="success"  (click)="uploadClaim();">Reveiw Claim</button>
+      </div>
+  </div>
+  </ng-container>
+  <ng-container *ngIf="loader">
+    <div class="loading">
+      <claims-loading></claims-loading>
+    </div>
+  </ng-container>
+</ng-container>
+
+<!-- CREATE CLAIM (IN OUR DATABASE) -->
+<ng-container *ngIf="reviewing">
+    <div class="claim-box">
+        <div class="form-div">
+            <h1 id="review-claims-heading">Review Claim</h1>
+          <form class="form-form" [formGroup]="claimForm" (ngSubmit)="submitClaim()">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Type of claim</mat-label>
+              <mat-select formControlName="claimType">
+                <mat-option value="travel"> Travel </mat-option>
+                <mat-option value="entertainment"> Entertainment </mat-option>
+                <mat-option value="data&cellphone"> Data / Cellphone </mat-option>
+                <mat-option value="misc"> Miscellaneous </mat-option>
+              </mat-select>
+              <mat-hint>Select your claim category</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Claim Description </mat-label>
+              <textarea matInput formControlName="claimDesc"></textarea>
+              <mat-hint>Input a description of your claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Vendor Name: </mat-label>
+              <input matInput formControlName="claimVendorName" [(ngModel)]="textractObj.vendorName"/>
+              <mat-hint>Name of vendor</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Total: </mat-label>
+              <input matInput formControlName="claimTotal" [(ngModel)]="textractObj.total"/>
+              <mat-hint>Total amount of claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Date of Claim: </mat-label>
+              <input matInput formControlName="claimDate" [(ngModel)]="textractObj.date"/>
+              <mat-hint>Date of claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label> Notes on claim </mat-label>
+              <textarea matInput formControlName="claimNotes"></textarea>
+              <mat-hint>Input any additional notes about your claim</mat-hint>
+            </mat-form-field>
+            <br />
+            <br />
+          </form>
+        </div>
+        <div class="upload-button-row">
+            <button mat-raised-button color="success" (click)="cancelClaim(false);">Cancel Claim</button>
+            <button mat-raised-button color="success" type="submit">Submit Claim</button>
+        </div>
+    </div>
+</ng-container>

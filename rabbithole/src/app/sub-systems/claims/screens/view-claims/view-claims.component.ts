@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './view-claims.component.html',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewClaimsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  createClaimNavigation(): void{
+    this.router.navigateByUrl('/claims/create-claim');
   }
 
 }
