@@ -20,13 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ClaimsBackgroundComponent } from './components/claims-background/claims-background.component';
+import { ClaimsLoadingComponent } from './components/claims-loading/claims-loading.component';
 
 @NgModule({
   declarations: [
     ViewClaimsComponent,
     ClaimsTableComponent,
     CreateClaimComponent,
-    ClaimsBackgroundComponent
+    ClaimsBackgroundComponent,
+    ClaimsLoadingComponent
   ],
   imports: [
     CommonModule,

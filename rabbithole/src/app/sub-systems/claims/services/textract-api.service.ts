@@ -3,6 +3,7 @@ import { Storage } from "aws-amplify";
 import  { TextractClient, AnalyzeExpenseCommand  } from "@aws-sdk/client-textract";
 import { environment } from "../../../../environments/environment";
 import { TextractResponse } from "../models/textract-response";
+import * as S3 from 'aws-sdk/clients/s3';
 
 const REGION = "us-east-1";
 const CREDENTIALS = {
@@ -11,8 +12,8 @@ const CREDENTIALS = {
 };
 
 const textractClient = new TextractClient({ region: REGION, credentials: CREDENTIALS});
-
-const bucket = "rabbithole-claims95512-staging";
+const s3Client = new S3({region: REGION, credentials: CREDENTIALS});
+const bucket = "rabbithole-claims";
 
 @Injectable({
   providedIn: 'root'
@@ -26,13 +27,11 @@ export class TextractApiService {
   }
 
   async processClaim(fileName: any): Promise<any>{
-    let path = "public/matthewnharty@gmail.com/";
     const params = {
       Document: {
         S3Object: {
           Bucket: bucket,
-          Delimiter: path,
-          Name: fileName
+          Name: 'matthewnharty@gmail.com'+'-'+fileName
         },
       }
     }
@@ -61,7 +60,7 @@ export class TextractApiService {
         })
       });
       this.textractObj.claimURL = fileName;
-      console.log("Inside textract: " + JSON.stringify(this.textractObj));
+      
       return JSON.stringify(this.textractObj);
     } catch (err) {
       console.log("Error", err);
@@ -72,21 +71,21 @@ export class TextractApiService {
   // Uploading a claim to an S3 bucket for AWS Textract
   async upLoadClaim(f: File[]){
     try {
-      const s3Response = await Storage.put(f[0].name, f, {
-        progressCallback(progress) {
-          console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
-        },
-        completeCallback: (event) => {
-          console.log(`Successfully uploaded ${event.key}`);
-        },
-        contentType: f[0].type,
-        // customPrefix: {
-        //   public: "public/matthewnharty@gmail.com/"
-        // }
-      });
+      const appendedFileName = 'matthewnharty@gmail.com'+'-'+f[0].name;
+      const params = {
+        Bucket: bucket,
+        Key: appendedFileName,
+        Body: f[0],
+        ACL: 'public-read',
+        ContentType: f[0].type
+      };
   
-      return s3Response;
-
+      s3Client.upload(params, (err: any, data: any) =>{
+        if (err) {
+          console.log('There was an error uploading your file: ', err);
+        }
+        console.log('Successfully uploaded file.', data);
+      });
     } catch (error) {
       console.log("Error uploading file: ", error);
 

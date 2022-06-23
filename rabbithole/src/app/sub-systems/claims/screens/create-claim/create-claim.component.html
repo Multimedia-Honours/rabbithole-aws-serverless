@@ -40,8 +40,8 @@
   </div>
   </ng-container>
   <ng-container *ngIf="loader">
-    <div class="claim-box">
-      <p style="color:blue"> LOADING </p>
+    <div class="loading">
+      <claims-loading></claims-loading>
     </div>
   </ng-container>
 </ng-container>
@@ -72,22 +72,22 @@
             <br />
             <br />
             <mat-form-field appearance="fill" class="form-field">
-              <mat-label> Vendor Name </mat-label>
-              <input matInput formControlName="claimVendorName" value=`{{textractObj.vendorName}`/>
+              <mat-label> Vendor Name: </mat-label>
+              <input matInput formControlName="claimVendorName" [(ngModel)]="textractObj.vendorName"/>
               <mat-hint>Name of vendor</mat-hint>
             </mat-form-field>
             <br />
             <br />
             <mat-form-field appearance="fill" class="form-field">
               <mat-label> Total: </mat-label>
-              <input matInput formControlName="claimTotal" value=`{{textractObj.total}}`/>
+              <input matInput formControlName="claimTotal" [(ngModel)]="textractObj.total"/>
               <mat-hint>Total amount of claim</mat-hint>
             </mat-form-field>
             <br />
             <br />
             <mat-form-field appearance="fill" class="form-field">
-              <mat-label> Date of Claim </mat-label>
-              <input matInput formControlName="claimDate" value=`{{textractObj.date}}`/>
+              <mat-label> Date of Claim: </mat-label>
+              <input matInput formControlName="claimDate" [(ngModel)]="textractObj.date"/>
               <mat-hint>Date of claim</mat-hint>
             </mat-form-field>
             <br />

@@ -16,6 +16,7 @@ export class CreateClaimComponent implements OnInit {
   public file: File[] = [];
   public fileName: string | undefined;
   public textractObj = {} as TextractResponse;
+  public textractResponse: string = '';
   public imgUploadResponse: Promise<any> | unknown;
   public loader: boolean = false;
   test: any = '';
@@ -37,7 +38,9 @@ export class CreateClaimComponent implements OnInit {
     claimNotes: new FormControl('', Validators.required)
   });
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
   
   onSelect(event: { addedFiles: any; }) {
     console.log(event);
@@ -66,15 +69,23 @@ export class CreateClaimComponent implements OnInit {
     this.imgUploadResponse = await this.textractAPI.upLoadClaim(this.file);
     
     setTimeout(async () =>{
-      this.textractObj = await this.textractAPI.processClaim(this.fileName);
-      console.log(JSON.stringify(this.textractObj));
+      this.textractResponse = await this.textractAPI.processClaim(this.fileName);
+      
+      this.textractObj = JSON.parse(this.textractResponse);
+
       this.reviewing = true;
       this.loader = false;
       console.log("Loaded.");
-    }, 5000);
+    }, 8000);
   }
 
   cancelClaim(t: boolean){
+    this.claimForm.value.claimType = "";
+    this.claimForm.value.claimDesc = "";
+    this.claimForm.value.claimVendorName = "";
+    this.claimForm.value.claimTotal = "";
+    this.claimForm.value.claimDate = "";
+    this.claimForm.value.claimNotes = "";
     this.reviewing = t;
   }
 }
