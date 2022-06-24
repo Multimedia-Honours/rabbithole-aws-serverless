@@ -1,0 +1,30 @@
+#MessageBubble
+{
+    background-color: #636363;
+    padding: 10px;
+    width: auto;
+    border-radius: 5px;
+    margin-top:15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 3px 3px 6px #3E3D3D;
+      display: inline-block;
+      position: relative;
+    height: auto;
+
+}
+#MessageBubble p
+{
+    color: #EDEDED;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+}
+
+#MessageBubble #MessageTimestamp
+{
+    color: #EDEDED;
+    opacity: 0.8;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 8pt;
+    float: right;
+}
