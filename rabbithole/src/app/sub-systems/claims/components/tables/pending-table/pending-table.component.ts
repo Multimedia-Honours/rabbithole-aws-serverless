@@ -1,6 +1,8 @@
+import { ClaimsService } from './../../../services/claims.service';
 import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { ClaimTable } from '../../../models/claim-table';
 
 const ELEMENT_DATA: ClaimTable[] = [
@@ -17,12 +19,20 @@ export class PendingTableComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<ClaimTable>(ELEMENT_DATA);
-  
+  tableData: any[] = [];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
-  constructor() { }
+  constructor(private claimsService: ClaimsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log("hell");
+    this.claimsService.getClaims("u17005486@tuks.co.za", "pending").then(data =>{
+      
+    });
+
+    console.log(this.tableData);
+    
   }
 
   ngAfterViewInit() {
