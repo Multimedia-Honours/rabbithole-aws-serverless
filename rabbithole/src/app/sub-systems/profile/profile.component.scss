@@ -1,6 +1,11 @@
+
+$retroGrey: #212121;
+$retroGreen: #A7FF2D;
 html{
   text-align: center;
 }
+
+
 
 /*#profile-background{
   margin-top:1%;
@@ -36,6 +41,8 @@ html{
 h1{
   font-size: 2em; 
   color: #ABFF4F;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 h2{
@@ -55,16 +62,21 @@ p{
   text-align: center;
   background-color: #3E3D3D;
   padding: 10px;
-  width: 50%;
+  width: 30%;
   margin-top: 20px;
   border-radius: 5px;
   height: auto;
+  text-align: center;
 }
 
 label{
   color: #EDEDED;
   margin-right: 20px;
   font-size: 1.1em;
+  display: inline-block;
+  width:40%;
+  position:fixed;
+  left:25%;
 }
 
 #aupload{
@@ -158,10 +170,12 @@ label{
 position: absolute;
 right:0.5em;
 top: 0.5em;
+
 }
 
 svg{
   fill: #A7FF2D;
+  padding-bottom: 0.5em;
 }
 
 input[type=checkbox]{
@@ -211,18 +225,58 @@ input[type=checkbox]{
     }
 
     button{
-      background-color: #abff4f;
-      color: #99a1a7;
-      border-radius: 1em;
-      font-family: "Avenir-roman";
-      font-family: "Avenir";
-      font-size: 1.2em;
-      margin-top:10px;
+      background: $retroGreen;
+      height: 4vh;
+      color: $retroGrey;
+      font-family: 'Open Sans', sans-serif;
+      justify-content: center;
+      margin-bottom: 10px;
       border: none;
+      font-size: 12pt;
     }
+
+    #update{
+      width: 62%;
+    }
+
 
     button:hover{
       box-shadow: 0px 2px 5px rgba(167, 255, 45, 0.3);
       color:#3E3D3D;
     }
     
+    .line{
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+    }
+
+    #signout{
+      border-radius: 0.5em;
+    }
+
+    input[type="text"]{
+      color: #3E3D3D;
+      text-align: center;
+      padding: 0.25em;
+      vertical-align: middle;
+      font-family: 'Open Sans', sans-serif;
+      border: none;
+      border-radius: 0.3em;
+
+    }
+
+    #top-header{
+      width: 30%;
+      
+    }
+
+    input[type="text"]{
+      width: 40%;
+      position: relative;
+      right: -10%;
+    }
+
+    input[type="checkbox"]{
+      position: relative;
+      right: -10%;
+    }

@@ -1,4 +1,4 @@
-<div id="top-header"><h1>{{email}}</h1><button class="nav-button-bottom" id="signout" (click)="authenticator.signOut()" style="color:blue">SIGN OUT</button>
+<div id="top-header"><h1>{{email}}</h1><button class="nav-button-bottom" id="signout" (click)="authenticator.signOut()">Sign Out</button>
 </div>
 <div id="main">
     <div class="heading">
@@ -11,12 +11,12 @@
         <div *ngIf="successmsg&&!errormsg" class="alert alert-success alert-dismissable fade show" role="alert">
             <strong>{{successmsg}}</strong>
         </div>-->
-        <div>
+        <div class="line">
             <label>Email:</label>
             <input type="text" class="form-control" formControlName="email" >
         </div>
 
-        <div>
+        <div class="line">
             <label><svg
                 id="email"
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@
             <input type="checkbox" class="form-control regular-checkbox" formControlName="useEmail" >
         </div>
 
-        <div>
+        <div class="line">
             <label><svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 640 512"
@@ -45,21 +45,21 @@
             <input type="checkbox" class="form-control regular-checkbox" formControlName="useDiscord" [(ngModel)]="disc" >
         </div>
 
-        <div>
+        <div *ngIf="disc" class="line">
             <label>Discord ID:</label>
-            <input type="text" class="form-control" formControlName="discordID" *ngIf="disc" >
+            <input type="text" class="form-control" formControlName="discordID"  >
         </div>
 
-        <div>
+        <div class="line">
             <label>Use Ryver:</label>
             <input type="checkbox" class="form-control regular-checkbox" formControlName="useRyver" [(ngModel)]="ryver">
         </div>
-        <div>
+        <div *ngIf="ryver" class="line">
             <label>Ryver ID:</label>
-            <input type="text" class="form-control" formControlName="ryverID" *ngIf="ryver">
+            <input type="text" class="form-control" formControlName="ryverID" >
         </div>
-        <div>
-            <button type="submit" (click)="userUpdate()">Update</button>
+        <div class="line">
+            <button type="submit" (click)="userUpdate()" id="update">Update</button>
         </div>
     </form>
         
