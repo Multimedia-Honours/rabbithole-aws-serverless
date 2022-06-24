@@ -1,5 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-
+$greyColour: #212121;
+$greenColour: #a7ff2d;
+$lightGreyColour: #3e3d3d;
+$lightestGreyColour: #ededed;
 h3 {
     margin: 0 0 10px;
 }
@@ -7,4 +10,63 @@ h3 {
 pre {
     background-color: #52ff0e;
     padding: 15px;
+}
+
+.btn{
+    color: $greenColour !important;
+    background-color: $greyColour ;
+    border-color: $greenColour !important ;
+}
+
+.btn.active{
+    background-color: $greenColour !important ;
+    color: $greyColour !important;
+
+}
+.btn:hover{
+    background-color: $lightGreyColour;
+}
+
+.btn-outline-secondary{
+    background-color: $greenColour !important ;
+    color: $greyColour !important;
+
+}
+
+#current-month-heading{
+    color: $greenColour;
+}
+
+th{
+    color: $greenColour;
+}
+
+thead{
+    border-bottom: 2px solid $greenColour !important;
+
+}
+table{
+    border: $greenColour !important;
+}
+
+#all-event-content{
+    width: 90%;
+    height: 90%
+}
+
+input{
+    background-color: #3e3d3d !important;
+    color: $lightestGreyColour !important;
+}
+
+button.btn.btn-danger{
+    color: red !important;
+    background-color: $greyColour !important;
+    border-color: red !important;
+}
+
+button.btn.btn-danger:hover{
+    color: $greyColour !important;
+    background-color: red !important;
+    border-color: red !important;
 }

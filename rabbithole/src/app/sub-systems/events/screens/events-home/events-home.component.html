@@ -1,3 +1,4 @@
+<div id="all-event-content">
 <div class="row text-center">
     <div class="col-md-4">
       <div class="btn-group">
@@ -29,7 +30,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+      <h3 id="current-month-heading">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
     </div>
     <div class="col-md-4">
       <div class="btn-group">
@@ -93,7 +94,7 @@
   
   <br /><br /><br />
   
-  <h3>
+  <h3 id="current-month-heading">
     Edit events
     <button class="btn btn-primary float-right" (click)="addEvent()">
       Add new
@@ -140,12 +141,10 @@
             <input
               class="form-control"
               type="text"
-              mwlFlatpickr
+              
               [(ngModel)]="event.start"
               (ngModelChange)="refresh.next()"
-              [altInput]="true"
-              [convertModelValue]="true"
-              [enableTime]="true"
+   
               dateFormat="Y-m-dTH:i"
               altFormat="F j, Y H:i"
               placeholder="Not set"
@@ -155,12 +154,10 @@
             <input
               class="form-control"
               type="text"
-              mwlFlatpickr
+              
               [(ngModel)]="event.end"
               (ngModelChange)="refresh.next()"
-              [altInput]="true"
-              [convertModelValue]="true"
-              [enableTime]="true"
+          
               dateFormat="Y-m-dTH:i"
               altFormat="F j, Y H:i"
               placeholder="Not set"
@@ -175,4 +172,4 @@
       </tbody>
     </table>
   </div>
-  
+</div>

@@ -37,6 +37,7 @@
     "rxjs": "~7.5.0",
     "ts-node": "^10.8.1",
     "tslib": "^2.3.0",
+    "util": "^0.12.4",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
