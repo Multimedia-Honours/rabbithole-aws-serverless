@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ClaimResponse } from "../models/claim-responses";
+import { ClaimRequest } from "../models/claim-requests";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { ClaimResponse } from "../models/claim-responses";
 export class ClaimsService {
 
   private claimsEndpoint: any;
+  private putRequestBody!: ClaimRequest;
 
   constructor(private http: HttpClient) { 
     this.claimsEndpoint = environment["CLAIM_SERVER_URL"];
@@ -25,21 +27,19 @@ export class ClaimsService {
     return this.http.post(path, body);
   }
 
-  async createClaim(): Promise<Observable<any>>{
+  createClaim(body: ClaimRequest): Observable<any>{
     const path = this.claimsEndpoint;
-    const unqId = Math.floor(Date.now() + Math.random()*100)
-    const body = {
-      "email": "u17005486@tuks.co.za",
-      "claimID": unqId,
-      "claimDate": "2022/06/24",
-      "claimDescription": "Hello there from Angular",
-      "claimNotes": "This is a note, lol",
-      "claimTotal": "ZAR 200",
-      "claimType": "Travel",
-      "claimVendorName": "Uber Eats",
-      "claimStatus": "pending"
-    }
-    
-    return this.http.put(path, body);
+    this.putRequestBody = {
+      "email": body.email,
+      "claimID": body.claimID,
+      "claimDate": body.claimDate,
+      "claimDescription": body.claimDescription,
+      "claimNotes": body.claimNotes,
+      "claimTotal": body.claimTotal,
+      "claimType": body.claimType,
+      "claimVendorName": body.claimVendorName,
+      "claimStatus": body.claimStatus
+    };
+    return this.http.put(path, this.putRequestBody);
   }
 }

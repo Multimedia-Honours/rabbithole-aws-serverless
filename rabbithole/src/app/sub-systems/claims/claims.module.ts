@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ClaimsBackgroundComponent } from './components/claims-background/claims-background.component';
 import { ClaimsLoadingComponent } from './components/claims-loading/claims-loading.component';
+import { SuccessErrorPopupComponent } from './components/success-error-popup/success-error-popup.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ClaimsLoadingComponent } from './components/claims-loading/claims-loadi
     ClaimsTableComponent,
     CreateClaimComponent,
     ClaimsBackgroundComponent,
-    ClaimsLoadingComponent
+    ClaimsLoadingComponent,
+    SuccessErrorPopupComponent
   ],
   imports: [
     CommonModule,

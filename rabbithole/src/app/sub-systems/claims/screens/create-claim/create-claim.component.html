@@ -35,6 +35,10 @@
         </div>
       <div class="upload-button-row">
           <button mat-raised-button color="success" (click)="goBack();">Go Back</button>
+            &nbsp;&nbsp; 
+            &nbsp;&nbsp; 
+            &nbsp;&nbsp; 
+            &nbsp;&nbsp;
           <button mat-raised-button color="success"  (click)="uploadClaim();">Reveiw Claim</button>
       </div>
   </div>
@@ -54,11 +58,11 @@
           <form class="form-form" [formGroup]="claimForm" (ngSubmit)="submitClaim()">
             <mat-form-field appearance="fill" class="form-field">
               <mat-label>Type of claim</mat-label>
-              <mat-select formControlName="claimType">
-                <mat-option value="travel"> Travel </mat-option>
-                <mat-option value="entertainment"> Entertainment </mat-option>
-                <mat-option value="data&cellphone"> Data / Cellphone </mat-option>
-                <mat-option value="misc"> Miscellaneous </mat-option>
+              <mat-select class="type-select" formControlName="claimType">
+                <mat-option class="type-option" value="travel"> Travel </mat-option>
+                <mat-option class="type-option" value="entertainment"> Entertainment </mat-option>
+                <mat-option class="type-option" value="cellphone"> Data / Cellphone </mat-option>
+                <mat-option class="type-option" value="miscellaneous"> Miscellaneous </mat-option>
               </mat-select>
               <mat-hint>Select your claim category</mat-hint>
             </mat-form-field>
@@ -99,11 +103,17 @@
             </mat-form-field>
             <br />
             <br />
+            <div class="upload-button-row">
+              <button mat-raised-button color="success" (click)="cancelClaim(false);">Cancel Claim</button>
+                &nbsp;&nbsp; 
+                &nbsp;&nbsp; 
+                &nbsp;&nbsp; 
+                &nbsp;&nbsp;
+              <button mat-raised-button color="success" type="submit">
+                Submit Claim
+              </button>
+            </div>
           </form>
-        </div>
-        <div class="upload-button-row">
-            <button mat-raised-button color="success" (click)="cancelClaim(false);">Cancel Claim</button>
-            <button mat-raised-button color="success" type="submit">Submit Claim</button>
         </div>
     </div>
 </ng-container>
