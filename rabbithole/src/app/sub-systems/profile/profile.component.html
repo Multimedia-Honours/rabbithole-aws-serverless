@@ -1,22 +1,39 @@
-
-    <div id="top-header"><h1>Profile Name</h1>
-            <div id="avatar"></div>
-            <h2>Bio:</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique neque odio, vel suscipit velit pellentesque sit amet. Suspendisse vel nulla at tellus rutrum consectetur quis at velit. Donec a velit quis orci porta ullamcorper. Integer quis ullamcorper erat. Duis id semper sem, vel dapibus lorem. Sed non lacinia odio. Vivamus vitae velit sit amet felis condimentum malesuada eu non diam. Duis sed lacinia eros.</p>
+<div id="top-header"><h1>{{email}}</h1><button class="nav-button-bottom" id="signout" (click)="authenticator.signOut()" style="color:blue">SIGN OUT</button>
+</div>
+<div id="main">
+    <div class="heading">
+    <h2>Settings</h2>
     </div>
-    <div id="main">
-        <div class="heading">
-        <h2>Settings</h2>
+    <form [formGroup]="userForm" >
+       <!-- <div *ngIf="errormsg" class="alert alert-warning alert-dismissable fade show" role="alert">
+            <strong>{{errormsg}}</strong>
         </div>
-            <label>Upload New Avatar:</label> <input type="file" name="avatar" id="aupload"/>
-            <button id="auploadbtn">Change Avatar</button>
-            <br />
-            <label>About me:</label>
-            <textarea class="bio" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique neque odio, vel suscipit velit pellentesque sit amet. Suspendisse vel nulla at tellus rutrum consectetur quis at velit. Donec a velit quis orci porta ullamcorper. Integer quis ullamcorper erat. Duis id semper sem, vel dapibus lorem. Sed non lacinia odio. Vivamus vitae velit sit amet felis condimentum malesuada eu non diam. Duis sed lacinia eros."></textarea>
-            <button class="nav-button-bottom" (click)="authenticator.signOut()" style="color:blue">SIGN OUT</button>
-    </div>
+        <div *ngIf="successmsg&&!errormsg" class="alert alert-success alert-dismissable fade show" role="alert">
+            <strong>{{successmsg}}</strong>
+        </div>-->
+        <div>
+            <input type="text" class="form-control" formControlName="email" >
+        </div>
 
-    
-    <div id="homescreenImage1"><img src="../../../../assets/images/bolder.svg"></div>
-    <div id="homescreenImage2"><img src="../../../../assets/images/tree-bolder.svg"></div> 
-    <div id="homescreenImage3"><img src="../../../../assets/images/retrorabbit_pillar.svg"></div>
+        <div>
+            <input type="checkbox" class="form-control" formControlName="useDiscord" >
+        </div>
+
+        <div>
+            <input type="text" class="form-control" formControlName="discordID" >
+        </div>
+
+        <div>
+            <input type="checkbox" class="form-control" formControlName="useRyver">
+        </div>
+        <div>
+            <input type="text" class="form-control" formControlName="ryverID" >
+        </div>
+    </form>
+        
+</div>
+
+
+<div id="homescreenImage1"><img src="../../../../assets/images/bolder.svg"></div>
+<div id="homescreenImage2"><img src="../../../../assets/images/tree-bolder.svg"></div> 
+<div id="homescreenImage3"><img src="../../../../assets/images/retrorabbit_pillar.svg"></div>
