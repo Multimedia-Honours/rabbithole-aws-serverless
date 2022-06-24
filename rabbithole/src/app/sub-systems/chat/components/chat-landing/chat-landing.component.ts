@@ -53,8 +53,9 @@ export class ChatLandingComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(PreferencesPopupComponent, {
+    this.dialog.open(PreferencesPopupComponent,  {
       panelClass: 'custom-modalbox',
+      disableClose: true 
     });
     console.log('test');
   }

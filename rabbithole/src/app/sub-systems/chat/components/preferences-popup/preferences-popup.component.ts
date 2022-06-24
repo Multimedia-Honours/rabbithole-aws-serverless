@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserApiService } from '../../services/user-api.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Auth } from 'aws-amplify';
@@ -29,18 +29,18 @@ export class PreferencesPopupComponent implements OnInit {
   ngOnInit(): void {}
 
   prefForm = new FormGroup({
-    emailPreference: new FormControl(false),
-    discordPreference: new FormControl(false),
-    discordID: new FormControl(''),
-    ryverPreference: new FormControl(false),
-    ryverForumID: new FormControl(''),
+    emailPreference: new FormControl(false, Validators.required),
+    discordPreference: new FormControl(false, Validators.required),
+    discordID: new FormControl('', Validators.required),
+    ryverPreference: new FormControl(false, Validators.required),
+    ryverForumID: new FormControl('', Validators.required),
   });
 
   submitPreferences() {
     console.log('subitting preferences');
     console.log(this.prefForm.value);
     this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
-      console.log(res);
+    console.log(res);
     });
     this.dialog.closeAll();
   }
