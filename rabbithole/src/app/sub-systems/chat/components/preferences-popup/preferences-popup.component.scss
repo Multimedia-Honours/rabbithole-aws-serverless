@@ -1,3 +1,6 @@
+$retroGrey: #212121;
+$retroGreen: #A7FF2D;
+
 .id{
     display: block;
 }
@@ -7,10 +10,14 @@ color: #abff4f;
 }
 
 label{
-position: relative;
-color: #ededed;
-margin-bottom: 2em;
-padding: 10px;
+
+  color: #ededed;
+  margin-bottom: 2em;
+  padding: 10px;
+  display: inline-block;
+  width:40%;
+  position:fixed;
+  left:27%;
 }
 
 input[type=text]{
@@ -28,6 +35,7 @@ input[type=text]{
 
 svg{
 fill: #abff4f;
+padding-bottom: 0.5em;
 }
 
 
@@ -49,6 +57,8 @@ margin-left: 9px;
 
 input[type=checkbox]{
 appearance: none;
+position: fixed;
+right:47%;
 }
 
 .regular-checkbox {
@@ -83,18 +93,42 @@ left: 3px;
 color: #3e3d3d;
 }
 
-input[type=submit]{
-background-color: #abff4f;
-color: #3e3d3d;
-border-radius: 1em;
-font-family: "Avenir-roman";
-font-family: "Avenir";
-src: local("Avenir"), url(../../../../../assets/fonts/Avenir/AvenirLTStd-Book.otf) format("opentype");
-font-size: 1.2em;
-margin-top:10px;
-}
+  input[type=submit]{
+    background: $retroGreen;
+    height: 4vh;
+    color: $retroGrey;
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 12pt;
+    width: 50%;
+    position: relative;
+  }
 
 
 #dialog{
 text-align: center;
 }
+
+.line{
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+}
+
+
+input[type="checkbox"]{
+  position: relative;
+  right: -20%;
+}
+
+input[type="text"]{
+  width: 40%;
+  position: relative;
+  right: -20%;
+}
+
+.icon > input[type=checkbox]{
+  margin-top:1.3em;
+}
+
