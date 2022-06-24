@@ -12,6 +12,7 @@ const setEnv = () => {
     const envConfigFile = `export const environment = {
       ACCESS_KEY: '${process.env["ACCESS_KEY"]}',
       SECRET_ACCESS_KEY: '${process.env["SECRET_ACCESS_KEY"]}',
+      CLAIM_SERVER_URL: '${process.env["CLAIM_SERVER_URL"]}',
       production: true,
     };
   `;

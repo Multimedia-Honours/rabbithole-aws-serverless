@@ -1,3 +1,4 @@
+import { ClaimsService } from './../../services/claims.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,9 +8,19 @@ import { Router } from '@angular/router';
 })
 export class ViewClaimsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private claimsService: ClaimsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    // await this.claimsService.getClaims('u17005486@tuks.co.za').then(response => {
+    //   response.forEach(data =>{
+    //     //console.log("Data: " + JSON.stringify(data));
+    //   });
+    // });
+
+  //  (await this.claimsService.createClaim()).subscribe(response =>{
+  //     console.log(JSON.stringify(response));
+  //  });
+   
   }
 
   createClaimNavigation(): void{
