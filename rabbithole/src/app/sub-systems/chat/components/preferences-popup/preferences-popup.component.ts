@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { UserApiService } from 'services/user-api.service';
-=======
-import { UserApiService } from '../../../profile/services/user-api.service';
->>>>>>> parent of 435558a (api-services added to profile)
+import { UserApiService } from '../../services/user-api.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -18,7 +14,7 @@ export class PreferencesPopupComponent implements OnInit {
   public e: any;
   disc = false;
   ryver = false;
-  path: string = "icons/ryver-icon.png";
+  path: string = 'icons/ryver-icon.png';
 
   constructor(
     private service: UserApiService,

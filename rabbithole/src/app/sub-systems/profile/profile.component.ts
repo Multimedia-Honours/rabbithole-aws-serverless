@@ -13,20 +13,25 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ProfileComponent implements OnInit {
 
   constructor(private service:UserApiService, public authenticator: AuthenticatorService) { }
-
+  public successmsg: any;
+  public errormsg: any;
   public email: any;
+  disc = false;
+  ryver = false;
 
   ngOnInit(): void {
+    
     const userAuthObj = Auth.currentUserInfo().then((res) => {
       this.email = res.attributes.email;
       this.service.getUser(this.email).subscribe((res) => {
         console.log(res.Item);
         this.userForm.patchValue({
           email:res.Item.email,
+          useEmail:res.Item.emailPreference,
           useDiscord:res.Item.discordPreference,
           discordID:res.Item.discordID,
           useRyver:res.Item.ryverPreference,
-          ryverForumID:res.Item.ryverForumID,
+          ryverID:res.Item.ryverForumID,
         })
         
       });
@@ -44,5 +49,19 @@ export class ProfileComponent implements OnInit {
     'useRyver':new FormControl(false,Validators.required),
     'ryverID':new FormControl('',Validators.required),
 });
+
+
+userUpdate(){
+  console.log(this.userForm.value);
+  if(this.userForm.valid)
+  {
+    this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
+      console.log(res, 'resupdated');
+      this.successmsg = res.message;
+    })
+  }else{
+    this.errormsg = 'All fields are required';
+  }
+}
 
 }

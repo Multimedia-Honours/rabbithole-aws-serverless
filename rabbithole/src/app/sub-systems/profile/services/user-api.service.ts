@@ -23,13 +23,33 @@ export class UserApiService {
     return this.http.get(`${this.API_ENDPOINT}/${email}`, httpOptions);
   }
 
-  updateUser(data:any, id:any):Observable<any>
+  updateUser(body:any, id:any):Observable<any>
   {
-    return this.http.put(`${this.API_ENDPOINT}/${id}`, data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Methods': 'PUT'
+      })
+    };
+    let data = {
+        'email': body.email,
+        "discordPreference": body.useDiscord,
+        "ryverForumID": body.ryverID,
+        "discordID": body.discordID,
+        "ryverPreference":  body.useRyver,
+        "emailPreference": body.useEmail,
+        "isAdmin": false
+    }
+    return this.http.put(`${this.API_ENDPOINT}`, data, httpOptions);
   }
 
   insertUser(body:any, email:any):Observable<any>
   {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Methods': 'PUT'
+      })
+    };
+
     let data = {
         "discordPreference": body.discordPreference,
         "ryverForumID": body.ryverForumID,
