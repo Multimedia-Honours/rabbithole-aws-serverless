@@ -18,6 +18,18 @@ $lightGreyColour: #6D6D6D;
     transform: scale(0.7);
 }
 
+#create-claims-heading-right{
+    float: right;
+    margin-top: 1%;
+    color: $greenColour;
+}
+#create-claims-heading-right:hover{
+    float: right;
+    margin-top: 1%;
+    color: $greenColour;
+    cursor: pointer;
+}
+
 #add-claim-icon{
     color: $greyColour;
 }
@@ -69,3 +81,4 @@ $lightGreyColour: #6D6D6D;
     padding: 3px!important;
     margin: 3px!important;
    }
+

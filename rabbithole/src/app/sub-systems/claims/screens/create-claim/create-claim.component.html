@@ -17,7 +17,7 @@
             <ngx-dropzone (change)="onSelect($event)">
               <ngx-dropzone-label>Drag & Drop invoice or reciept <br /> or <br /> Click to upload</ngx-dropzone-label>
             
-              <ngx-dropzone-image-preview
+              <ngx-dropzone-image-preview id="ngx-image"
                 ngProjectAs="ngx-dropzone-preview"
                 *ngFor="let f of file"
                 [file]="f"
@@ -28,7 +28,7 @@
               <br />
             
               <ng-container *ngIf="fileName">
-                <ngx-dropzone-label>{{ fileName }} </ngx-dropzone-label>
+                <ngx-dropzone-label id="ngx-filename">{{ fileName }} </ngx-dropzone-label>
               </ng-container>
             
             </ngx-dropzone>

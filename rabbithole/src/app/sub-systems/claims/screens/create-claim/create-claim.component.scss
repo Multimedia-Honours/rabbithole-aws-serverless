@@ -162,6 +162,20 @@ ngx-dropzone{
     border-color: $greenColour !important;
 }
 
+
+
+ngx-dropzone-image-preview{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+#ngx-filename{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    color:red !important;
+}
+
+
 #backgroundRocks{
     z-index: -1000;
     #spaceRock001{
