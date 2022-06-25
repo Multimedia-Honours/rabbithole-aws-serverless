@@ -79,9 +79,9 @@ export class CreateClaimComponent implements OnInit {
       "claimDescription": this.claimForm.value.claimDesc,
       "claimNotes": this.claimForm.value.claimNotes,
       "claimTotal": this.claimForm.value.claimTotal,
-      "claimType": this.claimForm.value.claimDate,
+      "claimType": this.claimForm.value.claimType,
       "claimVendorName": this.claimForm.value.claimVendorName,
-      "claimStatus": 'accepted'
+      "claimStatus": 'pending'
     };
     try{
       this.claimsService.createClaim(this.requestBody).subscribe(res => {
