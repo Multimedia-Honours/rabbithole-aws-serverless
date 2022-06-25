@@ -1,0 +1,15 @@
+$greyColour: #212121;
+$greenColour: #a7ff2d;
+$lightGreyColour: #3e3d3d;
+$lightestGreyColour: #ededed;
+
+button {
+    //margin-right: 8px;
+  }
+
+::ng-deep.mat-dialog-container{
+  background-color: $lightGreyColour !important;
+  color: $greenColour !important;
+  text-align: center;
+}
+

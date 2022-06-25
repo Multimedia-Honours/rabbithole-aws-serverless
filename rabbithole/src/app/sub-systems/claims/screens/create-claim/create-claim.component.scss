@@ -1,0 +1,352 @@
+$greenColour: #A7FF2D;
+$greyColour: #636363;
+$darkColour: #212121;
+
+.claim-box{
+    padding: 10px;
+    align-content: center;
+    margin-top: 5vh;
+}
+
+.upload-button-row {
+    display: table-cell;
+    width: 490px;
+}
+  
+.upload-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.upload-content-main{
+    display: block;
+    text-align: center;
+}
+
+.upload-heading{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+}
+
+// .claim-type-content{
+//     display: block;
+
+//     .claim-type-heading{
+//         display: inline-block;
+//     }
+
+//     .claim-type-radio-buttons{
+//         display: inline-block;
+//     }
+// }
+
+.expenseTypeSelection{
+    margin: auto;
+    color: $greenColour;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+#review-claims-heading{
+    color: $greenColour;
+    font-size: 30px;
+}
+
+.form-div
+{
+    display: block;
+    text-align: center;
+}
+.form-form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-field{
+    width: 100%;
+}
+
+mat-hint{
+    color: $greyColour
+}
+
+// Standard for forms
+
+::ng-deep .mat-select-value{
+    padding: 10px;
+    color: $greenColour !important;
+    font-size: large;
+}
+
+::ng-deep .mat-form-field {
+    padding: 2px;
+    font-size: large;
+
+    .mat-input-element {
+        color: $greenColour;
+    }
+    .mat-form-field-label {
+        color: $greenColour;
+    }
+    .mat-form-field-underline {
+        background-color: $greyColour;
+    }
+    .mat-form-field-ripple {  
+        background-color: $greenColour;
+    }
+    .mat-form-field-required-marker {
+        color: $greenColour;
+    }
+
+}
+
+// Focused: (when selected)
+::ng-deep .mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: $greenColour;
+    }
+    .mat-form-field-ripple {
+        background-color: $greenColour;
+    }
+    .mat-form-field-required-marker {
+        color: $greenColour;
+    }
+    .mat-input-element {
+        color: $greenColour;
+    }
+}
+
+
+// invalid entry 
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+    color: #ff3333;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: #ff3333!important;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+    color: #ff3333;
+}
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+    background-color: #ff3333;
+}
+
+ngx-dropzone-label{
+    padding: 10px;
+}
+
+ngx-dropzone{
+    width: 50%;
+    height: 60vh;
+    margin: auto;
+    background-color: $greyColour;
+    color: $greenColour;
+    border: $greenColour 1px dashed;
+    justify-content: center;
+}
+
+::ng-deep ngx-dropzone-preview {
+    max-width: 100% !important; 
+    max-height: 100% !important;
+    background-color: $greenColour !important;
+    color: $darkColour;
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+	border-color: $greenColour !important;
+}
+
+::ng-deep.mat-radio-outer-circle {
+	border-color: $greenColour !important;
+}
+
+::ng-deep .mat-radio-inner-circle{
+    border-color: $greenColour !important;
+}
+
+ngx-image{
+    scale: 2 !important;
+}
+
+::ng-deep.ngx-dropzone-image-preview{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    scale: 2 !important;
+    width: 20wh !important; 
+    
+    
+}
+
+::ng-deep img{
+    max-height: 300% !important;
+    max-width: 100% !important;
+    
+}
+
+::ng-deep ngx-dropzone-remove-badge{
+    top: -100px !important;
+    opacity: 100% !important;
+}
+
+#ngx-filename{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    color:$greenColour !important;
+}
+
+
+
+
+#backgroundRocks{
+    z-index: -1000;
+    #spaceRock001{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 8%;
+        top: 55%;
+        -webkit-animation: mover 1.7s infinite  alternate;
+        animation: mover 1.8s infinite  alternate;
+    }
+    #spaceRock002{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 14%;
+        top: 70%;
+        -webkit-animation: mover 2.2s infinite  alternate;
+        animation: mover 1.4s infinite  alternate;
+    }
+    #spaceRock003{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 80%;
+        top: 60%;
+        -webkit-animation: mover 1.2s infinite  alternate;
+        animation: mover 1.7s infinite  alternate;
+    }
+    #spaceRock004{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 68%;
+        top: 81%;
+        -webkit-animation: mover 1.8s infinite  alternate;
+        animation: mover 1.4s infinite  alternate;
+    }
+    #spaceRock005{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 20%;
+        top: 78%;
+        -webkit-animation: mover 1.8s infinite  alternate;
+        animation: mover 1.3s infinite  alternate;
+    }
+    #spaceRock006{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 5%;
+        top: 10%;
+        -webkit-animation: mover 1.8s infinite  alternate;
+        animation: mover 1.2s infinite  alternate;
+    }
+    #spaceRock007{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 91%;
+        top: 63%;
+        -webkit-animation: mover 1.7s infinite  alternate;
+        animation: mover 1.3s infinite  alternate;
+    }
+    #spaceRock008{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 76%;
+        top: 4%;
+        -webkit-animation: mover 1.3s infinite  alternate;
+        animation: mover 1.4s infinite  alternate;
+    }
+    #spaceRock009{
+        position: absolute;
+        z-index: 0;
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        left: 84%;
+        top: 32%;
+        -webkit-animation: mover 0.9s infinite  alternate;
+        animation: mover 2s infinite  alternate;
+    }
+    /*
+        KEY FRAME MOVEMENTS 
+    */
+    @-webkit-keyframes mover {
+        0% { 
+            transform: translateY(0); 
+        }
+        100% { 
+            transform: translateY(-20px); 
+        }
+    }
+    @keyframes mover {
+        0% { 
+            transform: translateY(0); 
+        }
+        100% { 
+            transform: translateY(-20px); 
+        }
+    }
+}
+
+.mat-success {
+    background-color: $greenColour;
+    color: $greyColour;
+}
+
+.upload-button-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

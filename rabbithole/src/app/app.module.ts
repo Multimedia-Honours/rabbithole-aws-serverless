@@ -50,7 +50,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatButtonToggleModule,
     HttpClientModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
