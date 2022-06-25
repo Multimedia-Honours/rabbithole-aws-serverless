@@ -1,6 +1,7 @@
 <div id="all-event-content">
 <div class="row text-center">
     <div class="col-md-4">
+      <br>
       <div class="btn-group">
         <div
           class="btn btn-primary"
@@ -29,33 +30,13 @@
         </div>
       </div>
     </div>
+    <br>
+    <br>
+    <br />
     <div class="col-md-4">
       <h3 id="current-month-heading">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
     </div>
     <div class="col-md-4">
-      <div class="btn-group">
-        <div
-          class="btn btn-primary"
-          (click)="setView(CalendarView.Month)"
-          [class.active]="view === CalendarView.Month"
-        >
-          Month
-        </div>
-        <div
-          class="btn btn-primary"
-          (click)="setView(CalendarView.Week)"
-          [class.active]="view === CalendarView.Week"
-        >
-          Week
-        </div>
-        <div
-          class="btn btn-primary"
-          (click)="setView(CalendarView.Day)"
-          [class.active]="view === CalendarView.Day"
-        >
-          Day
-        </div>
-      </div>
     </div>
   </div>
   <br />
@@ -67,7 +48,6 @@
       [refresh]="refresh"
       [activeDayIsOpen]="activeDayIsOpen"
       (dayClicked)="dayClicked($event.day)"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
       (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-month-view>
@@ -76,7 +56,6 @@
       [viewDate]="viewDate"
       [events]="events"
       [refresh]="refresh"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
       (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-week-view>
@@ -85,7 +64,6 @@
       [viewDate]="viewDate"
       [events]="events"
       [refresh]="refresh"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
       (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-day-view>
@@ -95,9 +73,9 @@
   <br /><br /><br />
   
   <h3 id="current-month-heading">
-    Edit events
+    EVENTS &nbsp;&nbsp;
     <button class="btn btn-primary float-right" (click)="addEvent()">
-      Add new
+      Add new event
     </button>
     <div class="clearfix"></div>
   </h3>
@@ -106,12 +84,12 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Title</th>
+          <th>Event Title</th>
           <th>Primary color</th>
           <th>Secondary color</th>
           <th>Starts at</th>
           <th>Ends at</th>
-          <th>Remove</th>
+          <th>Remove Event</th>
         </tr>
       </thead>
   
@@ -165,7 +143,7 @@
           </td>
           <td>
             <button class="btn btn-danger" (click)="deleteEvent(event)">
-              Delete
+              Delete Event
             </button>
           </td>
         </tr>

@@ -3,21 +3,6 @@ import {startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMon
 import { Subject } from 'rxjs';
 import {CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView} from 'angular-calendar';
 
-const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
-
 @Component({
   selector: 'app-events-home',
   templateUrl: './events-home.component.html',
@@ -33,70 +18,27 @@ export class EventsHomeComponent implements OnInit {
 
   viewDate: Date = new Date();
 
-  modalData: {
-    action: string;
-    event: CalendarEvent;
-  } | undefined;
-
-  actions: CalendarEventAction[] = [
-    {
-      label: '<i class="fas fa-fw fa-pencil-alt"></i>',
-      a11yLabel: 'Edit',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
-      },
-    },
-    {
-      label: '<i class="fas fa-fw fa-trash-alt"></i>',
-      a11yLabel: 'Delete',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter((iEvent) => iEvent !== event);
-        this.handleEvent('Deleted', event);
-      },
-    },
-  ];
-
   refresh = new Subject<void>();
 
+  //startOfDay()
+  //endOfDay()
+  //addDays()
   events: CalendarEvent[] = [
     {
-      start: subDays(startOfDay(new Date()), 1),
+      start: new Date(),
       end: addDays(new Date(), 1),
       title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
+      color: {
+        primary: '#a7ff2d',
+        secondary: '#3e3d3d',
+      },
       allDay: true,
       resizable: {
         beforeStart: true,
         afterEnd: true,
       },
       draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
+    }
   ];
 
   activeDayIsOpen: boolean = true;
@@ -104,6 +46,7 @@ export class EventsHomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    console.log( new Date());
     throw new Error('Method not implemented.');
   }
 
@@ -136,27 +79,26 @@ export class EventsHomeComponent implements OnInit {
       }
       return iEvent;
     });
-    this.handleEvent('Dropped or resized', event);
-  }
-
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
   }
 
   addEvent(): void {
     this.events = [
       ...this.events,
       {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
+      start: new Date('2022-06-25 15:57:44'),
+      end: addDays(new Date(), 1),
+      title: 'A 3 day event',
+      color: {
+        primary: '#a7ff2d',
+        secondary: '#3e3d3d',
       },
+      allDay: true,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+      draggable: true,
+    }
     ];
   }
 
