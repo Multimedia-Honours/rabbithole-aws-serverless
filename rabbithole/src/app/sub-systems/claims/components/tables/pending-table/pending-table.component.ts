@@ -1,14 +1,10 @@
 import { ClaimsService } from './../../../services/claims.service';
-import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ClaimTable } from '../../../models/claim-table';
-
-const ELEMENT_DATA: ClaimTable[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'}
-];
+import { ClaimResponse } from '../../../models/claim-responses';
 
 @Component({
   selector: 'app-pending-table',
@@ -17,26 +13,55 @@ const ELEMENT_DATA: ClaimTable[] = [
 })
 export class PendingTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<ClaimTable>(ELEMENT_DATA);
-  tableData: any[] = [];
+  CLAIMS_TABLE_DATA: ClaimTable[] = [];
+  displayedColumns: string[] = ['Type', 'Vendor', 'Description', 'Total', 'Date'];
+  dataSource!: MatTableDataSource<ClaimTable>;
+  isLoadingClaims: boolean = false;
+  private _numOfPendingClaims!: number;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
-  constructor(private claimsService: ClaimsService) { }
-
-  ngOnInit() {
-    console.log("hell");
-    this.claimsService.getClaims("u17005486@tuks.co.za", "pending").then(data =>{
-      
-    });
-
-    console.log(this.tableData);
+  constructor(
+    private claimsService: ClaimsService, 
+    private changeDetectorRefs: ChangeDetectorRef) { 
     
   }
 
+  public returnNumOfPendingClaims() {
+    return this._numOfPendingClaims;
+  }
+
+  async ngOnInit() {
+    await this.getPendingClaims();
+    console.log(this.CLAIMS_TABLE_DATA);
+  }
+
+  async getPendingClaims(){
+    (await this.claimsService.getClaims("u17005486@tuks.co.za")).subscribe(data => {
+      data.Items.forEach((claim: any) => {
+        if (claim.claimStatus == 'pending') {
+          let tableRow = {
+            type: claim.type,
+            vendor: claim.vendorName,
+            description: claim.description,
+            total: claim.total,
+            date: claim.date
+          };
+          this.CLAIMS_TABLE_DATA.push(tableRow);
+          this.isLoadingClaims = false;
+          this._numOfPendingClaims = this.CLAIMS_TABLE_DATA.length;
+          this.dataSource = new MatTableDataSource<ClaimTable>(this.CLAIMS_TABLE_DATA);
+        }
+      });
+    })
+  }
+
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    if(this.dataSource == undefined){
+      // nothing
+    }else{
+      this.dataSource.paginator = this.paginator;
+    }
   }
 
 }

@@ -12,15 +12,15 @@
 <mat-tab-group dynamicHeight animationDuration="1200ms">
     <mat-tab>
         <ng-template mat-tab-label>
-          <span matBadge="4" matBadgeOverlap="false"> Pending </span>
+          <span matBadge="{{pending.returnNumOfPendingClaims()}}" matBadgeOverlap="false"> Pending </span>
         </ng-template>
         <div class="tab-content">
-            <app-pending-table></app-pending-table>
+            <app-pending-table #pending></app-pending-table>
         </div>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span matBadge="2" matBadgeOverlap="false"> Accepted </span>
+            <span matBadge="4" matBadgeOverlap="false"> Accepted </span>
         </ng-template>
         <div class="tab-content">
             <app-accepted-table></app-accepted-table>
@@ -28,7 +28,7 @@
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span matBadge="8" matBadgeOverlap="false"> Declined </span>
+            <span matBadge="4" matBadgeOverlap="false"> Declined </span>
         </ng-template>
         <div class="tab-content">
             <app-declined-table></app-declined-table>

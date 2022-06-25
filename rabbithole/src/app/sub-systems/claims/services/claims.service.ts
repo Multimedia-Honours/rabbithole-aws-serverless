@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ClaimResponse } from "../models/claim-responses";
@@ -21,20 +21,13 @@ export class ClaimsService {
   }
 
 
-  async getClaims(email: string, claimType: string){
+  async getClaims(email: string){
     const path = this.claimsEndpoint+'/getClaimsByEmail';
     const body = {
       email: email
     }
-    let returned = this.http.post(path, body);
-    returned.subscribe(claims => {
-      let obj: any = claims;
-      obj.Items.forEach((claim: any) => {
-        if(claim.claimStatus == claimType){
-          this.tableData.push(claim);
-        }
-      });
-    });
+    
+    return this.http.post<any>(path, body);
   }
 
   

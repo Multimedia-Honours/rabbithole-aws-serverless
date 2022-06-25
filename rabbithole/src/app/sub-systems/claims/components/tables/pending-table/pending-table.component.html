@@ -1,28 +1,34 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
   
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> Invoice ID. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <!-- Type Column -->
+      <ng-container matColumnDef="Type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let claim"> {{claim.type}} </td>
       </ng-container>
   
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Vendor Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <!-- Vendor Column -->
+      <ng-container matColumnDef="Vendor">
+        <th mat-header-cell *matHeaderCellDef> Vendor </th>
+        <td mat-cell *matCellDef="let claim"> {{claim.vendor}} </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let claim"> {{claim.description}} </td>
+      </ng-container>
+
+       <!-- Total Column -->
+       <ng-container matColumnDef="Total">
+        <th mat-header-cell *matHeaderCellDef> Total </th>
+        <td mat-cell *matCellDef="let claim"> {{claim.total}} </td>
       </ng-container>
   
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef>  Amount</th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      <!-- Date Column -->
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef>  Date </th>
+        <td mat-cell *matCellDef="let claim"> {{claim.date}} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
