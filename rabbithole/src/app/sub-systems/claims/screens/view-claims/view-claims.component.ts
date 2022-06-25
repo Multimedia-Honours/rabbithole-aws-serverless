@@ -1,4 +1,7 @@
+import { ClaimsService } from './../../services/claims.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PendingTableComponent } from '../../components/tables/pending-table/pending-table.component';
 
 @Component({
   templateUrl: './view-claims.component.html',
@@ -6,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewClaimsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router, 
+    private claimsService: ClaimsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    
+  }
+
+
+  createClaimNavigation(): void{
+    this.router.navigateByUrl('/claims/create-claim');
   }
 
 }

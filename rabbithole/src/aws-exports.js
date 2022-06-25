@@ -3,6 +3,7 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
+    "aws_cognito_identity_pool_id": "us-east-1:f327ea37-d2f5-4183-871e-c8907ab55aac",
     "aws_cognito_region": "us-east-1",
     "aws_user_pools_id": "us-east-1_GBRUxqRaJ",
     "aws_user_pools_web_client_id": "4a0s57jqn571s7fuhff10ie9ol",
@@ -39,7 +40,9 @@ const awsmobile = {
     },
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
-    ]
+    ],
+    "aws_user_files_s3_bucket": "rabbithole-claims95512-staging",
+    "aws_user_files_s3_bucket_region": "us-east-1"
 };
 
 
