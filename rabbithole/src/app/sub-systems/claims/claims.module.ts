@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { ClaimsRoutingModule } from './claims-routing.module';
 import { ViewClaimsComponent } from './screens/view-claims/view-claims.component';
-import { ClaimsTableComponent } from './components/claims-table/claims-table.component';
 import { CreateClaimComponent } from './screens/create-claim/create-claim.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -21,14 +20,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ClaimsBackgroundComponent } from './components/claims-background/claims-background.component';
 import { ClaimsLoadingComponent } from './components/claims-loading/claims-loading.component';
+import { SuccessErrorPopupComponent } from './components/success-error-popup/success-error-popup.component';
+import { AcceptedTableComponent } from './components/tables/accepted-table/accepted-table.component';
+import { PendingTableComponent } from './components/tables/pending-table/pending-table.component';
+import { DeclinedTableComponent } from './components/tables/declined-table/declined-table.component';
 
 @NgModule({
   declarations: [
     ViewClaimsComponent,
-    ClaimsTableComponent,
     CreateClaimComponent,
     ClaimsBackgroundComponent,
-    ClaimsLoadingComponent
+    ClaimsLoadingComponent,
+    SuccessErrorPopupComponent,
+    AcceptedTableComponent,
+    PendingTableComponent,
+    DeclinedTableComponent
   ],
   imports: [
     CommonModule,
