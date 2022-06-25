@@ -51,22 +51,6 @@
       (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-month-view>
-    <mwl-calendar-week-view
-      *ngSwitchCase="CalendarView.Week"
-      [viewDate]="viewDate"
-      [events]="events"
-      [refresh]="refresh"
-      (eventTimesChanged)="eventTimesChanged($event)"
-    >
-    </mwl-calendar-week-view>
-    <mwl-calendar-day-view
-      *ngSwitchCase="CalendarView.Day"
-      [viewDate]="viewDate"
-      [events]="events"
-      [refresh]="refresh"
-      (eventTimesChanged)="eventTimesChanged($event)"
-    >
-    </mwl-calendar-day-view>
   </div>
   
   
@@ -76,7 +60,10 @@
     EVENTS &nbsp;&nbsp;
     <button class="btn btn-primary float-right" (click)="addEvent()">
       Add new event
-    </button>
+      &nbsp;&nbsp;</button>&nbsp;&nbsp;
+    <button class="btn btn-success float-right" (click)="saveCalanderState()">
+      Save Calendar State
+      &nbsp;&nbsp;</button>&nbsp;&nbsp;
     <div class="clearfix"></div>
   </h3>
   
@@ -86,7 +73,6 @@
         <tr>
           <th>Event Title</th>
           <th>Primary color</th>
-          <th>Secondary color</th>
           <th>Starts at</th>
           <th>Ends at</th>
           <th>Remove Event</th>
@@ -100,29 +86,26 @@
               type="text"
               class="form-control"
               [(ngModel)]="event.title"
-              (keyup)="refresh.next()"
+              (keyup)="refresh.next(); updateEvent();"
             />
           </td>
           <td>
             <input
               type="color"
-              (change)="refresh.next()"
-            />
-          </td>
-          <td>
-            <input
-              type="color"
-              (change)="refresh.next()"
+              [(ngModel)]="event.color"
+              (change)="refresh.next(); updateEvent();"
             />
           </td>
           <td>
             <input
               class="form-control"
               type="text"
-              
+              mwlFlatpickr
               [(ngModel)]="event.start"
-              (ngModelChange)="refresh.next()"
-   
+              (ngModelChange)="refresh.next(); updateEvent();"
+              [altInput]="true"
+              [convertModelValue]="true"
+              [enableTime]="true"
               dateFormat="Y-m-dTH:i"
               altFormat="F j, Y H:i"
               placeholder="Not set"
@@ -132,10 +115,12 @@
             <input
               class="form-control"
               type="text"
-              
+              mwlFlatpickr
               [(ngModel)]="event.end"
-              (ngModelChange)="refresh.next()"
-          
+              (ngModelChange)="refresh.next(); updateEvent();"
+              [altInput]="true"
+              [convertModelValue]="true"
+              [enableTime]="true"
               dateFormat="Y-m-dTH:i"
               altFormat="F j, Y H:i"
               placeholder="Not set"
