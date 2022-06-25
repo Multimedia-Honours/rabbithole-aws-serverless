@@ -2,38 +2,13 @@ $greenColour: #A7FF2D;
 $greyColour: #212121;
 $lightGreyColour: #6D6D6D;
 
-#claims-heading-left{
+#claims-heading{
     color: $greenColour;
     font-size: 30px;
     margin-left: 15px;
     margin-top: 15px;
     margin-bottom: 0px;
-    float: left;
-    
 }
-
-#claims-heading-right{
-    float: right;
-    background-color: $greenColour;
-    transform: scale(0.7);
-}
-
-#create-claims-heading-right{
-    float: right;
-    margin-top: 1%;
-    color: $greenColour;
-}
-#create-claims-heading-right:hover{
-    float: right;
-    margin-top: 1%;
-    color: $greenColour;
-    cursor: pointer;
-}
-
-#add-claim-icon{
-    color: $greyColour;
-}
-
 
 .mat-badge-content {
     background: $lightGreyColour;
@@ -49,11 +24,11 @@ $lightGreyColour: #6D6D6D;
 }
 
 .tab-content {
-    //padding: 20px;
+    padding: 20px;
     transform: scale(0.9);
-    //margin-top: 0px;
-    //margin-left: auto;
-    //margin-right: auto;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: $greyColour;
 }
 
@@ -62,23 +37,14 @@ $lightGreyColour: #6D6D6D;
 }
   
 ::ng-deep .mat-tab-label {
-    width: 10px;
-    //min-width: 150px !important;
-    //padding: 2px !important;
-    //justify-content: left !important;
-    //margin-left: 0px;
+    min-width: 110px !important;
+    padding: 2px !important;
+    justify-content: left !important;
+    margin-left: 10px;
     color: $lightGreyColour;
-    //font-weight: 10;
+    font-weight: 10;
 }
 
 ::ng-deep .mat-ink-bar {
     background-color: $greenColour !important;
 }
-
-::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
-    justify-content: left !important;
-    min-width: 20!important;
-    padding: 3px!important;
-    margin: 3px!important;
-   }
-

@@ -1,7 +1,6 @@
 export interface ClaimTable {
-    type: string;
-    vendor: string;
-    description: string;
-    total: string;
-    date: string
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
 }
