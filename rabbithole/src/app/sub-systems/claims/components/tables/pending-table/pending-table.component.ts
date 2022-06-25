@@ -28,7 +28,11 @@ export class PendingTableComponent implements OnInit {
   }
 
   public returnNumOfPendingClaims() {
-    return this._numOfPendingClaims;
+    if(this._numOfPendingClaims > 0){
+      return this._numOfPendingClaims;
+    }else{
+      return 0;
+    }
   }
 
   async ngOnInit() {

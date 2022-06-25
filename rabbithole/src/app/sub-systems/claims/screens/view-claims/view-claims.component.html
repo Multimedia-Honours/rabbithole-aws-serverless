@@ -20,18 +20,18 @@
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span matBadge="4" matBadgeOverlap="false"> Accepted </span>
+            <span matBadge="{{accepted.returnNumOfAcceptedClaims()}}" matBadgeOverlap="false"> Accepted </span>
         </ng-template>
         <div class="tab-content">
-            <app-accepted-table></app-accepted-table>
+            <app-accepted-table #accepted></app-accepted-table>
         </div>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span matBadge="4" matBadgeOverlap="false"> Declined </span>
+            <span matBadge="{{declined.returnNumOfDeclinedClaims()}}" matBadgeOverlap="false"> Declined </span>
         </ng-template>
         <div class="tab-content">
-            <app-declined-table></app-declined-table>
+            <app-declined-table #declined></app-declined-table>
         </div>
     </mat-tab>
 </mat-tab-group>

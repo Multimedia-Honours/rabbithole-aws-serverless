@@ -1,19 +1,10 @@
-import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
+import { ClaimsService } from './../../../services/claims.service';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { ClaimTable } from '../../../models/claim-table';
-
-// const ELEMENT_DATA: ClaimTable[] = [
-//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-// ];
+import { ClaimResponse } from '../../../models/claim-responses';
 
 @Component({
   selector: 'app-accepted-table',
@@ -22,16 +13,59 @@ import { ClaimTable } from '../../../models/claim-table';
 })
 export class AcceptedTableComponent implements OnInit {
   
-  
+  CLAIMS_TABLE_DATA: ClaimTable[] = [];
+  displayedColumns: string[] = ['Type', 'Vendor', 'Description', 'Total', 'Date'];
+  dataSource!: MatTableDataSource<ClaimTable>;
+  isLoadingClaims: boolean = false;
+  private _numOfAcceptedClaims!: number;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
-  constructor() { }
+  constructor(
+    private claimsService: ClaimsService, 
+    private changeDetectorRefs: ChangeDetectorRef) { 
+    
+  }
 
-  ngOnInit(): void {
+  public returnNumOfAcceptedClaims() {
+    if(this._numOfAcceptedClaims > 0){
+      return this._numOfAcceptedClaims;
+    }else{
+      return 0;
+    }
+  }
+
+  async ngOnInit() {
+    await this.getPendingClaims();
+    console.log(this.CLAIMS_TABLE_DATA);
+  }
+
+  async getPendingClaims(){
+    (await this.claimsService.getClaims("u17005486@tuks.co.za")).subscribe(data => {
+      data.Items.forEach((claim: any) => {
+        if (claim.claimStatus == 'accepted') {
+          let tableRow = {
+            type: claim.type,
+            vendor: claim.vendorName,
+            description: claim.description,
+            total: claim.total,
+            date: claim.date
+          };
+          this.CLAIMS_TABLE_DATA.push(tableRow);
+          this.isLoadingClaims = false;
+          this._numOfAcceptedClaims = this.CLAIMS_TABLE_DATA.length;
+          this.dataSource = new MatTableDataSource<ClaimTable>(this.CLAIMS_TABLE_DATA);
+        }
+      });
+    })
   }
 
   ngAfterViewInit() {
-    
+    if(this.dataSource == undefined){
+      // nothing
+    }else{
+      this.dataSource.paginator = this.paginator;
+    }
   }
 
 }
