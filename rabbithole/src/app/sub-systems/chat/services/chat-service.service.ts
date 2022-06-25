@@ -18,6 +18,7 @@ import { SendEmailRequest, SendEmailResponse } from 'aws-sdk/clients/ses';
 import { environment } from '../../../../environments/environment';
 import { Subject } from 'rxjs';
 import { debug } from 'console';
+import { parse } from 'path';
 
 
 const REGION = "us-east-1";
@@ -164,7 +165,7 @@ export class ChatServiceService {
       "id": discordID
     }
     
-    this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${messageTextbox}&id=348509535683739652` , {headers}, ).subscribe(
+    this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${messageTextbox}&id=`+ discordID, {headers}, ).subscribe(
       data => {
           console.log("POST Request is successful ", data);
       }  )  

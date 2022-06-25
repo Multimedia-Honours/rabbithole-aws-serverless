@@ -121,6 +121,8 @@ export class ChatLandingComponent implements OnInit {
       if(data.discordPreference)
       {
         let discordID = data.discordID;
+        console.log(discordID);
+        console.log("-------------------------")
         await this.CS.discordMessage(messageBody,discordID);
       }
       if(data.ryverPreference)
