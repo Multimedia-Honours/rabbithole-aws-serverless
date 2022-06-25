@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit {
     const userAuthObj = Auth.currentUserInfo().then((res) => {
       this.email = res.attributes.email;
       this.service.getUser(this.email).subscribe((res) => {
-        console.log(res.Item);
         this.userForm.patchValue({
           email:res.Item.email,
           useEmail:res.Item.emailPreference,
@@ -52,8 +51,7 @@ export class ProfileComponent implements OnInit {
 
 
 userUpdate(){
-  console.log(this.userForm.value);
-  if(this.userForm.valid)
+  /*if(this.userForm.valid)
   {
     this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
       console.log(res, 'resupdated');
@@ -62,6 +60,37 @@ userUpdate(){
   }else{
     this.errormsg = 'All fields are required';
   }
-}
+}*/
 
+if((this.userForm.value.useDiscord==true && this.userForm.value.discordID != "") && (this.userForm.value.useRyver==true && this.userForm.value.ryverID != "" )){
+  this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
+    console.log(res, 'resupdated');
+    this.successmsg = "Updated";
+    this.errormsg =""
+  })
+}
+else if(this.userForm.value.useRyver==false && this.userForm.value.useDiscord==false){
+  this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
+    console.log(res, 'resupdated');
+    this.successmsg = "Updated";
+    this.errormsg =""
+  })
+}else if(this.userForm.value.useRyver==false && (this.userForm.value.useDiscord==true && this.userForm.value.discordID != "")){
+  this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
+    console.log(res, 'resupdated');
+    this.successmsg = "Updated";
+    this.errormsg =""
+  })
+}else if(this.userForm.value.useDiscord==false && (this.userForm.value.useRyver==true && this.userForm.value.ryverID != "")){
+  this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
+    console.log(res, 'resupdated');
+    this.successmsg = "Updated";
+  })
+  this.errormsg =""
+}
+else{
+  this.errormsg ="ID Fields are required"
+  this.successmsg = "";
+}
+}
 }

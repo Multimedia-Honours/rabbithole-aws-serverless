@@ -178,10 +178,17 @@ svg{
   padding-bottom: 0.5em;
 }
 
+h3{
+  color: #fc7f03;
+}
+
 input[type=checkbox]{
   appearance: none;
   }
   
+  #success{
+    color:#A7FF2D;
+  }
   .regular-checkbox {
   -webkit-appearance: none;
   background-color: #fafafa;

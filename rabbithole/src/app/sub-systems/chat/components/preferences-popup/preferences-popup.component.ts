@@ -15,6 +15,8 @@ export class PreferencesPopupComponent implements OnInit {
   disc = false;
   ryver = false;
   path: string = 'icons/ryver-icon.png';
+  public errormsg:any;
+  
 
   constructor(
     private service: UserApiService,
@@ -31,17 +33,51 @@ export class PreferencesPopupComponent implements OnInit {
   prefForm = new FormGroup({
     emailPreference: new FormControl(false, Validators.required),
     discordPreference: new FormControl(false, Validators.required),
-    discordID: new FormControl('', Validators.required),
+    discordID: new FormControl("", Validators.required),
     ryverPreference: new FormControl(false, Validators.required),
-    ryverForumID: new FormControl('', Validators.required),
+    ryverForumID: new FormControl("",Validators.required)
   });
 
+
+  get ryverForumID() { return this.prefForm.get('ryverForumID'); }
+
+
   submitPreferences() {
-    console.log('subitting preferences');
-    console.log(this.prefForm.value);
-    this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
-    console.log(res);
-    });
-    this.dialog.closeAll();
+
+    //had to code all edge cases to get validation correct headache could possibly be done another way
+    if((this.prefForm.value.discordPreference==true && this.prefForm.value.discordID != "") && (this.prefForm.value.ryverPreference==true && this.prefForm.value.ryverForumID != "" )){
+      console.log('submitting preferences');
+      console.log(this.prefForm.value);
+      this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
+      console.log(res);
+      });
+      this.dialog.closeAll();
+    }
+    else if(this.prefForm.value.ryverPreference==false && this.prefForm.value.discordPreference==false){
+      console.log('submitting preferences');
+      console.log(this.prefForm.value);
+      this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
+      console.log(res);
+      });
+      this.dialog.closeAll();
+    }else if(this.prefForm.value.ryverPreference==false && (this.prefForm.value.discordPreference==true && this.prefForm.value.discordID != "")){
+      console.log('submitting preferences');
+      console.log(this.prefForm.value);
+      this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
+      console.log(res);
+      });
+      this.dialog.closeAll();
+    }else if(this.prefForm.value.discordPreference==false && (this.prefForm.value.ryverPreference==true && this.prefForm.value.ryverForumID != "")){
+      console.log('submitting preferences');
+      console.log(this.prefForm.value);
+      this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
+      console.log(res);
+      });
+      this.dialog.closeAll();
+    }
+    else{
+      this.errormsg ="ID Fields are required"
+    }
+    
   }
 }
