@@ -22,6 +22,7 @@ import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
