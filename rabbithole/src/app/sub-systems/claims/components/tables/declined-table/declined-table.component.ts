@@ -42,7 +42,7 @@ export class DeclinedTableComponent implements OnInit {
   }
 
   async getPendingClaims(){
-    (await this.claimsService.getClaims("u17005486@tuks.co.za")).subscribe(data => {
+    (await this.claimsService.getClaims()).subscribe(data => {
       data.Items.forEach((claim: any) => {
         if (claim.claimStatus == 'declined') {
           let tableRow = {
