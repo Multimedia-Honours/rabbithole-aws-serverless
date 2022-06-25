@@ -6,6 +6,7 @@ import { AuthenticatorService } from '@aws-amplify/ui-angular';
 import awsExports from '../aws-exports';
 import { Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {TooltipPosition} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-root',

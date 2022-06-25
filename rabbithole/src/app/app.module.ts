@@ -22,7 +22,9 @@ import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AdminComponent } from './sub-systems/admin/admin.component';
+import { AuthGuardService } from './sub-systems/services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     LandingpageComponent,
     AuthComponent,
     ProfileComponent,
+    AdminComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -48,7 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 

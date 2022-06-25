@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage.component';
 import { AuthComponent } from './sub-systems/home/auth/auth.component';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
+import { AdminComponent } from './sub-systems/admin/admin.component';
+import { AuthGuardService } from './sub-systems/services/auth-guard.service';
+
 
 const routes: Routes = [
   {
@@ -15,11 +18,18 @@ const routes: Routes = [
     loadChildren: () => import('./sub-systems/claims/claims.module').then(m => m.ClaimsModule) 
   },
   {
-    path: 'profile', component: ProfileComponent  
+    path: 'profile', 
+    component: ProfileComponent  
+  },
+  {
+    path: 'admin', 
+    component:AdminComponent,
+    canActivate:[AuthGuardService]
   },
   {
     path: '**',
     redirectTo: 'chat'
+   
   }
 ];
 

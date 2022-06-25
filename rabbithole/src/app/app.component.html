@@ -1,20 +1,34 @@
 <ng-container *ngIf="authenticator.route === 'authenticated'">
-  <mat-drawer-container class="example-container" autosize >
+  <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-        <button class="nav-button-top" (click)="goBack()"><mat-icon>keyboard_arrow_left</mat-icon></button> <button class="nav-button-top" (click)="goForward()"><mat-icon>keyboard_arrow_right</mat-icon></button>
-        <button class="nav-button" [routerLink]="'chat'"><mat-icon>chat_bubble_outline</mat-icon></button>  <!-- Get icon names from material.io/icons -->
-        <button class="nav-button" href=""><mat-icon>groups</mat-icon></button>
-        <button class="nav-button"><mat-icon>calendar_month</mat-icon></button>
-        <button class="nav-button"><mat-icon>videocam</mat-icon></button>
-        <button class="nav-button"[routerLink]="'claims'"><mat-icon>playlist_add_check</mat-icon></button>
-        <button class="nav-button-bottom" [routerLink]="'profile'"><mat-icon>person_outline</mat-icon></button>
+      <button class="nav-button-top" (click)="goBack()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button class="nav-button-top" (click)="goForward()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+      <button class="nav-button" [routerLink]="'chat'">
+        <mat-icon>chat_bubble_outline</mat-icon>
+      </button>
+      <!-- Get icon names from material.io/icons -->
+      <button class="nav-button" href=""><mat-icon>groups</mat-icon></button>
+      <button class="nav-button"><mat-icon>calendar_month</mat-icon></button>
+      <button class="nav-button"><mat-icon>videocam</mat-icon></button>
+     
+      <button class="nav-button" [routerLink]="'claims'">
+        <mat-icon>playlist_add_check</mat-icon>
+      </button>
+      <button class="nav-button" [routerLink]="'admin'"><mat-icon>admin_panel_settings</mat-icon></button>
+      <button class="nav-button-bottom" [routerLink]="'profile'">
+        <mat-icon>person_outline</mat-icon>
+      </button>
+     
     </mat-drawer>
 
     <mat-drawer-content>
       <router-outlet></router-outlet>
     </mat-drawer-content>
-  
-</mat-drawer-container>
+  </mat-drawer-container>
 </ng-container>
 
 <ng-container *ngIf="authenticator.route !== 'authenticated'">
