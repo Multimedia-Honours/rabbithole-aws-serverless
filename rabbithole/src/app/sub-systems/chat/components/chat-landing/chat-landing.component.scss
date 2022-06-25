@@ -2,7 +2,7 @@ $greenColour: #A7FF2D;
 $backgroundGrey: #212121;
 #chatBoxLeft
 {
-    width: 20%;  
+    width: 22%;  
     height: 100vh;
     background-color: #3E3D3D;
     position: absolute;
@@ -89,7 +89,7 @@ $backgroundGrey: #212121;
 {
     background-color: #3E3D3D;
     padding: 10px;
-    width: 80%;
+    width: 90vw;
     border-radius: 5px;
     margin-top:15px;
     margin-left: 20px;
@@ -98,6 +98,7 @@ $backgroundGrey: #212121;
     display: inline-block;
     position: relative;
     height: 8%;   
+    // overflow: hidden ;
     h1{
         color: $greenColour;
         font-family: 'Open Sans', sans-serif;
@@ -225,18 +226,36 @@ mat-button-toggle-group::-webkit-scrollbar {
     font-size: 20pt;
 }
 
-#MessageBoxMain #MessageBoxBackground #NoMessageError 
+#MessageBoxBackground #NoMessageError 
 {
-    margin: auto;
+    position: absolute;
+    display: flex;
     width: 100%;
+    margin: auto;
+    height: 40vh;
+    vertical-align: middle;
     text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    img{
+        display: block;
+        margin: auto;
+        height: auto;
+        width: 25%;
+    }
 }
 
-#MessageBoxMain #MessageBoxBackground #NoMessageError p
+#MessageBoxBackground #NoMessageError p
 {
-    color: #EDEDED;
+    color: grey;
     font-family: 'Open Sans', sans-serif;
     font-size: 12pt;
+    text-align: center;
+    vertical-align: middle;
+    // top: 50%;
+    // left: 50%;
 }
 
 #MessageBoxMain #MessageBoxBackground #MessageBubble
@@ -307,6 +326,8 @@ mat-button-toggle-group::-webkit-scrollbar {
       /*transition: 0.5s;*/
       
 }
+
+
 
 #MessageBoxMain #MessageForm
 {

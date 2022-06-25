@@ -10,5 +10,6 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class MessageBoxComponent {
   @Input() message: any;
+  @Input() timestamp: any;
 
 }

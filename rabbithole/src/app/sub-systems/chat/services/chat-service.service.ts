@@ -17,6 +17,7 @@ import { SES, AWSError } from 'aws-sdk';
 import { SendEmailRequest, SendEmailResponse } from 'aws-sdk/clients/ses';
 import { environment } from '../../../../environments/environment';
 import { Subject } from 'rxjs';
+import { debug } from 'console';
 
 
 const REGION = "us-east-1";
@@ -51,23 +52,101 @@ export class ChatServiceService {
     
   }
 
-  public getUserMessages(value:any)
+
+  public async getUserPreferences(userEmail:string)
+  {
+    const URL = `https://em8tzstb7h.execute-api.us-east-1.amazonaws.com/staging/users/${userEmail}`;
+    
+    var subject = new Subject<any>();
+
+    this.http.get<any>(URL).subscribe(
+      data => {
+        // console.log(data.discordPreference);
+        let user = {
+          email: data.Item.email,
+          discordPreference: data.Item.discordPreference,
+          ryverPreference: data.Item.ryverPreference,
+          emailPreference:  data.Item.emailPreference,
+          discordID: data.Item.discordID,
+          ryverForumID: data.Item.ryverForumID,
+        };
+        subject.next(user);
+      }
+    );
+    return subject.asObservable();
+
+
+  }
+
+  public getUserMessages(value:any, author:string)
   {
       console.log(value)
-      //get function to users API, using user ID
+      var subject = new Subject<any>();
 
-      const URL = "https://gl48wrap21.execute-api.us-east-1.amazonaws.com/staging"
+
+      const URL = `https://gl48wrap21.execute-api.us-east-1.amazonaws.com/staging/chats/byAuthor`;
+
+      const headers = { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+
+      const options = {
+        'author': `${author}`,
+        'recipient' : `${value}`,
+        'timestamp' : '22:02:21:00:00:00'
+
+      }
+
+      this.http.post<any>(URL, options, {headers} ).subscribe(
+      data => {
+          // console.log(data.Items);
+          let messages = [];
+          messages = data.Items;
+          subject.next(messages);
+      }  
+      );
+      return subject.asObservable();
+
+
   }
 
-  public generateMessageBox(messageTextbox:string)
+  public sendMessage(author:string, recipient:string, timestamp:string, message:string)
   {
-    console.log("THIS IS A TEST");
-    // message = messageTextbox
+
+
+    const URL = `https://gl48wrap21.execute-api.us-east-1.amazonaws.com/staging/chats`;
+
+    const headers = { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
+
+    const options = {
+      'author':`${author}`,
+      'timestamp' : `${timestamp}`,
+      'message': `${message}`,
+      'recipient' : `${recipient}`,
+      
+
+    }
+
+    /*author: requestJSON.author,               
+    timestamp: requestJSON.timestamp,               
+    message: requestJSON.message,              
+     recipient: requestJSON.recipient,*/
+
+    this.http.put<any>(URL, options, {headers} ).subscribe(
+      data => {
+        console.log(data);
+      }  
+      );
   }
+
 
 
   //Discord
-  public async discordMessage(messageTextbox:string)
+  public async discordMessage(messageTextbox:string, discordID:string)
   {
 
     const headers = { 
@@ -82,7 +161,7 @@ export class ChatServiceService {
 
     var content = {
       "message": messageTextbox,
-      "id": "348509535683739652"
+      "id": discordID
     }
     
     this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${messageTextbox}&id=348509535683739652` , {headers}, ).subscribe(
@@ -140,39 +219,27 @@ export class ChatServiceService {
 
 
   //Email
-  public EmailMessage()
+  public async EmailMessage(recipientEmail:string, messageBody:string)
   {
-    const SESconfig = {
-      accessKeyId: environment.ACCESS_KEY, 
-      secretAccessKey: environment.SECRET_ACCESS_KEY,
-      region: REGION
-    }
-
-    var params = {
-      Source: 'u19014610@tuks.co.za',
-      Destination:
-      {
-        ToAddresses: [
-          'u19014610@tuks.co.za'
-        ]
-      },
-      Message:{
-        Body:{
-          Html: {
-            Charset: "UTF-8",
-            Data: 'It is working'
-          }
-        },
-        Subject:{
-          Charset: 'UTF-8',
-          Data: 'This is a test'
-        }
+    const headers = { 
+      'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8', 
+      'Access-Control-Allow-Headers': 'Authorization',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods':'GET,HEAD,OPTIONS,POST,PUT',
+      'Access-Control-Allow-Credentials':'true',
+      'responseType': 'text'
       }
-    };
+    const URL = "http://52.91.52.167:3000/sendMail"
 
-    new AWS.SES(SESconfig).sendEmail(params).promise().then((res:any) => {
-      console.log(res);
-    })
+    var content = {
+      "toAddress": recipientEmail,
+      "text": messageBody
+    }
+    
+    this.http.post<any>("http://52.91.52.167:3000/sendMail", `toAddress=${recipientEmail}&text=${messageBody}` , {headers}).subscribe(
+      data => {
+          console.log("POST Request is successful ", data);
+      }  )     
   }  
 
 
