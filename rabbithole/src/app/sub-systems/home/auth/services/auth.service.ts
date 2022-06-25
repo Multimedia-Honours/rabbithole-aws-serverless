@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth, Amplify } from 'aws-amplify';
+import { Subject } from 'rxjs';
 import { UserApiService } from 'src/app/sub-systems/services/user-api.service';
 import awsExports from '../../../../../aws-exports';
 
@@ -23,9 +24,7 @@ export class AuthService {
   async returnIsAdmin(){
     let isAdmin:any;
     let email = await this.returnLoggedUserEmail();
-    this.userService.getUser(email).subscribe((res) => {
-
-      console.log(res);
+    await this.userService.getUser(email).then((res) => {
       isAdmin = res;
     });
     return isAdmin;

@@ -12,9 +12,15 @@ export class UserApiService {
  
   API_ENDPOINT = 'https://em8tzstb7h.execute-api.us-east-1.amazonaws.com/staging/users';
 
-  getUser(email:any)
+  async getUser(email:any)
   {
-    return this.http.get(`${this.API_ENDPOINT}/${email}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Methods': 'POST'
+      })
+    };
+    
+    return await this.http.get(`${this.API_ENDPOINT}/${email}`, httpOptions).toPromise();
   }
 
   updateUser(data:any, id:any):Observable<any>

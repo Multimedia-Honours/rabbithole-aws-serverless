@@ -20,14 +20,10 @@ export class AuthGuardService implements CanActivate {
   
    async canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): Promise<boolean>{
     // return true if you want to navigate, otherwise return false
-    
-    let activate = await this.auth.returnIsAdmin();
-    
-    console.log(activate);
+
     let email = await this.auth.returnLoggedUserEmail();
-    
-    return activate;
-    
-    
+    console.log(email);
+    let admin = await this.auth.returnIsAdmin();
+    return admin.Item.isAdmin;
    }
 }
