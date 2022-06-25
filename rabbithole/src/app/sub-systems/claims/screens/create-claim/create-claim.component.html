@@ -26,13 +26,15 @@
               >
               </ngx-dropzone-image-preview>
               <br />
-            
-              <ng-container *ngIf="fileName">
-                <ngx-dropzone-label id="ngx-filename">{{ fileName }} </ngx-dropzone-label>
-              </ng-container>
-            
             </ngx-dropzone>
+            <br/>
+            <ng-container *ngIf="fileName">
+              <ngx-dropzone-label id="ngx-filename">{{ fileName }} </ngx-dropzone-label>
+            </ng-container>
+            <br/>
+            <br/>
         </div>
+
       <div class="upload-button-row">
           <button mat-raised-button color="success" (click)="goBack();">Go Back</button>
             &nbsp;&nbsp; 

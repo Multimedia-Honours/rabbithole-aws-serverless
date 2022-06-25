@@ -145,8 +145,8 @@ ngx-dropzone-label{
 }
 
 ngx-dropzone{
-    width: 30%;
-    height: 250px;
+    width: 50%;
+    height: 60vh;
     margin: auto;
     background-color: $greyColour;
     color: $greenColour;
@@ -173,18 +173,40 @@ ngx-dropzone{
     border-color: $greenColour !important;
 }
 
+ngx-image{
+    scale: 2 !important;
+}
 
-
-ngx-dropzone-image-preview{
+::ng-deep.ngx-dropzone-image-preview{
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    scale: 2 !important;
+    width: 20wh !important; 
+    
+    
 }
+
+::ng-deep img{
+    max-height: 300% !important;
+    max-width: 100% !important;
+    
+}
+
+::ng-deep ngx-dropzone-remove-badge{
+    top: -100px !important;
+    opacity: 100% !important;
+}
+
 #ngx-filename{
     margin-left:auto !important;
     margin-right:auto !important;
-    color:red !important;
+    color:$greenColour !important;
 }
+
+
 
 
 #backgroundRocks{
