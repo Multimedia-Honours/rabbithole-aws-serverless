@@ -70,8 +70,7 @@ export class CreateClaimComponent implements OnInit {
    * Adds new claim to the claims database:
    *  + Sends in a new claim object
   */
-  public submitClaim(){
-    console.log('in');
+  public async submitClaim(){
     this.requestBody = {
       "email": "u17005486@tuks.co.za",
       "claimID": Math.floor(Date.now() + Math.random()*100),
@@ -84,7 +83,7 @@ export class CreateClaimComponent implements OnInit {
       "claimStatus": 'pending'
     };
     try{
-      this.claimsService.createClaim(this.requestBody).subscribe(res => {
+      (await this.claimsService.createClaim(this.requestBody)).subscribe(res => {
         this.openClaimDialog("Successfully created claim! Please wait for review.");
         return res;
       });

@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { ClaimResponse } from "../models/claim-responses";
 import { ClaimRequest } from "../models/claim-requests";
 import { ClaimTable } from '../models/claim-table';
+import { AuthService } from '../../home/auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,16 @@ export class ClaimsService {
 
   private claimsEndpoint: any;
   private putRequestBody!: ClaimRequest;
-  private tableData: any[] = [];
+  email: any;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private authService: AuthService) { 
     this.claimsEndpoint = environment["CLAIM_SERVER_URL"];
   }
 
 
-  async getClaims(email: string){
+  async getClaims(){
+    const email = await this.authService.returnLoggedUserEmail();
+  
     const path = this.claimsEndpoint+'/getClaimsByEmail';
     const body = {
       email: email
@@ -31,10 +34,11 @@ export class ClaimsService {
   }
 
   
-  createClaim(body: ClaimRequest): Observable<any>{
+  async createClaim(body: ClaimRequest): Promise<Observable<any>>{
     const path = this.claimsEndpoint;
+    const email = await this.authService.returnLoggedUserEmail();
     this.putRequestBody = {
-      "email": body.email,
+      "email": email,
       "claimID": body.claimID,
       "claimDate": body.claimDate,
       "claimDescription": body.claimDescription,
