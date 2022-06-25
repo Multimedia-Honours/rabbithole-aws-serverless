@@ -1,38 +1,27 @@
-<div>
-    <h1 id="claims-heading-left"> CLAIMS </h1>
-    <button (click)="createClaimNavigation()" id="claims-heading-right" mat-fab color="primary" aria-label="Example icon button with a delete icon">
-        <mat-icon id="add-claim-icon">add</mat-icon>
-    </button>
-    <span (click)="createClaimNavigation()" id="create-claims-heading-right">Create a new claim</span>
-
-</div>
-<br/>
-<br/>
-<br/>
+<h1 id="claims-heading"> CLAIMS </h1>
 <mat-tab-group dynamicHeight animationDuration="1200ms">
     <mat-tab>
         <ng-template mat-tab-label>
-          <span matBadge="{{pending.returnNumOfPendingClaims()}}" matBadgeOverlap="false"> Pending </span>
+          <span matBadge="4" matBadgeOverlap="false"> Pending </span>
         </ng-template>
         <div class="tab-content">
-            <app-pending-table #pending></app-pending-table>
+            <app-claims-table></app-claims-table>
         </div>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span matBadge="{{accepted.returnNumOfAcceptedClaims()}}" matBadgeOverlap="false"> Accepted </span>
+            <span matBadge="2" matBadgeOverlap="false"> Accepted </span>
         </ng-template>
         <div class="tab-content">
-            <app-accepted-table #accepted></app-accepted-table>
+            <app-claims-table></app-claims-table>
         </div>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span matBadge="{{declined.returnNumOfDeclinedClaims()}}" matBadgeOverlap="false"> Declined </span>
+            <span matBadge="8" matBadgeOverlap="false"> Declined </span>
         </ng-template>
         <div class="tab-content">
-            <app-declined-table #declined></app-declined-table>
+            <app-claims-table></app-claims-table>
         </div>
     </mat-tab>
 </mat-tab-group>
-
