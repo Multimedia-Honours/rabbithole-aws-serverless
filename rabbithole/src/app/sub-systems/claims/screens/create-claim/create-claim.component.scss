@@ -5,7 +5,7 @@ $darkColour: #212121;
 .claim-box{
     padding: 10px;
     align-content: center;
-    margin-top: 15vh;
+    margin-top: 5vh;
 }
 
 .upload-button-row {
@@ -54,6 +54,7 @@ $darkColour: #212121;
     color: $greenColour;
     font-size: 30px;
 }
+
 .form-div
 {
     display: block;
@@ -78,8 +79,18 @@ mat-hint{
     color: $greyColour
 }
 
-// Standard
+// Standard for forms
+
+::ng-deep .mat-select-value{
+    padding: 10px;
+    color: $greenColour !important;
+    font-size: large;
+}
+
 ::ng-deep .mat-form-field {
+    padding: 2px;
+    font-size: large;
+
     .mat-input-element {
         color: $greenColour;
     }
@@ -161,6 +172,20 @@ ngx-dropzone{
 ::ng-deep .mat-radio-inner-circle{
     border-color: $greenColour !important;
 }
+
+
+
+ngx-dropzone-image-preview{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+#ngx-filename{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    color:red !important;
+}
+
 
 #backgroundRocks{
     z-index: -1000;

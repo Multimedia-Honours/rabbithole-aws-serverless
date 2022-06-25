@@ -21,6 +21,7 @@ import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ProfileComponent } from './sub-systems/profile/profile.component';
     MatIconModule,
     MatDialogModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
