@@ -31,7 +31,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LandingpageComponent,
-    AuthComponent
+    AuthComponent,
+    ProfileComponent
     
   ],
   imports: [
