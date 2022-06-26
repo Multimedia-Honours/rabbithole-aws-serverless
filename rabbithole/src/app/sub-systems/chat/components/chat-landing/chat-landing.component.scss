@@ -50,7 +50,7 @@ $backgroundGrey: #212121;
 
 #chatBoxLeft #MessageSearchInput:focus 
 {
-      outline: 2px solid $greenColour;
+      outline: 2px solid $greenColour !important;
       transition: outline 0.1s;
       
 }
@@ -345,7 +345,7 @@ mat-button-toggle-group::-webkit-scrollbar {
 {
 
     //   outline: 2px solid $greenColour;
-    border: 2px solid $greenColour;
+    border: 2px solid $greenColour !important;
       
       box-shadow: 0px 0px 10px $greenColour;
       transition: box-shadow border 0.1s;

@@ -157,7 +157,7 @@ export class ChatServiceService {
 
 
   //Discord
-  public async discordMessage(messageTextbox:string, discordID:string)
+  public async discordMessage(messageTextbox:string, discordID:string, email:string)
   {
 
     const headers = { 
@@ -175,7 +175,7 @@ export class ChatServiceService {
       "id": discordID
     }
     
-    this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${messageTextbox}&id=`+ discordID, {headers}, ).subscribe(
+    this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${email} :` + ` ${messageTextbox}&id=`+ discordID, {headers}, ).subscribe(
       data => {
           console.log("POST Request is successful ", data);
       }  )  
@@ -183,7 +183,7 @@ export class ChatServiceService {
   }
   
   //Ryver
-  public RyverMessage(messageTextbox:string)
+  public RyverMessage(messageTextbox:string, email:string)
   {
     console.log(messageTextbox)
     //replace displayName with our Username
@@ -193,7 +193,7 @@ export class ChatServiceService {
           "avatar": "https://i.imgur.com/vEf9Aaf.png",
           "displayName": "Rabbithole"
         },
-        body: messageTextbox
+        body: email + ": " + messageTextbox
     });
 
   //add user name with '@' before message to send message to that person
@@ -230,7 +230,7 @@ export class ChatServiceService {
 
 
   //Email
-  public async EmailMessage(recipientEmail:string, messageBody:string)
+  public async EmailMessage(recipientEmail:string, messageBody:string, email:string)
   {
     const headers = { 
       'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8', 
@@ -247,7 +247,7 @@ export class ChatServiceService {
       "text": messageBody
     }
     
-    this.http.post<any>("http://52.91.52.167:3000/sendMail", `toAddress=${recipientEmail}&text=${messageBody}` , {headers}).subscribe(
+    this.http.post<any>("http://52.91.52.167:3000/sendMail", `toAddress=${recipientEmail}&text=${messageBody}&subject=${email}` , {headers}).subscribe(
       data => {
           console.log("POST Request is successful ", data);
       }  )     

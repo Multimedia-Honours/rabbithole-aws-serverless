@@ -168,17 +168,17 @@ export class ChatLandingComponent implements OnInit {
         let discordID = data.discordID;
         console.log(discordID);
         console.log("-------------------------")
-        await this.CS.discordMessage(messageBody,discordID);
+        await this.CS.discordMessage(messageBody,discordID, this.currentUserEmail);
       }
       if(data.ryverPreference)
       {
         let ryverID = data.ryverForumID;
-        this.CS.RyverMessage(messageBody);
+        this.CS.RyverMessage(messageBody, this.currentUserEmail);
       }
       if (data.emailPreference)
       {
         let email = data.email;
-        await this.CS.EmailMessage(email, messageBody)
+        await this.CS.EmailMessage(email, messageBody, this.currentUserEmail)
       }
 
       const contactsArray = this.contactBox.nativeElement.children;
