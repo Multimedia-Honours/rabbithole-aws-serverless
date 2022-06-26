@@ -23,6 +23,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -49,7 +51,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     MatButtonToggleModule,
     HttpClientModule,
-    MatTooltipModule 
+    MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

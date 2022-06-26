@@ -184,28 +184,27 @@ mat-button-toggle-group::-webkit-scrollbar {
     position: absolute;
     width: 75%;
     height: 55%;
-    background-color: #3E3D3D;
+    background-color: #3e3d3d;
     right: 0;
     border-radius: 5px;
     margin: 2%;
-    box-shadow: 3px 3px 6px #3E3D3D;
+    box-shadow: 3px 3px 6px #3e3d3d;
     overflow: auto;
-}
-
-#MessageBoxBackground::-webkit-scrollbar {
-  width: 0.5em;
-}
- 
-#MessageBoxBackground::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-#MessageBoxBackground::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-  border-radius: 5px;
-}
-#MessageBoxMain #MessageBoxBackground #MessageBoxTopBar
-{
+  }
+  
+  #MessageBoxBackground::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  
+  #MessageBoxBackground::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+  #MessageBoxBackground::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    border-radius: 5px;
+  }
+  #MessageBoxMain #MessageBoxBackground #MessageBoxTopBar {
     width: 100%;
     height: 15%;
     border-radius: 5px;
@@ -213,14 +212,13 @@ mat-button-toggle-group::-webkit-scrollbar {
     position: sticky;
     top: 0;
     z-index: 999;
-    border-bottom: 1px #3E3D3D solid;
-}
-
-#MessageBoxMain #MessageBoxBackground #MessageBoxTopBar h2
-{
+    border-bottom: 1px #3e3d3d solid;
+  }
+  
+  #MessageBoxMain #MessageBoxBackground #MessageBoxTopBar h2 {
     /*this will actually be avenir later on*/
-    font-family: 'Open Sans', sans-serif;
-    color: #ABFF4F;
+    font-family: "Open Sans", sans-serif;
+    color: #abff4f;
     padding: 20px;
     margin: 0;
     font-size: 20pt;
@@ -264,33 +262,53 @@ mat-button-toggle-group::-webkit-scrollbar {
     padding: 10px;
     width: auto;
     border-radius: 5px;
-    margin-top:15px;
+    margin-top: 15px;
     margin-left: 20px;
     margin-right: 20px;
-    box-shadow: 3px 3px 6px #3E3D3D;
-      display: inline-block;
-      position: relative;
+    box-shadow: 3px 3px 6px #3e3d3d;
+    display: inline-block;
+    position: relative;
     height: auto;
-
-}
-
-#MessageBoxMain #MessageBoxBackground #MessageBubble p
-{
-    color: #EDEDED;
-    font-family: 'Open Sans', sans-serif;
+  }
+  
+  #MessageBoxMain #MessageBoxBackground #MessageBubble p {
+    color: #ededed;
+    font-family: "Open Sans", sans-serif;
     font-size: 12pt;
-}
-
-#MessageBoxMain #MessageBoxBackground #MessageBubble #MessageTimestamp
-{
-    color: #EDEDED;
+  }
+  
+  #MessageBoxMain #MessageBoxBackground #MessageBubble #MessageTimestamp {
+    color: #ededed;
     opacity: 0.8;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 8pt;
     float: right;
-}
-
-
+  }
+  
+  #MessageSearchInput {
+    color: #6c6c6c;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 30px;
+    background: #3e3d3d;
+    padding: 20px;
+  
+    display: block;
+    width: 580px;
+    height: 5px;
+    font-size: 12pt;
+    border: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #MessageSearchInput:focus {
+    outline: 2px solid #abff4f;
+    transition: outline 0.1s;
+  }
+  
 #messageTextbox
 {
     font-family: 'Open Sans', sans-serif;
@@ -304,8 +322,8 @@ mat-button-toggle-group::-webkit-scrollbar {
     outline: 2px;
     margin: 15px;
     padding: 10px;
-    margin-top: 5px; 
-    margin-bottom: 5px; 
+    margin-top: 5px;
+    margin-bottom: 5px;
     position: relative;
     left: 1.9em;
     // border: 1px solid #CCCCCC !important;
@@ -345,77 +363,81 @@ mat-button-toggle-group::-webkit-scrollbar {
     resize: none;
     display: inline-block;
     margin: auto;
-}
-// #MessageTextbox
-// {
-//     display: inline;
-// }
-
-.send-button 
-{
+  }
+  // #MessageTextbox
+  // {
+  //     display: inline;
+  // }
+  
+  .send-button {
     background-color: #212121;
-    border-style: none;   
+    border-style: none;
     display: inline-block;
     margin: 8px;
     position: fixed;
-    color: #ABFF4F;
+    color: #abff4f;
     font-size: 22pt;
     // bottom: 0;
     transform: rotate(-45deg);
-    
+  
     // float: right;
-}
-
-.attach-button
-{
+  }
+  
+  .attach-button {
     background-color: #212121;
-    border-style: none;   
+    border-style: none;
     display: inline-block;
     margin: 8px;
     position: relative;
-    color: #ABFF4F;
+    color: #abff4f;
     font-size: 22pt;
-    // bottom: 0; 
+    // bottom: 0;
     // left: 0;
     transform: rotate(45deg);
-}
-
-.broadcast-button
-{
+  }
+  
+  .broadcast-button {
     background-color: #212121;
-    border-style: none;   
+    border-style: none;
     display: inline-block;
     margin: 8px;
     position: relative;
-    color: #ABFF4F;
+    color: #abff4f;
     font-size: 22pt;
-    // bottom: 0; 
+    // bottom: 0;
     // left: 0;
     // transform: rotate(45deg);
-}
-
-.send-button:hover
-{
-    cursor:pointer;
-}
-
-mat-icon{
-    color: #ABFF4F;
+  }
+  
+  .send-button:hover {
+    cursor: pointer;
+  }
+  
+  mat-icon {
+    color: #abff4f;
     font-size: 22pt;
-}
-
-#broadcast{
+  }
+  
+  #broadcast {
     position: relative;
-    right:9.4em;
-}
-
-#attach{
+    right: 9.4em;
+  }
+  
+  #attach {
     position: relative;
-    right:9em;
-}
-
-#send{
+    right: 9em;
+  }
+  
+  #send {
     position: relative;
     bottom: 0.25em;
     left: 1em;
-}
+  }
+  
+  ::ng-deep .custom-modalbox {
+      mat-dialog-container {
+          padding: 2em;
+          background-color: #212121;
+          border-radius: 1em;
+      }
+  }
