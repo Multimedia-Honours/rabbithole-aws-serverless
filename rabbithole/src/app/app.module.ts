@@ -49,7 +49,8 @@ import { AuthGuardService } from './sub-systems/services/auth-guard.service';
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
