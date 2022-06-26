@@ -21,16 +21,15 @@ export class EventsService {
 
   async modifyEvent(body: any){
     const path = this.eventsEndpoint;
-    
     let putRequestBody = {
-      "ID": "11111",
-      "color": "d",
-      "start": "1111",
-      "end": "11111",
-      "title": "body.title"
+      "ID": body.ID,
+      "color": body.color[0],
+      "start": body.start,
+      "end": body.end,
+      "title": body.title
     };
     console.log(putRequestBody);
-    return this.http.put(this.eventsEndpoint, putRequestBody);
+    return this.http.put(path, putRequestBody);
     
   }
 
