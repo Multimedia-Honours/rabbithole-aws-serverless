@@ -25,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AdminComponent } from './sub-systems/admin/admin.component';
 import { AuthGuardService } from './sub-systems/services/auth-guard.service';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { AuthGuardService } from './sub-systems/services/auth-guard.service';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatButtonToggleModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
