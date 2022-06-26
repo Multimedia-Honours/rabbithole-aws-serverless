@@ -73,7 +73,10 @@ export class ChatLandingComponent implements OnInit {
       });
     });
 
-      this.CS.getAllUsers().subscribe(
+
+    const emailObj = Auth.currentUserInfo().then((data) => {
+      this.currentUserEmail = data.attributes.email;
+      this.CS.getAllUsers(this.currentUserEmail).subscribe(
         data => {
           // this.contacts = data;
           data.map(
@@ -83,13 +86,14 @@ export class ChatLandingComponent implements OnInit {
           )
         }
       );
+    });
+
+      
           
         console.log(this.contacts);
     
 
-    const emailObj = Auth.currentUserInfo().then((data) => {
-      this.currentUserEmail = data.attributes.email;
-    });
+
   }
 
   openDialog() {

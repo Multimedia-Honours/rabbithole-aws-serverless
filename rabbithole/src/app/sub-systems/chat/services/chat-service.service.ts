@@ -37,15 +37,25 @@ export class ChatServiceService {
   
 
 
-  public getAllUsers()
+  public getAllUsers(currentEmail:string)
   {
+    console.log("hierdie ou is n dom poes ---> " + currentEmail);
     const URL = "https://em8tzstb7h.execute-api.us-east-1.amazonaws.com/staging/users"  
     var subject = new Subject<any>();
 
     this.http.get<any>(URL).subscribe(
       data => {
-        let contacts = [];
-        contacts = data.Items;
+        let contacts: any[] = [];
+        data.Items.forEach((item: any) => {
+          if(item.email != currentEmail)
+          {
+            contacts.push(item);
+            
+          }
+         
+        });
+        console.log(contacts);
+        // contacts = data.Items;
         subject.next(contacts);
       }
     );
