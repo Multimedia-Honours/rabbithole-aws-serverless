@@ -30,12 +30,6 @@
       }
     }
   },
-  "storage": {
-    "s3rabbitholeclaims": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
-    }
-  },
+  "storage": {},
   "api": {}
 }
