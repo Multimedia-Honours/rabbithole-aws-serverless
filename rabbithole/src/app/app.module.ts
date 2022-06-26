@@ -16,19 +16,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage.component';
 import { AuthComponent } from './sub-systems/home/auth/auth.component';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AdminComponent } from './sub-systems/admin/admin.component';
-import { AuthGuardService } from './sub-systems/services/auth-guard.service';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { FilterPipe } from './sub-systems/admin/pipes/filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
+
+import { FilterPipe } from './sub-systems/chat/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -36,8 +34,8 @@ import { FormsModule } from '@angular/forms';
     LandingpageComponent,
     AuthComponent,
     ProfileComponent,
-    AdminComponent,
-    FilterPipe
+    // FilterPipe
+    
   ],
   imports: [
     AppRoutingModule,
@@ -54,12 +52,14 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
+    MatButtonToggleModule,
     HttpClientModule,
     MatTooltipModule,
-    MatButtonToggleModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+  
   ],
-  providers: [AuthGuardService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

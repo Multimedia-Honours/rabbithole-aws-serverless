@@ -26,6 +26,7 @@ const routes: Routes = [
     component:AdminComponent,
     canActivate:[AuthGuardService]
   },
+  { path: 'events', loadChildren: () => import('./sub-systems/events/events.module').then(m => m.EventsModule) },
   {
     path: '**',
     redirectTo: 'chat'
