@@ -94,7 +94,7 @@ export class EventsHomeComponent implements OnInit {
           primary: '#a7ff2d',
           secondary: '',
         },
-        allDay: true,
+        allDay: false,
         resizable: {
           beforeStart: true,
           afterEnd: true,

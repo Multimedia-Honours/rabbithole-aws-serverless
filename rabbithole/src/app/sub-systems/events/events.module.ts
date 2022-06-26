@@ -7,11 +7,6 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { EventsHomeComponent } from './screens/events-home/events-home.component';
-import {
-  NgxMatDatetimePickerModule, 
-  NgxMatNativeDateModule, 
-  NgxMatTimepickerModule 
-} from '@angular-material-components/datetime-picker';
 
 @NgModule({
   declarations: [
@@ -26,9 +21,6 @@ import {
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
-    NgxMatNativeDateModule,
   ]
 })
 export class EventsModule { }
