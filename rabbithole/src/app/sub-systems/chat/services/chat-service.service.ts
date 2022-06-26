@@ -14,7 +14,7 @@ const AWS = require("aws-sdk")
 
 import { SES, AWSError } from 'aws-sdk';
 import { SendEmailRequest, SendEmailResponse } from 'aws-sdk/clients/ses';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../environments/environment.prod';
 import { Subject } from 'rxjs';
 import { debug } from 'console';
 import { parse } from 'path';
@@ -22,8 +22,8 @@ import { FormsModule } from '@angular/forms';
 
 const REGION = "us-east-1";
 const CREDENTIALS = {
-  accessKeyId: environment.ACCESS_KEY, 
-  secretAccessKey: environment.SECRET_ACCESS_KEY
+  accessKeyId: environment["ACCESS_KEY"], 
+  secretAccessKey: environment["SECRET_ACCESS_KEY"]
 };
 
 @Injectable({
