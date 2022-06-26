@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { Console } from 'console';
 import { NativeDateModule } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { UserApiService } from '../services/user-api.service';
 
 
 
@@ -22,7 +23,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class AdminComponent implements OnInit {
   contacts:any = [];
-  constructor(public authenticator: AuthenticatorService, private http: HttpClient, private CS:ChatService) { }
+  constructor(public authenticator: AuthenticatorService, private http: HttpClient, private CS:ChatService, private userService:UserApiService) { }
   searchText!:string;
   currentUserEmail:string = "";
   contactSelected: boolean = false;
@@ -47,6 +48,14 @@ export class AdminComponent implements OnInit {
     });
 
     }
+
+
+    async displayUser(value:any){
+      await this.userService.getUser(value).then(data=>{
+        console.log(data);
+      })
+    } 
+
 
 
 
