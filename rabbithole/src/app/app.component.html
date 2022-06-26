@@ -28,23 +28,17 @@
       <!-- Get icon names from material.io/icons -->
       <button
         class="nav-button"
-        matTooltip="Calendar"
+        matTooltip="Events"
         matTooltipPosition="right"
+        [routerLink]="'events'"
       >
         <mat-icon>calendar_month</mat-icon>
       </button>
       <button
         class="nav-button"
-        matTooltip="Meetings"
-        matTooltipPosition="right"
-      >
-        <mat-icon>videocam</mat-icon>
-      </button>
-      <button
-        class="nav-button"
-        [routerLink]="'claims'"
         matTooltip="Claims"
         matTooltipPosition="right"
+        [routerLink]="'claims'"
       >
         <mat-icon>playlist_add_check</mat-icon>
       </button>

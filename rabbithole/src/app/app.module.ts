@@ -17,7 +17,6 @@ import { MatListModule } from '@angular/material/list';
 import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage.component';
 import { AuthComponent } from './sub-systems/home/auth/auth.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -49,7 +48,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatCardModule,
     MatButtonToggleModule,
-    HttpClientModule,
     HttpClientModule,
     MatTooltipModule 
   ],
