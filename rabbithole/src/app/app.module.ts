@@ -27,6 +27,7 @@ import { AdminComponent } from './sub-systems/admin/admin.component';
 import { AuthGuardService } from './sub-systems/services/auth-guard.service';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { FilterPipe } from './sub-systems/admin/pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { FilterPipe } from './sub-systems/admin/pipes/filter.pipe';
     AuthComponent,
     ProfileComponent,
     AdminComponent,
-    FilterPipe,
+    FilterPipe
   ],
   imports: [
     AppRoutingModule,
@@ -55,7 +56,8 @@ import { FilterPipe } from './sub-systems/admin/pipes/filter.pipe';
     MatCardModule,
     HttpClientModule,
     MatTooltipModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    FormsModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

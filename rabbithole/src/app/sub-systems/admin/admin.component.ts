@@ -5,8 +5,13 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 import { Auth, Amplify } from 'aws-amplify';
-import { ChatServiceService } from 'src/app/sub-systems/chat/services/chat-service.service';
-
+import { ChatService } from './services/chat.service';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+// import Amplify from 'aws-amplify';
+import { Console } from 'console';
+import { NativeDateModule } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -17,10 +22,10 @@ import { ChatServiceService } from 'src/app/sub-systems/chat/services/chat-servi
 })
 export class AdminComponent implements OnInit {
   contacts:any = [];
-  constructor(public authenticator: AuthenticatorService, private http: HttpClient) { }
+  constructor(public authenticator: AuthenticatorService, private http: HttpClient, private CS:ChatService) { }
   searchText!:string;
   currentUserEmail:string = "";
-
+  contactSelected: boolean = false;
   @ViewChild('contactBox') contactBox!:ElementRef;
 
   ngOnInit(): void {
@@ -30,7 +35,7 @@ export class AdminComponent implements OnInit {
     const emailObj = Auth.currentUserInfo().then((data) => {
       this.currentUserEmail = data.attributes.email;
       this.CS.getAllUsers(this.currentUserEmail).subscribe(
-        data => {
+        (data) => {
           // this.contacts = data;
           data.map(
             (contact: any) => {
