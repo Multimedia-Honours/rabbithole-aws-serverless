@@ -1,7 +1,6 @@
 import { Injectable, ViewChild, ViewContainerRef } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { async } from '@angular/core/testing';
-import awsmobile from 'src/aws-exports';
 
 // import { Client, Intents } from "discord.js";
 
