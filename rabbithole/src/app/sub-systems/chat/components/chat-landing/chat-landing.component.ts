@@ -15,7 +15,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { PreferencesPopupComponent } from '../preferences-popup/preferences-popup.component';
 import { UserApiService } from '../../../profile/services/user-api.service';
 
-
 @Component({
   selector: 'app-chat-landing',
   templateUrl: './chat-landing.component.html',
@@ -37,9 +36,8 @@ export class ChatLandingComponent implements OnInit {
   
   constructor(public authenticator: AuthenticatorService, public CS:ChatServiceService, private http: HttpClient,private service: UserApiService,public dialog: MatDialog) {
     Amplify.configure(awsExports);
-    
-
   }
+
   contactSelected: boolean = false;
   public newUser = false;
   ngOnInit():void 
@@ -50,26 +48,23 @@ export class ChatLandingComponent implements OnInit {
     const userAuthObj =  Auth.currentUserInfo().then((res)=>{
       email = res.attributes.email;
       const domain = email.substring(email.indexOf('@') + 1);
-      console.log(domain);
+     
       if(domain != 'tuks.co.za' && domain != 'retrorabbit.co.za' ){
         alert('You need to be a registered \n employee of Retro Rabbit to continue');
         this.authenticator.signOut();
       }
-      console.log(email);
+      
       this.service.getUser(email).subscribe((res) => {
-        console.log(res);
+       
         if (!res.Item) {
           this.newUser = true;
-          console.log('user does not exist, adding to database');
           /*this.service.insertUser(email).subscribe((res)=>{
             console.log(res);
           })*/
           this.openDialog();
         } else {
-          console.log('User exists within db');
           this.newUser = false;
         }
-        console.log(this.newUser);
       });
     });
 
@@ -87,13 +82,6 @@ export class ChatLandingComponent implements OnInit {
         }
       );
     });
-
-      
-          
-        console.log(this.contacts);
-    
-
-
   }
 
   openDialog() {
@@ -101,14 +89,12 @@ export class ChatLandingComponent implements OnInit {
       panelClass: 'custom-modalbox',
       disableClose: true 
     });
-    console.log('test');
   }
 
   async changeDisplayedUser(value:any)
   {
     
     this.messages = [];
-    // this.messages.push('');
     (await this.CS.getUserMessages(value, this.currentUserEmail)).subscribe(
       (data: any[]) => {
         data.map(
@@ -120,19 +106,14 @@ export class ChatLandingComponent implements OnInit {
             this.loadingMessage = false;
             
             }, 1000);
-            // console.log("doos");
           }
         );
-        console.log(this.messages);
       });
       this.activeRecipient = value;
       this.loadingMessage = false;
 
       const contactsArray = this.contactBox.nativeElement.children;
 
-      // console.log(contactsArray);
-      console.log("---------------------------")
-  
       for (let item of contactsArray) 
       {
         if (item.getAttribute("id") == this.activeRecipient) 
@@ -140,8 +121,6 @@ export class ChatLandingComponent implements OnInit {
           //still working on this
         }
       }
-
-
   }
  
 
@@ -153,11 +132,6 @@ export class ChatLandingComponent implements OnInit {
 
     const current = new Date();
     const timestamp = current.toLocaleString();
-    console.log(timestamp);
-    console.log(this.activeRecipient);
-    console.log(messageBody);
-
-    
 
     this.CS.sendMessage(this.currentUserEmail, this.activeRecipient, timestamp, messageBody);
     let response = await this.CS.getUserPreferences(this.activeRecipient);
@@ -166,8 +140,6 @@ export class ChatLandingComponent implements OnInit {
       if(data.discordPreference)
       {
         let discordID = data.discordID;
-        console.log(discordID);
-        console.log("-------------------------")
         await this.CS.discordMessage(messageBody,discordID, this.currentUserEmail);
       }
       if(data.ryverPreference)
@@ -183,27 +155,15 @@ export class ChatLandingComponent implements OnInit {
 
       const contactsArray = this.contactBox.nativeElement.children;
 
-      console.log(contactsArray);
-      console.log("---------------------------")
-  
       for (let item of contactsArray) {
         if (item.getAttribute("id") == this.activeRecipient) 
         {
             item.dispatchEvent(new Event('click'));
         }
-  
     }
-
-    })
-
-
-
+    });
     this.receiverName.nativeElement.value = '';
     this.textMessage.nativeElement.value = '';
   }
-
-
-
-
 
 }
