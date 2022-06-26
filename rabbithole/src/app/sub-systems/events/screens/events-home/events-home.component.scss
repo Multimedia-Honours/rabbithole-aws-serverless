@@ -1,0 +1,111 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+$greyColour: #212121;
+$greenColour: #a7ff2d;
+$lightGreyColour: #3e3d3d;
+$lightestGreyColour: #3e3d3d;
+
+h3 {
+    margin: 0 0 10px;
+}
+
+pre {
+    background-color: #52ff0e;
+    padding: 15px;
+}
+
+::ng-deep .cal-month-view .cal-header .cal-cell {
+    color: $greenColour !important;
+    font-weight: normal !important;
+}
+
+::ng-deep .cal-month-view{
+    background-color: transparent !important;
+}
+
+::ng-deep .cal-month-view .cal-day-cell.cal-today {
+    background-color: #5b5b5b !important;
+}
+
+::ng-deep .cal-cell:hover {
+    background-color: #656464 !important;
+}
+
+::ng-deep .cal-cell-row:hover {
+    background-color: transparent !important;
+}
+
+::ng-deep .cal-days{
+    background-color: $greyColour !important;
+}
+
+::ng-deep .cal-drag-over{
+    background-color: #656464 !important;
+}
+
+::ng-deep .cal-day-cell .cal-day-number {
+    border-color: $greenColour !important;
+    color: $greenColour !important;
+    opacity: 60% !important;
+    border-right-color: $greenColour !important;
+}
+
+.btn{
+    color: $greenColour !important;
+    background-color: $greyColour ;
+    border-color: $greenColour !important ;
+}
+
+::ng-deep .btn.active{
+    background-color: $greenColour !important ;
+    color: $greyColour !important;
+    opacity: 60% !important;
+}
+
+::ng-deep .btn:hover{
+    background-color: $lightGreyColour ;
+}
+
+.btn-outline-secondary{
+    background-color: $greenColour !important ;
+    color: $greyColour !important;
+
+}
+
+#current-month-heading{
+    color: $greenColour;
+}
+
+th{
+    color: $greenColour !important;
+    font-weight: normal !important;
+}
+
+thead{
+    border-bottom: 2px solid #ffffff !important;
+    font-weight: normal !important;
+}
+table{
+    border: #ffffff !important;
+}
+
+#all-event-content{
+    width: 90%;
+    height: 90%
+}
+
+input{
+    background-color: transparent !important;
+    color: $greenColour !important;
+}
+
+button.btn.btn-danger{
+    color: red !important;
+    background-color: $greyColour !important;
+    border-color: red !important;
+}
+
+button.btn.btn-danger:hover{
+    color: $greyColour !important;
+    background-color: red !important;
+    border-color: red !important;
+}

@@ -17,6 +17,7 @@ const routes: Routes = [
   {
     path: 'profile', component: ProfileComponent  
   },
+  { path: 'events', loadChildren: () => import('./sub-systems/events/events.module').then(m => m.EventsModule) },
   {
     path: '**',
     redirectTo: 'chat'
