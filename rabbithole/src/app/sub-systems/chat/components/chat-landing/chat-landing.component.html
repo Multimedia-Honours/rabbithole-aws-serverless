@@ -3,10 +3,10 @@
             <div id="chatBoxLeft" >
                 <div id="chatBoxHeading">Contacts</div>
                 <input type="text" name="MessageSearchInput"  [(ngModel)]='searchText' #receiverName id="MessageSearchInput" #MessageSearchInput placeholder="Search for people to message"/>                
-                    <mat-button-toggle-group #contactBox [vertical]="true" class="mat-elevation-z0" #toggleBtn="matButtonToggleGroup">
+                    <mat-button-toggle-group  #contactBox [vertical]="true" class="mat-elevation-z0" #toggleBtn="matButtonToggleGroup">
                         <mat-button-toggle id = {{item.email}} class="chatBoxContact" *ngFor="let item of contacts | appFilter: searchText" [value]="item.email" value="SelectedContact" (click)="changeDisplayedUser(item.email) ">
-                            <h1  >{{ item.email }}</h1> 
-                          </mat-button-toggle>
+                            <h1>{{ item.email }}</h1> 
+                        </mat-button-toggle>
                     </mat-button-toggle-group>
             </div>
 
@@ -15,14 +15,18 @@
                     <h2>{{toggleBtn.value}}</h2>
                 </div>
         
-                <ng-container #messageContainer class="messageContainer" >
-                    <app-message-box *ngFor="let item of messages" message="{{item.message}}" timestamp="{{item.timestamp}}" ></app-message-box>
+                <ng-container #messageContainer class="messageContainer">
+                    <div *ngFor="let item of messages">
+                        <div *ngIf="item !== ''">
+                            <app-message-box message="{{item.message}}" timestamp="{{item.timestamp}}"></app-message-box>
+                        </div>
+                    </div>
                 </ng-container>
 
 
             </div>        
 
-            <div id="MessageBoxBackground" *ngIf="messages?.length === 0 && activeRecipient != '' " style="opacity: 1;">
+            <div id="MessageBoxBackground" *ngIf="messages?.length === 0 && loadingMessage === false && activeRecipient != ''" style="opacity: 1;">
                 <ng-container #messageContainer class="messageContainer" >
                     <div id="NoMessageError">
                         <img src="../../../../../assets/images/retro_blur.png" alt="">
@@ -38,6 +42,15 @@
                         <p>Select a contact to view messages</p>
                     </div>
                 </ng-container>
+            </div>
+
+            <div id="MessageBoxBackground" *ngIf="loadingMessage == true && messages[0] != '/'" style="z-index: 999 !important;">
+                <ng-container #messageContainer class="messageContainer" >
+                    <div id="NoMessageError">
+                        <img src="../../../../../assets/images/retro_loading.gif" alt="">
+                        <p>Loading messages...</p>
+                    </div>
+                </ng-container>                
             </div>
             
             <div id="MessageForm" *ngIf = "activeRecipient != ''">	

@@ -79,7 +79,7 @@ export class ChatServiceService {
 
   }
 
-  public getUserMessages(value:any, author:string)
+  public async getUserMessages(value:any, author:string)
   {
       console.log(value)
       var subject = new Subject<any>();

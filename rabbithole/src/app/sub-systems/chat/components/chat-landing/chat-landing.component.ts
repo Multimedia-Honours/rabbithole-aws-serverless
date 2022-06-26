@@ -24,6 +24,7 @@ export class ChatLandingComponent implements OnInit {
   activeRecipient: string = '';
   currentUserEmail:string = "";
   searchText!:string;
+  public loadingMessage:boolean = false;
 
   @ViewChild('contactBox') contactBox!:ElementRef;
   @ViewChild('messageContainer') appendMessage!:ElementRef;
@@ -72,24 +73,42 @@ export class ChatLandingComponent implements OnInit {
   }
 
 
-  changeDisplayedUser(value:any)
+  async changeDisplayedUser(value:any)
   {
-
-    this.messages = []
-
-    this.CS.getUserMessages(value,this.currentUserEmail).subscribe(
-      data => {
+    
+    this.messages = [];
+    // this.messages.push('');
+    (await this.CS.getUserMessages(value, this.currentUserEmail)).subscribe(
+      (data: any[]) => {
         data.map(
           (message:any) => 
           {
-          
+            this.loadingMessage = true;
+            setTimeout(async () =>{
             this.messages.push(message);
+            this.loadingMessage = false;
+            
+            }, 1000);
+            // console.log("doos");
           }
         );
         console.log(this.messages);
       });
       this.activeRecipient = value;
+      this.loadingMessage = false;
 
+      const contactsArray = this.contactBox.nativeElement.children;
+
+      // console.log(contactsArray);
+      console.log("---------------------------")
+  
+      for (let item of contactsArray) 
+      {
+        if (item.getAttribute("id") == this.activeRecipient) 
+        {
+          //still working on this
+        }
+      }
 
 
   }
