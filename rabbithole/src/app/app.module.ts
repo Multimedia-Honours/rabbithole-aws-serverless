@@ -17,15 +17,16 @@ import { MatListModule } from '@angular/material/list';
 import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage.component';
 import { AuthComponent } from './sub-systems/home/auth/auth.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 import { FilterPipe } from './sub-systems/chat/pipes/filter.pipe';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,10 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatButtonToggleModule,
     HttpClientModule,
-    FormsModule
-   
+    MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

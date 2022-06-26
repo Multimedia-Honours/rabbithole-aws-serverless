@@ -17,7 +17,7 @@ export class EventsHomeComponent implements OnInit {
   CalendarView = CalendarView;
   viewDate: Date = new Date();
   refresh = new Subject<void>();
-  events: CalendarEvent[] = [];
+  events: any[] = [];
   activeDayIsOpen: boolean = true;
 
   constructor(private eventsService: EventsService, private changeDetectorRef: ChangeDetectorRef) {}
@@ -30,6 +30,7 @@ export class EventsHomeComponent implements OnInit {
     (await this.eventsService.getEvents()).subscribe(res => {
       res.Items.forEach((event: any) =>{
         eventObj = {
+          "ID": event.ID,
           "start": new Date(event.start),
           "end": new Date(event.end),
           "title": event.title,
@@ -87,6 +88,7 @@ export class EventsHomeComponent implements OnInit {
     this.events = [
       ...this.events,
       {
+        ID: Math.floor(Date.now() + Math.random()*100),
         start: new Date(),
         end: new Date(),
         title: '[Empty]',
@@ -104,8 +106,9 @@ export class EventsHomeComponent implements OnInit {
     ];
   }
 
-  deleteEvent(eventToDelete: CalendarEvent) {
+  deleteEvent(eventToDelete: any) {
     this.events = this.events.filter((event) => event !== eventToDelete);
+    this.eventsService.deleteEvent(eventToDelete.ID);
   }
 
   setView(view: CalendarView) {
@@ -133,16 +136,16 @@ export class EventsHomeComponent implements OnInit {
       }else{
         end = event.end;
       }
+
       updateEvent = {
-        "ID": Math.floor(Date.now() + Math.random()*100),
+        "ID": event.ID,
         "color": color.toString(),
         "start": event.start.toString(),
         "end": end.toString(),
         "title": event.title
       };
+      this.eventsService.modifyEvent(updateEvent);
     });
-
-    this.eventsService.modifyEvent(updateEvent);
   }
 
   closeOpenMonthViewDay() {
