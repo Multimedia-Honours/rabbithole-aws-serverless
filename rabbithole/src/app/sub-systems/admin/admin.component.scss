@@ -449,3 +449,26 @@ mat-button-toggle-group::-webkit-scrollbar {
           border-radius: 1em;
       }
   }
+
+  .show{
+    position: absolute;
+    right:20%;
+    background-color: #3E3D3D;
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    border-radius: 5px;
+    background: #3E3D3D;
+    width: 650px;
+    font-size: 12pt;
+    border: 0;
+    margin: 15px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+  }
+
+  .show >h1{
+    color:#A7FF2D;
+
+  }

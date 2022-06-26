@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { Console } from 'console';
 import { NativeDateModule } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
-import { UserApiService } from '../services/user-api.service';
+import { UserApiService } from './services/user-api.service';
 
 
 
@@ -28,6 +28,7 @@ export class AdminComponent implements OnInit {
   currentUserEmail:string = "";
   contactSelected: boolean = false;
   dUser: any;
+  name:string ="";
   isAdmin = false;
   @ViewChild('contactBox') contactBox!:ElementRef;
 
@@ -57,12 +58,30 @@ export class AdminComponent implements OnInit {
       await this.userService.getUser(value).then(data=>{
         this.dUser = data;
       })
-
-      this.isAdmin = this.dUser.isAdmin;
-
+      this.name= this.dUser.Item.email;
+      console.log(this.name);
+      this.isAdmin = this.dUser.Item.isAdmin;
+   
 
     } 
 
+
+    makeAdmin(email:any){
+      this.dUser.Item.isAdmin = true;
+      this.userService.insertUser(this.dUser.Item,email).subscribe((res)=>{
+        console.log(res);
+        this.isAdmin = true;
+      })
+    }
+
+
+    removeAdmin(email:any){
+      this.dUser.Item.isAdmin = false;
+      this.userService.insertUser(this.dUser.Item,email).subscribe((res)=>{
+        console.log(res);
+        this.isAdmin = false;
+      })
+    }
 
 
 

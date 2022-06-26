@@ -8,8 +8,9 @@
         </mat-button-toggle-group>
 </div>
 
-<div *ngIf="dUser">
-    <h1>{{displayUser.name}}</h1>
-    <button>Make Admin</button>
-    <button *ngIf="isAdmin">Remove Admin</button>
+<div class="show" *ngIf="dUser">
+    <h1>{{name}}</h1>
+    <button (click)="makeAdmin(dUser.Item.email)" *ngIf="!isAdmin">Make Admin</button>
+    <button *ngIf="isAdmin" (click)="removeAdmin(dUser.Item.email)">Remove Admin</button>
 </div>
+   

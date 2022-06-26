@@ -36,10 +36,12 @@ export class UserApiService {
         "discordID": body.discordID,
         "ryverPreference":  body.ryverPreference,
         "emailPreference": body.emailPreference,
-        "isAdmin": false,
+        "isAdmin": body.isAdmin,
         "email": email
     }
-    return this.http.put(`${this.API_ENDPOINT}`, data);
+    console.log("check: " +email)
+    
+    return this.http.put(`${this.API_ENDPOINT}`,data, );
   }
 
   deleteUser(id:any):Observable<any>{
