@@ -19,7 +19,7 @@ import { environment } from '../../../../environments/environment';
 import { Subject } from 'rxjs';
 import { debug } from 'console';
 import { parse } from 'path';
-
+import { FormsModule } from '@angular/forms';
 
 const REGION = "us-east-1";
 const CREDENTIALS = {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
 import { ChatServiceService } from 'src/app/sub-systems/chat/services/chat-service.service';
-// import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 // import Amplify from 'aws-amplify';
 import { Auth, Amplify } from 'aws-amplify';
 import awsExports from '../../../../../aws-exports';
@@ -10,6 +10,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Console } from 'console';
 import { MessageBoxComponent } from '../message-box/message-box/message-box.component';
 import { NativeDateModule } from '@angular/material/core';
+import { FilterPipe } from '../../pipes/filter.pipe';
 
 
 @Component({
@@ -22,15 +23,7 @@ export class ChatLandingComponent implements OnInit {
   messages:any = [];
   activeRecipient: string = '';
   currentUserEmail:string = "";
-  // noMessageSent:boolean = true;
-    
-    
-
-  // @ViewChild('container', { read: ViewContainerRef }) template!: ElementRef;
-  // contentElement!: ViewContainerRef;
-  // @ViewChild('messageContainer', { static: false }) appendMessage!:ElementRef;
-  
-  // @ViewChild(`${this.activeRecipient}`, { static: false}) el: ElementRef;
+  searchText!:string;
 
   @ViewChild('contactBox') contactBox!:ElementRef;
   @ViewChild('messageContainer') appendMessage!:ElementRef;
@@ -40,12 +33,14 @@ export class ChatLandingComponent implements OnInit {
   
   constructor(public authenticator: AuthenticatorService, public CS:ChatServiceService, private http: HttpClient) {
     Amplify.configure(awsExports);
+    
 
   }
   contactSelected: boolean = false;
 
   ngOnInit():void 
   {
+    this.searchText = "";
     console.log('entered init');
     let email:any;
     const userAuthObj =  Auth.currentUserInfo().then((res)=>{

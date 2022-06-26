@@ -24,13 +24,16 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FilterPipe } from './sub-systems/chat/pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
     AuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    // FilterPipe
     
   ],
   imports: [
@@ -49,7 +52,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCardModule,
     MatButtonToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
