@@ -16,8 +16,8 @@ const awsmobile = {
             "profile",
             "aws.cognito.signin.user.admin"
         ],
-        "redirectSignIn": "http://localhost:4200/chat/",
-        "redirectSignOut": "http://localhost:4200/",
+        "redirectSignIn": "https://rabbithole-aws.shop/chat/",
+        "redirectSignOut": "https://rabbithole-aws.shop/",
         "responseType": "code"
     },
     "federationTarget": "COGNITO_USER_POOLS",
