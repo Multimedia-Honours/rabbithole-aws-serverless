@@ -26,6 +26,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { AdminComponent } from './sub-systems/admin/admin.component';
 import { AuthGuardService } from './sub-systems/services/auth-guard.service';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { FilterPipe } from './sub-systems/admin/pipes/filter.pipe';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     AuthComponent,
     ProfileComponent,
     AdminComponent,
+    FilterPipe,
   ],
   imports: [
     AppRoutingModule,
