@@ -62,7 +62,7 @@ export class TextractApiService {
       
       return JSON.stringify(this.textractObj);
     } catch (err) {
-      console.log("Error", err);
+     
       return err;
     }
   }
@@ -82,12 +82,12 @@ export class TextractApiService {
   
       s3Client.upload(params, (err: any, data: any) =>{
         if (err) {
-          console.log('There was an error uploading your file: ', err);
+         
         }
-        console.log('Successfully uploaded file.', data);
+        
       });
     } catch (error) {
-      console.log("Error uploading file: ", error);
+     
 
       return error;
     }

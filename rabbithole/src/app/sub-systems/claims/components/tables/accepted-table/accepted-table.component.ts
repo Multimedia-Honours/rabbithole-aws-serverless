@@ -37,7 +37,6 @@ export class AcceptedTableComponent implements OnInit {
 
   async ngOnInit() {
     await this.getPendingClaims();
-    console.log(this.CLAIMS_TABLE_DATA);
   }
 
   async getPendingClaims(){

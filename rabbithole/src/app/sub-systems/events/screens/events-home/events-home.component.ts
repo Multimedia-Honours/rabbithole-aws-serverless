@@ -25,7 +25,7 @@ export class EventsHomeComponent implements OnInit {
   async ngOnInit() {
     let eventObj:any = {};
 
-    console.log(eventObj);
+    
 
     (await this.eventsService.getEvents()).subscribe(res => {
       res.Items.forEach((event: any) =>{
@@ -48,7 +48,7 @@ export class EventsHomeComponent implements OnInit {
         this.events.push(eventObj);
         this.refresh.next();
       });
-      console.log(eventObj);
+    
     
     });
   }
@@ -116,7 +116,7 @@ export class EventsHomeComponent implements OnInit {
   }
 
   updateEvent(){
-    console.log(this.events);
+    
   }
 
   saveCalanderState(){

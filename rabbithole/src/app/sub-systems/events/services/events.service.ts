@@ -30,7 +30,7 @@ export class EventsService {
       "end": body.end,
       "title": body.title
     };
-    console.log(this.PUTRequest);
+    
     
     this.http.put<any>(path, this.PUTRequest).subscribe(response => {
       return response;
