@@ -49,12 +49,12 @@ export class ChatLandingComponent implements OnInit {
     let email:any;
     const userAuthObj =  Auth.currentUserInfo().then((res)=>{
       email = res.attributes.email;
-      /*  const domain = email.substring(email.indexOf('@') + 1);
+      const domain = email.substring(email.indexOf('@') + 1);
       console.log(domain);
       if(domain != 'tuks.co.za' && domain != 'retrorabbit.co.za' ){
         alert('You need to be a registered \n employee of Retro Rabbit to continue');
         this.authenticator.signOut();
-      }*/
+      }
       console.log(email);
       this.service.getUser(email).subscribe((res) => {
         console.log(res);

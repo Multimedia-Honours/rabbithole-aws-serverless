@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingpageComponent } from './sub-systems/home/landingpage/landingpage.component';
 import { AuthComponent } from './sub-systems/home/auth/auth.component';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
+import { AdminComponent } from './sub-systems/admin/admin.component';
+import { AuthGuardService } from './sub-systems/services/auth-guard.service';
+
 
 const routes: Routes = [
   {
@@ -15,12 +18,22 @@ const routes: Routes = [
     loadChildren: () => import('./sub-systems/claims/claims.module').then(m => m.ClaimsModule) 
   },
   {
-    path: 'profile', component: ProfileComponent  
+    path: 'profile', 
+    component: ProfileComponent  
   },
-  { path: 'events', loadChildren: () => import('./sub-systems/events/events.module').then(m => m.EventsModule) },
+  { 
+    path: 'events', 
+    loadChildren: () => import('./sub-systems/events/events.module').then(m => m.EventsModule) 
+  },
+  { 
+    path: 'admin', 
+    loadChildren: () => import('./sub-systems/admin/admin.module').then(m => m.AdminModule),
+    canActivate:[AuthGuardService] 
+  },
   {
     path: '**',
     redirectTo: 'chat'
+   
   }
 ];
 
