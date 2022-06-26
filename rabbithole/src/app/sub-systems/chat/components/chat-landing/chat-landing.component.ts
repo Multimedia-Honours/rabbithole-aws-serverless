@@ -1,18 +1,14 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
-<<<<<<< HEAD
 import Amplify from 'aws-amplify';
 import { UserApiService } from '../../../profile/services/user-api.service';
 import { Auth } from 'aws-amplify';
 import { MatDialog } from '@angular/material/dialog';
 import { PreferencesPopupComponent } from '../preferences-popup/preferences-popup.component';
 
-=======
 import { ChatServiceService } from 'src/app/sub-systems/chat/services/chat-service.service';
 // import { FormsModule } from '@angular/forms';
 // import Amplify from 'aws-amplify';
-import { Auth, Amplify } from 'aws-amplify';
->>>>>>> development
 import awsExports from '../../../../../aws-exports';
 import { ViewChild,ElementRef,ViewContainerRef} from '@angular/core'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -27,20 +23,6 @@ import { NativeDateModule } from '@angular/material/core';
   styleUrls: ['./chat-landing.component.scss'],
 })
 export class ChatLandingComponent implements OnInit {
-<<<<<<< HEAD
-  constructor(
-    public authenticator: AuthenticatorService,
-    private service: UserApiService,
-    public dialog: MatDialog
-  ) {
-    Amplify.configure(awsExports);
-  }
-  public newUser = false;
-  ngOnInit(): void {
-    console.log('enetered init');
-    let email: any;
-    const userAuthObj = Auth.currentUserInfo().then((res) => {
-=======
   contacts:any = [];
   messages:any = [];
   activeRecipient: string = '';
@@ -61,25 +43,23 @@ export class ChatLandingComponent implements OnInit {
   @ViewChild('messageTextbox') textMessage:any;
   htmlToAdd!: string;
   
-  constructor(public authenticator: AuthenticatorService, public CS:ChatServiceService, private http: HttpClient) {
+  constructor(public authenticator: AuthenticatorService, public CS:ChatServiceService, private http: HttpClient,private service: UserApiService,public dialog: MatDialog) {
     Amplify.configure(awsExports);
 
   }
   contactSelected: boolean = false;
-
+  public newUser = false;
   ngOnInit():void 
   {
     console.log('entered init');
     let email:any;
     const userAuthObj =  Auth.currentUserInfo().then((res)=>{
->>>>>>> development
       email = res.attributes.email;
       /*  const domain = email.substring(email.indexOf('@') + 1);
       console.log(domain);
       if(domain != 'tuks.co.za' && domain != 'retrorabbit.co.za' ){
         alert('You need to be a registered \n employee of Retro Rabbit to continue');
         this.authenticator.signOut();
-<<<<<<< HEAD
       }*/
       console.log(email);
       this.service.getUser(email).subscribe((res) => {
@@ -98,17 +78,6 @@ export class ChatLandingComponent implements OnInit {
         console.log(this.newUser);
       });
     });
-  }
-
-  openDialog() {
-    this.dialog.open(PreferencesPopupComponent,  {
-      panelClass: 'custom-modalbox',
-      disableClose: true 
-    });
-    console.log('test');
-  }
-=======
-      }
 
       this.CS.getAllUsers().subscribe(
         data => {
@@ -122,13 +91,19 @@ export class ChatLandingComponent implements OnInit {
       );
           
         console.log(this.contacts);
-    });
-
     const emailObj = Auth.currentUserInfo().then((data) => {
       this.currentUserEmail = data.attributes.email;
     });
   }
 
+
+  openDialog() {
+    this.dialog.open(PreferencesPopupComponent,  {
+      panelClass: 'custom-modalbox',
+      disableClose: true 
+    });
+    console.log('test');
+  }
 
   changeDisplayedUser(value:any)
   {
@@ -214,5 +189,4 @@ export class ChatLandingComponent implements OnInit {
 
 
 
->>>>>>> development
 }

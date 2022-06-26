@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  userForm = new FormGroup({
+ userForm = new FormGroup({
     'email':new FormControl('',Validators.required),
     'useEmail':new FormControl(false,Validators.required),
     'useDiscord':new FormControl(false,Validators.required),
@@ -64,26 +64,26 @@ userUpdate(){
 
 if((this.userForm.value.useDiscord==true && this.userForm.value.discordID != "") && (this.userForm.value.useRyver==true && this.userForm.value.ryverID != "" )){
   this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
-    console.log(res, 'resupdated');
+    
     this.successmsg = "Updated";
     this.errormsg =""
   })
 }
 else if(this.userForm.value.useRyver==false && this.userForm.value.useDiscord==false){
   this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
-    console.log(res, 'resupdated');
+    
     this.successmsg = "Updated";
     this.errormsg =""
   })
 }else if(this.userForm.value.useRyver==false && (this.userForm.value.useDiscord==true && this.userForm.value.discordID != "")){
   this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
-    console.log(res, 'resupdated');
+    
     this.successmsg = "Updated";
     this.errormsg =""
   })
 }else if(this.userForm.value.useDiscord==false && (this.userForm.value.useRyver==true && this.userForm.value.ryverID != "")){
   this.service.updateUser(this.userForm.value,this.userForm.value.email).subscribe((res)=>{
-    console.log(res, 'resupdated');
+   
     this.successmsg = "Updated";
   })
   this.errormsg =""

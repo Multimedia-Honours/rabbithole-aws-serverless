@@ -21,9 +21,10 @@ import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 import { ChathomeModule } from './sub-systems/chat/chathome.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProfileComponent } from './sub-systems/profile/profile.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -48,11 +49,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatButtonToggleModule,
     HttpClientModule,
-    MatTooltipModule 
+    MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

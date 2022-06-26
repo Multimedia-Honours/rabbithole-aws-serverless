@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#MessageBoxMain #MessageBoxBackground {
-=======
 $greenColour: #A7FF2D;
 $backgroundGrey: #212121;
 #chatBoxLeft
@@ -184,7 +181,6 @@ mat-button-toggle-group::-webkit-scrollbar {
 
 #MessageBoxMain #MessageBoxBackground
 {
->>>>>>> development
     position: absolute;
     width: 75%;
     height: 55%;
@@ -225,12 +221,6 @@ mat-button-toggle-group::-webkit-scrollbar {
     color: #abff4f;
     padding: 20px;
     margin: 0;
-<<<<<<< HEAD
-  }
-  
-  #MessageBoxMain #MessageBoxBackground #NoMessageError {
-    margin: auto;
-=======
     font-size: 20pt;
 }
 
@@ -238,23 +228,11 @@ mat-button-toggle-group::-webkit-scrollbar {
 {
     position: absolute;
     display: flex;
->>>>>>> development
     width: 100%;
     margin: auto;
     height: 40vh;
     vertical-align: middle;
     text-align: center;
-<<<<<<< HEAD
-  }
-  
-  #MessageBoxMain #MessageBoxBackground #NoMessageError p {
-    color: #ededed;
-    font-family: "Open Sans", sans-serif;
-    font-size: 12pt;
-  }
-  
-  #MessageBoxMain #MessageBoxBackground #MessageBubble {
-=======
     justify-content: center;
     align-content: center;
     flex-direction: column;
@@ -280,7 +258,6 @@ mat-button-toggle-group::-webkit-scrollbar {
 
 #MessageBoxMain #MessageBoxBackground #MessageBubble
 {
->>>>>>> development
     background-color: #636363;
     padding: 10px;
     width: auto;
@@ -306,7 +283,6 @@ mat-button-toggle-group::-webkit-scrollbar {
     font-family: "Open Sans", sans-serif;
     font-size: 8pt;
     float: right;
-<<<<<<< HEAD
   }
   
   #MessageSearchInput {
@@ -333,17 +309,6 @@ mat-button-toggle-group::-webkit-scrollbar {
     transition: outline 0.1s;
   }
   
-  #messageTextbox {
-    font-family: "Open Sans", sans-serif;
-    display: block;
-    border-radius: 5px;
-    background: #3e3d3d;
-    color: #6c6c6c;
-    width: 600px;
-=======
-}
-
-
 #messageTextbox
 {
     font-family: 'Open Sans', sans-serif;
@@ -352,7 +317,6 @@ mat-button-toggle-group::-webkit-scrollbar {
     background: #3E3D3D;
     color: #EDEDED;
     width: 650px;
->>>>>>> development
     font-size: 12pt;
     border: 0;
     outline: 2px;
@@ -366,27 +330,6 @@ mat-button-toggle-group::-webkit-scrollbar {
     // height: ;
     // margin-left: auto;
     // margin-right: auto;
-<<<<<<< HEAD
-  }
-  
-  #messageTextbox:focus {
-    outline: 2px solid white;
-    transition: outline 0.1s ease;
-    /*transition: 0.5s;*/
-  }
-  
-  #MessageBoxMain #MessageForm {
-    margin: auto;
-    width: calc(80% - 30px);
-    position: absolute;
-    bottom: 10%;
-    overflow: hidden;
-    right: 0;
-    text-align: center;
-  }
-  
-  #MessageBoxMain #MessageForm #messageTextbox {
-=======
     
 }
 
@@ -417,7 +360,6 @@ mat-button-toggle-group::-webkit-scrollbar {
 
 #MessageBoxMain #MessageForm #messageTextbox
 {
->>>>>>> development
     resize: none;
     display: inline-block;
     margin: auto;
