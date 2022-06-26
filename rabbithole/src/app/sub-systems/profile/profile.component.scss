@@ -77,6 +77,15 @@ label{
   width:40%;
   position:fixed;
   left:25%;
+  
+}
+
+#r{
+  margin-top: 0.5em;
+}
+
+.t{
+  margin-top: 1em;
 }
 
 #aupload{
@@ -175,7 +184,8 @@ top: 0.5em;
 
 svg{
   fill: #A7FF2D;
-  padding-bottom: 0.5em;
+  position: relative;
+  height: 100%;
 }
 
 h3{
@@ -199,6 +209,8 @@ input[type=checkbox]{
   display: inline-block;
   position: relative;
   right: 0;
+  width: auto;
+  height: 50%;
   }
   
   .regular-checkbox:active, .regular-checkbox:checked:active {
@@ -229,6 +241,7 @@ input[type=checkbox]{
     font-family: "Avenir";
     font-size: 1.2em;
     margin-top:10px;
+    height: 20% !important;
     }
 
     button{
@@ -253,23 +266,25 @@ input[type=checkbox]{
     }
     
     .line{
-      margin-top: 1.5em;
-      margin-bottom: 1.5em;
+      margin-top: 1.5em !important;
+      margin-bottom: 1.5em !important;
+      line-height: 80% !important;
     }
 
     #signout{
       border-radius: 0.5em;
     }
 
-    input[type="text"]{
-      color: #3E3D3D;
+    input[type=text]{
+      color: #99a1a7;
+      background-color: #212121;
       text-align: center;
-      padding: 0.25em;
-      vertical-align: middle;
       font-family: 'Open Sans', sans-serif;
       border: none;
       border-radius: 0.3em;
-
+      width: 40%;
+      position: relative !important;
+      right: -40% !important;
     }
 
     #top-header{
@@ -277,13 +292,7 @@ input[type=checkbox]{
       
     }
 
-    input[type="text"]{
-      width: 40%;
-      position: relative;
-      right: -10%;
-    }
-
-    input[type="checkbox"]{
+    input[type=checkbox]{
       position: relative;
       right: -10%;
     }
