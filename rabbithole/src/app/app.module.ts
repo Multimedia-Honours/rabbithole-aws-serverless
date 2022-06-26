@@ -26,13 +26,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
+import { FilterPipe } from './sub-systems/chat/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
     AuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    // FilterPipe
     
   ],
   imports: [

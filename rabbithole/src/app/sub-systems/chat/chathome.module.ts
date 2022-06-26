@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PreferencesPopupComponent } from './components/preferences-popup/preferences-popup.component';
 
 import { MessageBoxComponent } from './components/message-box/message-box/message-box.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,7 @@ import { MessageBoxComponent } from './components/message-box/message-box/messag
     ChatLandingComponent,
     PreferencesPopupComponent,
     MessageBoxComponent,
-    
-   
+    FilterPipe
   ],
   imports: [
     CommonModule,

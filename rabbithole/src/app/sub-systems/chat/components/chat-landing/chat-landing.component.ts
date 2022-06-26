@@ -1,41 +1,33 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthenticatorService } from '@aws-amplify/ui-angular';
-import Amplify from 'aws-amplify';
-import { UserApiService } from '../../../profile/services/user-api.service';
-import { Auth } from 'aws-amplify';
-import { MatDialog } from '@angular/material/dialog';
-import { PreferencesPopupComponent } from '../preferences-popup/preferences-popup.component';
-
 import { ChatServiceService } from 'src/app/sub-systems/chat/services/chat-service.service';
-// import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 // import Amplify from 'aws-amplify';
+import { Auth, Amplify } from 'aws-amplify';
 import awsExports from '../../../../../aws-exports';
 import { ViewChild,ElementRef,ViewContainerRef} from '@angular/core'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Console } from 'console';
 import { MessageBoxComponent } from '../message-box/message-box/message-box.component';
 import { NativeDateModule } from '@angular/material/core';
+import { FilterPipe } from '../../pipes/filter.pipe';
+import { MatDialog } from '@angular/material/dialog';
+import { PreferencesPopupComponent } from '../preferences-popup/preferences-popup.component';
+import { UserApiService } from '../../../profile/services/user-api.service';
 
 
 @Component({
   selector: 'app-chat-landing',
   templateUrl: './chat-landing.component.html',
-  styleUrls: ['./chat-landing.component.scss'],
+  styleUrls: ['./chat-landing.component.scss']
 })
 export class ChatLandingComponent implements OnInit {
   contacts:any = [];
   messages:any = [];
   activeRecipient: string = '';
   currentUserEmail:string = "";
-  // noMessageSent:boolean = true;
-    
-    
-
-  // @ViewChild('container', { read: ViewContainerRef }) template!: ElementRef;
-  // contentElement!: ViewContainerRef;
-  // @ViewChild('messageContainer', { static: false }) appendMessage!:ElementRef;
-  
-  // @ViewChild(`${this.activeRecipient}`, { static: false}) el: ElementRef;
+  searchText!:string;
+  public loadingMessage:boolean = false;
 
   @ViewChild('contactBox') contactBox!:ElementRef;
   @ViewChild('messageContainer') appendMessage!:ElementRef;
@@ -45,12 +37,14 @@ export class ChatLandingComponent implements OnInit {
   
   constructor(public authenticator: AuthenticatorService, public CS:ChatServiceService, private http: HttpClient,private service: UserApiService,public dialog: MatDialog) {
     Amplify.configure(awsExports);
+    
 
   }
   contactSelected: boolean = false;
   public newUser = false;
   ngOnInit():void 
   {
+    this.searchText = "";
     console.log('entered init');
     let email:any;
     const userAuthObj =  Auth.currentUserInfo().then((res)=>{
@@ -79,7 +73,10 @@ export class ChatLandingComponent implements OnInit {
       });
     });
 
-      this.CS.getAllUsers().subscribe(
+
+    const emailObj = Auth.currentUserInfo().then((data) => {
+      this.currentUserEmail = data.attributes.email;
+      this.CS.getAllUsers(this.currentUserEmail).subscribe(
         data => {
           // this.contacts = data;
           data.map(
@@ -89,13 +86,15 @@ export class ChatLandingComponent implements OnInit {
           )
         }
       );
+    });
+
+      
           
         console.log(this.contacts);
-    const emailObj = Auth.currentUserInfo().then((data) => {
-      this.currentUserEmail = data.attributes.email;
-    });
-  }
+    
 
+
+  }
 
   openDialog() {
     this.dialog.open(PreferencesPopupComponent,  {
@@ -105,24 +104,42 @@ export class ChatLandingComponent implements OnInit {
     console.log('test');
   }
 
-  changeDisplayedUser(value:any)
+  async changeDisplayedUser(value:any)
   {
-
-    this.messages = []
-
-    this.CS.getUserMessages(value,this.currentUserEmail).subscribe(
-      data => {
+    
+    this.messages = [];
+    // this.messages.push('');
+    (await this.CS.getUserMessages(value, this.currentUserEmail)).subscribe(
+      (data: any[]) => {
         data.map(
           (message:any) => 
           {
-          
+            this.loadingMessage = true;
+            setTimeout(async () =>{
             this.messages.push(message);
+            this.loadingMessage = false;
+            
+            }, 1000);
+            // console.log("doos");
           }
         );
         console.log(this.messages);
       });
       this.activeRecipient = value;
+      this.loadingMessage = false;
 
+      const contactsArray = this.contactBox.nativeElement.children;
+
+      // console.log(contactsArray);
+      console.log("---------------------------")
+  
+      for (let item of contactsArray) 
+      {
+        if (item.getAttribute("id") == this.activeRecipient) 
+        {
+          //still working on this
+        }
+      }
 
 
   }
@@ -151,17 +168,17 @@ export class ChatLandingComponent implements OnInit {
         let discordID = data.discordID;
         console.log(discordID);
         console.log("-------------------------")
-        await this.CS.discordMessage(messageBody,discordID);
+        await this.CS.discordMessage(messageBody,discordID, this.currentUserEmail);
       }
       if(data.ryverPreference)
       {
         let ryverID = data.ryverForumID;
-        this.CS.RyverMessage(messageBody);
+        this.CS.RyverMessage(messageBody, this.currentUserEmail);
       }
       if (data.emailPreference)
       {
         let email = data.email;
-        await this.CS.EmailMessage(email, messageBody)
+        await this.CS.EmailMessage(email, messageBody, this.currentUserEmail)
       }
 
       const contactsArray = this.contactBox.nativeElement.children;

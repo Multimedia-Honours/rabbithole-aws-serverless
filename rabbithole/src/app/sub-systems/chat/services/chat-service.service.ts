@@ -19,7 +19,7 @@ import { environment } from '../../../../environments/environment';
 import { Subject } from 'rxjs';
 import { debug } from 'console';
 import { parse } from 'path';
-
+import { FormsModule } from '@angular/forms';
 
 const REGION = "us-east-1";
 const CREDENTIALS = {
@@ -37,15 +37,25 @@ export class ChatServiceService {
   
 
 
-  public getAllUsers()
+  public getAllUsers(currentEmail:string)
   {
+    console.log("hierdie ou is n dom poes ---> " + currentEmail);
     const URL = "https://em8tzstb7h.execute-api.us-east-1.amazonaws.com/staging/users"  
     var subject = new Subject<any>();
 
     this.http.get<any>(URL).subscribe(
       data => {
-        let contacts = [];
-        contacts = data.Items;
+        let contacts: any[] = [];
+        data.Items.forEach((item: any) => {
+          if(item.email != currentEmail)
+          {
+            contacts.push(item);
+            
+          }
+         
+        });
+        console.log(contacts);
+        // contacts = data.Items;
         subject.next(contacts);
       }
     );
@@ -79,7 +89,7 @@ export class ChatServiceService {
 
   }
 
-  public getUserMessages(value:any, author:string)
+  public async getUserMessages(value:any, author:string)
   {
       console.log(value)
       var subject = new Subject<any>();
@@ -147,7 +157,7 @@ export class ChatServiceService {
 
 
   //Discord
-  public async discordMessage(messageTextbox:string, discordID:string)
+  public async discordMessage(messageTextbox:string, discordID:string, email:string)
   {
 
     const headers = { 
@@ -165,7 +175,7 @@ export class ChatServiceService {
       "id": discordID
     }
     
-    this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${messageTextbox}&id=`+ discordID, {headers}, ).subscribe(
+    this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${email} :` + ` ${messageTextbox}&id=`+ discordID, {headers}, ).subscribe(
       data => {
           console.log("POST Request is successful ", data);
       }  )  
@@ -173,7 +183,7 @@ export class ChatServiceService {
   }
   
   //Ryver
-  public RyverMessage(messageTextbox:string)
+  public RyverMessage(messageTextbox:string, email:string)
   {
     console.log(messageTextbox)
     //replace displayName with our Username
@@ -183,7 +193,7 @@ export class ChatServiceService {
           "avatar": "https://i.imgur.com/vEf9Aaf.png",
           "displayName": "Rabbithole"
         },
-        body: messageTextbox
+        body: email + ": " + messageTextbox
     });
 
   //add user name with '@' before message to send message to that person
@@ -220,7 +230,7 @@ export class ChatServiceService {
 
 
   //Email
-  public async EmailMessage(recipientEmail:string, messageBody:string)
+  public async EmailMessage(recipientEmail:string, messageBody:string, email:string)
   {
     const headers = { 
       'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8', 
@@ -237,7 +247,7 @@ export class ChatServiceService {
       "text": messageBody
     }
     
-    this.http.post<any>("http://52.91.52.167:3000/sendMail", `toAddress=${recipientEmail}&text=${messageBody}` , {headers}).subscribe(
+    this.http.post<any>("http://52.91.52.167:3000/sendMail", `toAddress=${recipientEmail}&text=${messageBody}&subject=${email}` , {headers}).subscribe(
       data => {
           console.log("POST Request is successful ", data);
       }  )     

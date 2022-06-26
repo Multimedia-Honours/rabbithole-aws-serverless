@@ -50,7 +50,7 @@ $backgroundGrey: #212121;
 
 #chatBoxLeft #MessageSearchInput:focus 
 {
-      outline: 2px solid $greenColour;
+      outline: 2px solid $greenColour !important;
       transition: outline 0.1s;
       
 }
@@ -125,6 +125,11 @@ mat-button-toggle-group {
     height: 80vh !important;
     overflow: auto !important;
   }
+
+  ::ng-deep mat-button-toggle-group{
+    outline: none !important;
+    border: 0 !important;
+  }
   
   mat-button-toggle {
       border: 1px rgba(0,0,0,0) solid !important;
@@ -149,14 +154,17 @@ mat-button-toggle-group {
         float: right;
     }
   }
-  
-  mat-button-toggle:hover {
-    //   border: 1px #000 solid !important;
-    //   background-color: #FFF !important;
-    //   border-radius: 5px !important;
-    // transition: background-color 1s;  
-}
 
+  :focus{
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: 0 !important;
+  }
+
+  .mat-focus-indicator{
+    outline: 0 !important;
+    border: 0 !important;
+  }
 
 .mat-button-toggle-checked {
     box-shadow: 3px 3px 6px #636363 !important;
@@ -337,7 +345,7 @@ mat-button-toggle-group::-webkit-scrollbar {
 {
 
     //   outline: 2px solid $greenColour;
-    border: 2px solid $greenColour;
+    border: 2px solid $greenColour !important;
       
       box-shadow: 0px 0px 10px $greenColour;
       transition: box-shadow border 0.1s;
