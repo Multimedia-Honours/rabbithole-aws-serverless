@@ -27,6 +27,8 @@ export class AdminComponent implements OnInit {
   searchText!:string;
   currentUserEmail:string = "";
   contactSelected: boolean = false;
+  dUser: any;
+  isAdmin = false;
   @ViewChild('contactBox') contactBox!:ElementRef;
 
   ngOnInit(): void {
@@ -51,9 +53,14 @@ export class AdminComponent implements OnInit {
 
 
     async displayUser(value:any){
+      let user:any;
       await this.userService.getUser(value).then(data=>{
-        console.log(data);
+        this.dUser = data;
       })
+
+      this.isAdmin = this.dUser.isAdmin;
+
+
     } 
 
 

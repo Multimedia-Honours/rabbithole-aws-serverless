@@ -2,8 +2,14 @@
     <div id="chatBoxHeading">Users:</div>
     <input type="text" name="MessageSearchInput"  [(ngModel)]='searchText' #receiverName id="MessageSearchInput" #MessageSearchInput placeholder="Search users"/>                
         <mat-button-toggle-group  #contactBox [vertical]="true" class="mat-elevation-z0" #toggleBtn="matButtonToggleGroup">
-            <mat-button-toggle id = {{item.email}} class="chatBoxContact" *ngFor="let item of contacts | appFilter: searchText" [value]="item.email" value="SelectedContact">
+            <mat-button-toggle id = {{item.email}} class="chatBoxContact" *ngFor="let item of contacts | appFilter: searchText" [value]="item.email" value="SelectedContact" (click)="displayUser(item.email)">
                 <h1>{{ item.email }}</h1> 
             </mat-button-toggle>
         </mat-button-toggle-group>
+</div>
+
+<div *ngIf="dUser">
+    <h1>{{displayUser.name}}</h1>
+    <button>Make Admin</button>
+    <button *ngIf="isAdmin">Remove Admin</button>
 </div>
