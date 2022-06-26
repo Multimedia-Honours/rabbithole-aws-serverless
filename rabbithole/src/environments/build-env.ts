@@ -1,7 +1,8 @@
 const setEnv = () => {
     const fs = require('fs');
     const writeFile = fs.writeFile;
-    const targetPath = './src/environments/environment.prod.ts';
+    const targetPath = './src/environments/environment.ts';
+    const targetPathProd = './src/environments/environment.prod.ts';
   
     const appVersion = require('../../package.json').version;
 
@@ -28,6 +29,15 @@ const setEnv = () => {
         throw error;
       } else {
         console.log(`Rabbithole environment.ts file generated correctly at ${targetPath} \n`);
+      }
+    });
+
+    writeFile(targetPathProd, envConfigFile, (error: any) => {
+      if (error) {
+        console.error(error);
+        throw error;
+      } else {
+        console.log(`Rabbithole environment.prod.ts file generated correctly at ${targetPath} \n`);
       }
     });
   };
