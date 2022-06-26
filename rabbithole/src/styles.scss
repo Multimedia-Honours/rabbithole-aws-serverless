@@ -4,6 +4,7 @@ $retroGreen: #A7FF2D;
 
 // This must be here in order to access the default CSS from Amplify's UI 
 @import '~@aws-amplify/ui-angular/theme.css';
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
@@ -17,8 +18,8 @@ $retroGreen: #A7FF2D;
     src: local("Avenir-roman"), url(/assets/fonts/Avenir/AvenirLTStd-Roman.otf) format("opentype");
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-html { background-color: #212121;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #212121;}
+
 //apparently we need to put the auth css in Global, because it gets called later. 
 
 [data-amplify-authenticator-signin]

@@ -1,20 +1,72 @@
 <ng-container *ngIf="authenticator.route === 'authenticated'">
-  <mat-drawer-container class="example-container" autosize >
+  <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-        <button class="nav-button-top"><mat-icon>keyboard_arrow_left</mat-icon></button> <button class="nav-button-top"><mat-icon>keyboard_arrow_right</mat-icon></button>
-        <button class="nav-button" [routerLink]="'chat'"><mat-icon>chat_bubble_outline</mat-icon></button>  <!-- Get icon names from material.io/icons -->
-        <button class="nav-button" href=""><mat-icon>groups</mat-icon></button>
-        <button class="nav-button"><mat-icon>calendar_month</mat-icon></button>
-        <button class="nav-button"><mat-icon>videocam</mat-icon></button>
-        <button class="nav-button"[routerLink]="'claims'"><mat-icon>playlist_add_check</mat-icon></button>
-        <button class="nav-button-bottom" [routerLink]="'profile'"><mat-icon>person_outline</mat-icon></button>
+      <button
+        class="nav-button-top"
+        (click)="goBack()"
+        matTooltip="Previous"
+        matTooltipPosition="right"
+      >
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button
+        class="nav-button-top"
+        (click)="goForward()"
+        matTooltip="Next"
+        matTooltipPosition="right"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+      <button
+        class="nav-button"
+        [routerLink]="'chat'"
+        matTooltip="Chats"
+        matTooltipPosition="right"
+      >
+        <mat-icon>chat_bubble_outline</mat-icon>
+      </button>
+      <!-- Get icon names from material.io/icons -->
+      <button
+        class="nav-button"
+        matTooltip="Events"
+        matTooltipPosition="right"
+        [routerLink]="'events'"
+      >
+        <mat-icon>calendar_month</mat-icon>
+      </button>
+      <button
+        class="nav-button"
+        matTooltip="Claims"
+        matTooltipPosition="right"
+        [routerLink]="'claims'"
+      >
+        <mat-icon>playlist_add_check</mat-icon>
+      </button>
+        <button
+        class="nav-button"
+        matTooltip="Admin Dashboard"
+        matTooltipPosition="right"
+        [routerLink]="'admin'"
+      >
+      <mat-icon>admin_panel_settings</mat-icon>
+    </button>
+
+
+      <button
+        class="nav-button-bottom"
+        [routerLink]="'profile'"
+        matTooltip="Profile"
+        matTooltipPosition="right"
+      >
+        <mat-icon>person_outline</mat-icon>
+      </button>
+
     </mat-drawer>
 
     <mat-drawer-content>
       <router-outlet></router-outlet>
     </mat-drawer-content>
-  
-</mat-drawer-container>
+  </mat-drawer-container>
 </ng-container>
 
 <ng-container *ngIf="authenticator.route !== 'authenticated'">

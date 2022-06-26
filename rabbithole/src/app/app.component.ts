@@ -5,6 +5,9 @@ import { AuthenticatorService } from '@aws-amplify/ui-angular';
 
 import awsExports from '../aws-exports';
 import { Router } from '@angular/router';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {TooltipPosition} from '@angular/material/tooltip';
+import { AuthGuardService } from './sub-systems/services/auth-guard.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +17,18 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'rabbithole';
 
-  constructor(public authenticator: AuthenticatorService , private router: Router) {
+  constructor(public authenticator: AuthenticatorService , private router: Router, private location:Location, private authService:AuthGuardService) {
     Amplify.configure(awsExports);
     
   }
   
   ngOnInit () {  }
+
+  goBack(){
+    this.location.back();
+  }
+
+  goForward(){
+    this.location.forward();
+  }
 }

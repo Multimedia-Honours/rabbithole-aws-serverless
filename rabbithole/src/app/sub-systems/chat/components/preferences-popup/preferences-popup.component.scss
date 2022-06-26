@@ -1,0 +1,144 @@
+$retroGrey: #212121;
+$retroGreen: #A7FF2D;
+
+.id{
+    display: block;
+}
+
+h1{
+color: #abff4f;
+}
+
+label{
+
+  color: #ededed;
+  margin-bottom: 2em;
+  padding: 10px;
+  display: inline-block;
+  width:40%;
+  position:fixed;
+  left:27%;
+}
+
+input[type=text]{
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px;
+    background: #3e3d3d;
+    color: #6c6c6c;
+    width: auto;
+    font-size: 12pt;
+    border: 0;
+    outline: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+svg{
+fill: #abff4f;
+padding-bottom: 0.5em;
+}
+
+
+.container input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+#email{
+  margin-left: 7px;
+}
+
+#ryver{
+margin-left: 9px;
+}
+
+input[type=checkbox]{
+appearance: none;
+position: fixed;
+right:47%;
+}
+.regular-checkbox {
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  padding: 9px;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  right: 0;
+  width: auto;
+  height: 50%;
+  }
+
+.regular-checkbox:active, .regular-checkbox:checked:active {
+box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.regular-checkbox:checked {
+background-color: #e9ecee;
+border: 1px solid #adb8c0;
+box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+color: #99a1a7;
+}
+
+.regular-checkbox:checked:after {
+content: '\2714';
+font-size: 14px;
+position: absolute;
+top: 0;
+left: 3px;
+color: #3e3d3d;
+}
+
+  input[type=submit]{
+    background: $retroGreen;
+    height: 4vh;
+    color: $retroGrey;
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 12pt;
+    width: 50%;
+    position: relative;
+  }
+
+  h3{
+    color: #fc7f03;
+  }
+
+
+#dialog{
+text-align: center;
+}
+
+.line{
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+}
+
+
+input[type="checkbox"]{
+  position: relative;
+  right: -20%;
+}
+input[type=text]{
+  color: #99a1a7;
+  background-color: #3e3d3d;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  border-radius: 0.3em;
+  width: 40%;
+  position: relative !important;
+  right: -50% !important;
+}
+
+.icon > input[type=checkbox]{
+  margin-top:1.3em;
+}
+
