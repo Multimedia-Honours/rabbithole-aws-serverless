@@ -37,6 +37,7 @@
     "date-fns": "^2.28.0",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.1",
+    "esbuild": "^0.14.22",
     "https-browserify": "^1.0.0",
     "ngx-dropzone": "^3.1.0",
     "node-fetch": "^3.2.6",
