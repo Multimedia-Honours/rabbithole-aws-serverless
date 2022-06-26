@@ -1,3 +1,4 @@
+import { AdminComponent } from './sub-systems/admin/admin.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -25,17 +26,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
-
-import { FilterPipe } from './sub-systems/chat/pipes/filter.pipe';
-
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
     AuthComponent,
-    ProfileComponent,
-    // FilterPipe
-    
+    ProfileComponent
   ],
   imports: [
     AppRoutingModule,
@@ -56,8 +52,7 @@ import { FilterPipe } from './sub-systems/chat/pipes/filter.pipe';
     HttpClientModule,
     MatTooltipModule,
     FormsModule,
-    ReactiveFormsModule
-  
+    ReactiveFormsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

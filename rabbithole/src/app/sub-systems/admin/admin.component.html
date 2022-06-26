@@ -1,0 +1,16 @@
+<div id="chatBoxLeft" >
+    <div id="chatBoxHeading">Users:</div>
+    <input type="text" name="MessageSearchInput"  [(ngModel)]='searchText' #receiverName id="MessageSearchInput" #MessageSearchInput placeholder="Search users"/>                
+        <mat-button-toggle-group  #contactBox [vertical]="true" class="mat-elevation-z0" #toggleBtn="matButtonToggleGroup">
+            <mat-button-toggle id = {{item.email}} class="chatBoxContact" *ngFor="let item of contacts | appFilter: searchText" [value]="item.email" value="SelectedContact" (click)="displayUser(item.email)">
+                <h1>{{ item.email }}</h1> 
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+</div>
+
+<div class="show" *ngIf="dUser">
+    <h1>{{name}}</h1>
+    <button (click)="makeAdmin(dUser.Item.email)" *ngIf="!isAdmin">Make Admin</button>
+    <button *ngIf="isAdmin" (click)="removeAdmin(dUser.Item.email)">Remove Admin</button>
+</div>
+   

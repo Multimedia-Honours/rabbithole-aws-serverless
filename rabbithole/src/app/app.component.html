@@ -42,6 +42,16 @@
       >
         <mat-icon>playlist_add_check</mat-icon>
       </button>
+        <button
+        class="nav-button"
+        matTooltip="Admin Dashboard"
+        matTooltipPosition="right"
+        [routerLink]="'admin'"
+      >
+      <mat-icon>admin_panel_settings</mat-icon>
+    </button>
+
+
       <button
         class="nav-button-bottom"
         [routerLink]="'profile'"
@@ -50,6 +60,7 @@
       >
         <mat-icon>person_outline</mat-icon>
       </button>
+
     </mat-drawer>
 
     <mat-drawer-content>
