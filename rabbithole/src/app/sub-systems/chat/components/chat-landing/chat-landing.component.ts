@@ -45,7 +45,6 @@ export class ChatLandingComponent implements OnInit {
   ngOnInit():void 
   {
     this.searchText = "";
-    console.log('entered init');
     let email:any;
     const userAuthObj =  Auth.currentUserInfo().then((res)=>{
       email = res.attributes.email;
@@ -55,21 +54,19 @@ export class ChatLandingComponent implements OnInit {
         alert('You need to be a registered \n employee of Retro Rabbit to continue');
         this.authenticator.signOut();
       }*/
-      console.log(email);
+     
       this.service.getUser(email).subscribe((res) => {
-        console.log(res);
+        
         if (!res.Item) {
           this.newUser = true;
-          console.log('user does not exist, adding to database');
-          /*this.service.insertUser(email).subscribe((res)=>{
-            console.log(res);
-          })*/
+          
+          
           this.openDialog();
         } else {
-          console.log('User exists within db');
+          
           this.newUser = false;
         }
-        console.log(this.newUser);
+       
       });
     });
 
@@ -88,10 +85,6 @@ export class ChatLandingComponent implements OnInit {
       );
     });
 
-      
-          
-        console.log(this.contacts);
-    
 
 
   }
@@ -101,7 +94,7 @@ export class ChatLandingComponent implements OnInit {
       panelClass: 'custom-modalbox',
       disableClose: true 
     });
-    console.log('test');
+   
   }
 
   async changeDisplayedUser(value:any)
@@ -123,7 +116,7 @@ export class ChatLandingComponent implements OnInit {
             // console.log("doos");
           }
         );
-        console.log(this.messages);
+    
       });
       this.activeRecipient = value;
       this.loadingMessage = false;
@@ -131,7 +124,7 @@ export class ChatLandingComponent implements OnInit {
       const contactsArray = this.contactBox.nativeElement.children;
 
       // console.log(contactsArray);
-      console.log("---------------------------")
+     
   
       for (let item of contactsArray) 
       {
@@ -153,9 +146,7 @@ export class ChatLandingComponent implements OnInit {
 
     const current = new Date();
     const timestamp = current.toLocaleString();
-    console.log(timestamp);
-    console.log(this.activeRecipient);
-    console.log(messageBody);
+  
 
     
 
@@ -166,8 +157,7 @@ export class ChatLandingComponent implements OnInit {
       if(data.discordPreference)
       {
         let discordID = data.discordID;
-        console.log(discordID);
-        console.log("-------------------------")
+     
         await this.CS.discordMessage(messageBody,discordID, this.currentUserEmail);
       }
       if(data.ryverPreference)
@@ -183,8 +173,7 @@ export class ChatLandingComponent implements OnInit {
 
       const contactsArray = this.contactBox.nativeElement.children;
 
-      console.log(contactsArray);
-      console.log("---------------------------")
+    
   
       for (let item of contactsArray) {
         if (item.getAttribute("id") == this.activeRecipient) 

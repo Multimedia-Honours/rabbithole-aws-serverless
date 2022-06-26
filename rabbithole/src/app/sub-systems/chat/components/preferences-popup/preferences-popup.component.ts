@@ -46,32 +46,29 @@ export class PreferencesPopupComponent implements OnInit {
 
     //had to code all edge cases to get validation correct headache could possibly be done another way
     if((this.prefForm.value.discordPreference==true && this.prefForm.value.discordID != "") && (this.prefForm.value.ryverPreference==true && this.prefForm.value.ryverForumID != "" )){
-      console.log('submitting preferences');
-      console.log(this.prefForm.value);
+      
       this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
-      console.log(res);
+     
       });
       this.dialog.closeAll();
     }
     else if(this.prefForm.value.ryverPreference==false && this.prefForm.value.discordPreference==false){
-      console.log('submitting preferences');
-      console.log(this.prefForm.value);
+     
+    
       this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
-      console.log(res);
+     
       });
       this.dialog.closeAll();
     }else if(this.prefForm.value.ryverPreference==false && (this.prefForm.value.discordPreference==true && this.prefForm.value.discordID != "")){
-      console.log('submitting preferences');
-      console.log(this.prefForm.value);
+   
       this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
-      console.log(res);
+ 
       });
       this.dialog.closeAll();
     }else if(this.prefForm.value.discordPreference==false && (this.prefForm.value.ryverPreference==true && this.prefForm.value.ryverForumID != "")){
-      console.log('submitting preferences');
-      console.log(this.prefForm.value);
+
       this.service.insertUser(this.prefForm.value, this.e).subscribe((res) => {
-      console.log(res);
+
       });
       this.dialog.closeAll();
     }

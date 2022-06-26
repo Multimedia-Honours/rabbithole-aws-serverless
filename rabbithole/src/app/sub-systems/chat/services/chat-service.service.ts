@@ -39,7 +39,7 @@ export class ChatServiceService {
 
   public getAllUsers(currentEmail:string)
   {
-    console.log("hierdie ou is n dom poes ---> " + currentEmail);
+    
     const URL = "https://em8tzstb7h.execute-api.us-east-1.amazonaws.com/staging/users"  
     var subject = new Subject<any>();
 
@@ -54,7 +54,7 @@ export class ChatServiceService {
           }
          
         });
-        console.log(contacts);
+        
         // contacts = data.Items;
         subject.next(contacts);
       }
@@ -72,7 +72,7 @@ export class ChatServiceService {
 
     this.http.get<any>(URL).subscribe(
       data => {
-        // console.log(data.discordPreference);
+        
         let user = {
           email: data.Item.email,
           discordPreference: data.Item.discordPreference,
@@ -91,7 +91,7 @@ export class ChatServiceService {
 
   public async getUserMessages(value:any, author:string)
   {
-      console.log(value)
+    
       var subject = new Subject<any>();
 
 
@@ -111,7 +111,7 @@ export class ChatServiceService {
 
       this.http.post<any>(URL, options, {headers} ).subscribe(
       data => {
-          // console.log(data.Items);
+      
           let messages = [];
           messages = data.Items;
           subject.next(messages);
@@ -149,7 +149,7 @@ export class ChatServiceService {
 
     this.http.put<any>(URL, options, {headers} ).subscribe(
       data => {
-        console.log(data);
+        
       }  
       );
   }
@@ -177,7 +177,7 @@ export class ChatServiceService {
     
     this.http.post<any>("http://52.91.52.167:3000/sendDM", `message=${email} :` + ` ${messageTextbox}&id=`+ discordID, {headers}, ).subscribe(
       data => {
-          console.log("POST Request is successful ", data);
+       
       }  )  
           
   }
@@ -185,7 +185,7 @@ export class ChatServiceService {
   //Ryver
   public RyverMessage(messageTextbox:string, email:string)
   {
-    console.log(messageTextbox)
+  
     //replace displayName with our Username
 
     const data = JSON.stringify({
@@ -209,7 +209,7 @@ export class ChatServiceService {
       }
     };
 
-    console.log(options)
+  
 
     const headers = { 'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -218,12 +218,12 @@ export class ChatServiceService {
     try{
     this.http.post<any>('https://reinhard.ryver.com/api/1/odata.svc/forums(1560158)/Chat.PostMessage()', data, {headers}).subscribe(
       data => {
-          console.log("POST Request is successful ", data);
+          
       }
     )}
       catch(error)
       {
-        console.log("Error", error);
+   
       }
 
   }
@@ -249,7 +249,7 @@ export class ChatServiceService {
     
     this.http.post<any>("http://52.91.52.167:3000/sendMail", `toAddress=${recipientEmail}&text=${messageBody}&subject=${email}` , {headers}).subscribe(
       data => {
-          console.log("POST Request is successful ", data);
+         
       }  )     
   }  
 
