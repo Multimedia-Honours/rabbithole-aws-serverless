@@ -21,6 +21,7 @@ import { UserApiService } from './services/user-api.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
+
 export class AdminComponent implements OnInit {
   contacts:any = [];
   constructor(public authenticator: AuthenticatorService, private http: HttpClient, private CS:ChatService, private userService:UserApiService) { }
@@ -30,11 +31,11 @@ export class AdminComponent implements OnInit {
   dUser: any;
   name:string ="";
   isAdmin = false;
+
   @ViewChild('contactBox') contactBox!:ElementRef;
 
   ngOnInit(): void {
     this.searchText = "";
-
 
     const emailObj = Auth.currentUserInfo().then((data) => {
       this.currentUserEmail = data.attributes.email;
@@ -58,11 +59,9 @@ export class AdminComponent implements OnInit {
       await this.userService.getUser(value).then(data=>{
         this.dUser = data;
       })
+      console.log(this.dUser);
       this.name= this.dUser.Item.email;
-      console.log(this.name);
       this.isAdmin = this.dUser.Item.isAdmin;
-   
-
     } 
 
 

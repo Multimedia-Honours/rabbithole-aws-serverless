@@ -21,12 +21,15 @@ const routes: Routes = [
     path: 'profile', 
     component: ProfileComponent  
   },
-  {
-    path: 'admin', 
-    component:AdminComponent,
-    canActivate:[AuthGuardService]
+  { 
+    path: 'events', 
+    loadChildren: () => import('./sub-systems/events/events.module').then(m => m.EventsModule) 
   },
-  { path: 'events', loadChildren: () => import('./sub-systems/events/events.module').then(m => m.EventsModule) },
+  { 
+    path: 'admin', 
+    loadChildren: () => import('./sub-systems/admin/admin.module').then(m => m.AdminModule),
+    canActivate:[AuthGuardService] 
+  },
   {
     path: '**',
     redirectTo: 'chat'
