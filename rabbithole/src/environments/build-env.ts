@@ -12,6 +12,9 @@ const setEnv = () => {
     const envConfigFile = `export const environment = {
       ACCESS_KEY: '${process.env["ACCESS_KEY"]}',
       SECRET_ACCESS_KEY: '${process.env["SECRET_ACCESS_KEY"]}',
+      RYVER_API_KEY: '${process.env["RYVER_API_KEY"]}',
+      CLAIM_SERVER_URL: '${process.env["CLAIM_SERVER_URL"]}',
+      EVENTS_SERVER_URL: '${process.env["EVENTS_SERVER_URL"]}',
       production: true,
     };
   `;

@@ -5,7 +5,7 @@ $darkColour: #212121;
 .claim-box{
     padding: 10px;
     align-content: center;
-    margin-top: 15vh;
+    margin-top: 5vh;
 }
 
 .upload-button-row {
@@ -54,6 +54,7 @@ $darkColour: #212121;
     color: $greenColour;
     font-size: 30px;
 }
+
 .form-div
 {
     display: block;
@@ -78,8 +79,18 @@ mat-hint{
     color: $greyColour
 }
 
-// Standard
+// Standard for forms
+
+::ng-deep .mat-select-value{
+    padding: 10px;
+    color: $greenColour !important;
+    font-size: large;
+}
+
 ::ng-deep .mat-form-field {
+    padding: 2px;
+    font-size: large;
+
     .mat-input-element {
         color: $greenColour;
     }
@@ -134,8 +145,8 @@ ngx-dropzone-label{
 }
 
 ngx-dropzone{
-    width: 30%;
-    height: 250px;
+    width: 50%;
+    height: 60vh;
     margin: auto;
     background-color: $greyColour;
     color: $greenColour;
@@ -161,6 +172,42 @@ ngx-dropzone{
 ::ng-deep .mat-radio-inner-circle{
     border-color: $greenColour !important;
 }
+
+ngx-image{
+    scale: 2 !important;
+}
+
+::ng-deep.ngx-dropzone-image-preview{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    scale: 2 !important;
+    width: 20wh !important; 
+    
+    
+}
+
+::ng-deep img{
+    max-height: 300% !important;
+    max-width: 100% !important;
+    
+}
+
+::ng-deep ngx-dropzone-remove-badge{
+    top: -100px !important;
+    opacity: 100% !important;
+}
+
+#ngx-filename{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    color:$greenColour !important;
+}
+
+
+
 
 #backgroundRocks{
     z-index: -1000;

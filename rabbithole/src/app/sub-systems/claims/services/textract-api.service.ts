@@ -4,6 +4,7 @@ import  { TextractClient, AnalyzeExpenseCommand  } from "@aws-sdk/client-textrac
 import { environment } from "../../../../environments/environment";
 import { TextractResponse } from "../models/textract-response";
 import * as S3 from 'aws-sdk/clients/s3';
+import { AuthService } from '../../home/auth/services/auth.service';
 
 const REGION = "us-east-1";
 const CREDENTIALS = {
@@ -21,27 +22,25 @@ const bucket = "rabbithole-claims";
 export class TextractApiService {
 
   textractObj = {} as TextractResponse;
-  
-  constructor() {
-    
+
+  constructor(private authService: AuthService) {
+   
   }
 
   async processClaim(fileName: any): Promise<any>{
+    const email = await this.authService.returnLoggedUserEmail();
     const params = {
       Document: {
         S3Object: {
           Bucket: bucket,
-          Name: 'matthewnharty@gmail.com'+'-'+fileName
+          Name: email+'-'+fileName
         },
       }
     }
 
     try {
       const aExpense = new AnalyzeExpenseCommand(params);
-      console.log("A EXPENSE: " + JSON.stringify(aExpense));
       const response = await textractClient.send(aExpense);
-      
-      console.log(response);
       
       response.ExpenseDocuments!.forEach(doc => {
         doc.SummaryFields!.map(fields => {
@@ -70,8 +69,9 @@ export class TextractApiService {
 
   // Uploading a claim to an S3 bucket for AWS Textract
   async upLoadClaim(f: File[]){
+    const email = await this.authService.returnLoggedUserEmail();
     try {
-      const appendedFileName = 'matthewnharty@gmail.com'+'-'+f[0].name;
+      const appendedFileName = email+'-'+f[0].name;
       const params = {
         Bucket: bucket,
         Key: appendedFileName,
