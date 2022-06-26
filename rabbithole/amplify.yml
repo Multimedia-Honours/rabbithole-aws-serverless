@@ -4,7 +4,9 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm ci --force
+            - nvm install --lts
+            - nvm use --lts
+            - npm ci
         build:
           commands:
             - npm run build
