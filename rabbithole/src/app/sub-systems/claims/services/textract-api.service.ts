@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from "aws-amplify";
 import  { TextractClient, AnalyzeExpenseCommand  } from "@aws-sdk/client-textract";
-import { environment } from "../../../../environments/environment";
+import { environment } from "../../../../environments/environment.prod";
 import { TextractResponse } from "../models/textract-response";
 import * as S3 from 'aws-sdk/clients/s3';
 import { AuthService } from '../../home/auth/services/auth.service';
