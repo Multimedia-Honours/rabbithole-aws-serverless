@@ -4,7 +4,8 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm ci --force
+            - npm i esbuild
+            - npm ci
         build:
           commands:
             - npm run build
