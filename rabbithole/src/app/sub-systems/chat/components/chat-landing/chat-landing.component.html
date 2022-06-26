@@ -1,72 +1,54 @@
 
         <div id="MessageBoxMain">
-
-            <div id="MessageBoxBackground">
-                <div id="MessageBoxTopBar">
-                    <h2>Name of person(s)</h2>
-                </div>
-        
-                <!-- if and else here. No message to display error message if there are no sent messages else display messages -->
-        
-                <!-- if -->
-        
-                <!-- <div id="NoMessageError"><p>No message to display</p></div> -->
-        
-                <!-- else -->
-        
-        <!-- 			<div id="MessageBubble">
-                    <p>Hay John, This is a normal size message.</p>
-                    <span id="MessageTimestamp">2022/03/27 11:30 am</span>
-                </div>
-                <br> -->
-        
-                <div id="MessageBubble">
-                    <p>Hay John, This is a normal size message.</p>
-                    <span id="MessageTimestamp">2022/03/27 11:30 am</span>
-                </div>
-                <br>
-        
-        
-        
-                <div id="MessageBubble">
-                    <p>Hay John, this is more of a paragraph. I hope you don't get annoyed by all this typing. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <span id="MessageTimestamp">2022/03/27 11:30 am</span>
-                </div>
-                <br>
-        
-                <div id="MessageBubble">
-                    <p>Hay John. Tell your Wife is said hello. hehe</p>
-                    <span id="MessageTimestamp">2022/03/27 11:30 am</span>
-                </div>
-                <br>
-        
-                <div id="MessageBubble">
-                    <p>this is the most recent message John</p>
-                    <span id="MessageTimestamp">2022/03/27 11:30 am</span>
-                </div>	
-                <br>	
-                
+            <div id="chatBoxLeft" >
+                <div id="chatBoxHeading">Contacts</div>
+                <input type="text" name="MessageSearchInput" #receiverName id="MessageSearchInput" #MessageSearchInput placeholder="Search for people to message"/>                
+                    <mat-button-toggle-group #contactBox [vertical]="true" class="mat-elevation-z0" #toggleBtn="matButtonToggleGroup">
+                        <mat-button-toggle id = {{item.email}} class="chatBoxContact" *ngFor="let item of contacts" [value]="item.email" value="SelectedContact" (click)="changeDisplayedUser(item.email)">
+                            <h1  >{{ item.email }}</h1> 
+                            
+                          </mat-button-toggle>
+                    </mat-button-toggle-group>
             </div>
-        
-            
-            <form id="MessageForm">	
-                    
-                <input type="text" name="MessageSearchInput" id="MessageSearchInput" onfocus="recolorInput(this)" placeholder="Search for people to message"/>
-                
-                <textarea id="messageTextbox" name="messageTextbox" rows="4" cols="50" placeholder="Type a new message..."  onfocus="recolorInput(this)"></textarea>
-                <button id="send" class="send-button material-icons">send</button>
-                <!-- <button class="attach-button"><p><mat-icon>attach_file</mat-icon></p></button> -->
-                <div id="MessageOptions">
-                <button class="attach-button material-icons" id="attach">attach_file</button>
-                <button class="broadcast-button material-icons"id="broadcast">podcasts</button>
+
+            <div id="MessageBoxBackground" *ngIf="messages?.length > 0">
+                <div id="MessageBoxTopBar">
+                    <h2>{{toggleBtn.value}}</h2>
                 </div>
-                
-            </form>
+        
+                <ng-container #messageContainer class="messageContainer" >
+                    <app-message-box *ngFor="let item of messages" message="{{item.message}}" timestamp="{{item.timestamp}}" ></app-message-box>
+                </ng-container>
+
+
+            </div>        
+
+            <div id="MessageBoxBackground" *ngIf="messages?.length === 0 && activeRecipient != '' " style="opacity: 1;">
+                <ng-container #messageContainer class="messageContainer" >
+                    <div id="NoMessageError">
+                        <img src="../../../../../assets/images/retro_blur.png" alt="">
+                        <p>No messages to display... Try sending a message</p>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div  id="MessageBoxBackground" *ngIf="activeRecipient == '' && messages?.length === 0 ">
+                <ng-container #messageContainer class="messageContainer" >
+                    <div id="NoMessageError">
+                        <img src="../../../../../assets/images/retro_blur.png" alt="">
+                        <p>Select a contact to view messages</p>
+                    </div>
+                </ng-container>
+            </div>
+            
+            <div id="MessageForm" *ngIf = "activeRecipient != ''">	
+                <textarea #messageTextbox id="messageTextbox" name="messageTextbox" rows="4" cols="50" placeholder="Type a new message..." ></textarea>
+                <button id="send" class="send-button material-icons" (click)="messageClickEvent(MessageSearchInput.value, messageTextbox.value)" >send</button>
+                <div id="MessageOptions">
+                </div>
+            </div>
+
+
         
             
         </div>
