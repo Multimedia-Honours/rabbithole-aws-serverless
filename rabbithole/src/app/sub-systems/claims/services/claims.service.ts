@@ -76,7 +76,7 @@ export class ClaimsService {
       "claimVendorName": body.vendorName,
       "claimStatus": newStatus
     };
-    console.log(this.putAdminRequestBody);
+    
     this.http.put(path, this.putAdminRequestBody).subscribe(res => {
       console.log(res);
     });

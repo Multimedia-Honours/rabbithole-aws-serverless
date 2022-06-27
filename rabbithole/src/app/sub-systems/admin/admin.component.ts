@@ -85,18 +85,12 @@ export class AdminComponent implements OnInit {
     }
 
     updateClaim(claim: any, status: string){
-      console.log(JSON.stringify(claim) + " -- " + status);
-      const index = this.CLAIMS_TABLE_DATA.indexOf(claim, 0);
-      if (index > -1) {
-        this.CLAIMS_TABLE_DATA.splice(index, 1);
-      }
       this.claimsService.updateClaimAdmin(claim, status);
     }
 
     makeAdmin(email:any){
       this.dUser.Item.isAdmin = true;
       this.userService.insertUser(this.dUser.Item,email).subscribe((res)=>{
-        console.log(res);
         this.isAdmin = true;
       })
     }
@@ -105,7 +99,6 @@ export class AdminComponent implements OnInit {
     removeAdmin(email:any){
       this.dUser.Item.isAdmin = false;
       this.userService.insertUser(this.dUser.Item,email).subscribe((res)=>{
-        console.log(res);
         this.isAdmin = false;
       })
     }
