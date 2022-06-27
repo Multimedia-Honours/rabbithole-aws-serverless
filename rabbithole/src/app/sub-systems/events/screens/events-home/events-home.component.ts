@@ -93,7 +93,7 @@ export class EventsHomeComponent implements OnInit {
         end: new Date(),
         title: '[Empty]',
         color: {
-          primary: '#a7ff2d',
+          primary: '#A7FF2D',
           secondary: '',
         },
         allDay: false,
@@ -125,11 +125,6 @@ export class EventsHomeComponent implements OnInit {
     this.events.forEach(async event => {
       let color: any;
       let end: any;
-      if(event.color?.primary == undefined){
-        color = "";
-      }else{
-        color = event.color.primary;
-      }
 
       if(event.end == undefined){
         end = "";
@@ -139,7 +134,7 @@ export class EventsHomeComponent implements OnInit {
 
       updateEvent = {
         "ID": event.ID,
-        "color": color.toString(),
+        "color": event.color.primary,
         "start": event.start.toString(),
         "end": end.toString(),
         "title": event.title

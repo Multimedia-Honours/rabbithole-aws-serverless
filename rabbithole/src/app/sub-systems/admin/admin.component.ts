@@ -74,6 +74,7 @@ export class AdminComponent implements OnInit {
 
     async displayUser(value:any){
       let user:any;
+      this.CLAIMS_TABLE_DATA = [];
       await this.userService.getUser(value).then(data=>{
         this.dUser = data;
       })

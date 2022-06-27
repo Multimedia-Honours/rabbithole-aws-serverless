@@ -25,7 +25,7 @@ export class EventsService {
     const path = this.eventsEndpoint;
     this.PUTRequest = {
       "ID": body.ID,
-      "color": body.color[0],
+      "color": body.color,
       "start": body.start,
       "end": body.end,
       "title": body.title
