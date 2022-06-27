@@ -50,22 +50,20 @@ export class ChatLandingComponent implements OnInit {
       const domain = email.substring(email.indexOf('@') + 1);
      
       if(domain != 'tuks.co.za' && domain != 'retrorabbit.co.za' ){
+        // Not allowed
         alert('You need to be a registered \n employee of Retro Rabbit to continue');
         this.authenticator.signOut();
+      }else{
+        // Checking if in DB
+        this.service.getUser(email).subscribe((res) => {
+          if (!res.Item) {
+            this.newUser = true;
+            this.openDialog();
+          } else {
+            this.newUser = false;
+          }
+        });
       }
-      
-      this.service.getUser(email).subscribe((res) => {
-       
-        if (!res.Item) {
-          this.newUser = true;
-          /*this.service.insertUser(email).subscribe((res)=>{
-            console.log(res);
-          })*/
-          this.openDialog();
-        } else {
-          this.newUser = false;
-        }
-      });
     });
 
 

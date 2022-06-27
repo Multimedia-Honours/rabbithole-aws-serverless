@@ -129,9 +129,11 @@ label{
 #homescreenImage1 img{
   z-index:-1;
   position: absolute;
-  height: 30%;
-  width: 250px;
-  left: 30%;
+  height: 40%;
+  width: auto;
+  left: 20%;
+  top: 55%;
+  
  
   animation: float 4s ease-in-out infinite;
 }
@@ -140,10 +142,10 @@ label{
 {
   z-index:-1;
   position: absolute;
-  height: 60%;
-  // width: 60%;
+  height: 50%;
+  width:auto;
   left: 0%; 
-  bottom: 40%;
+  bottom: 45%;
 
   animation: float 5s ease-in-out infinite;
 }
