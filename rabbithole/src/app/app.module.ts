@@ -25,13 +25,15 @@ import { ProfileComponent } from './sub-systems/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AccessDeniedComponent } from './sub-systems/services/access-denied/access-denied.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
     AuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    AccessDeniedComponent
   ],
   imports: [
     AppRoutingModule,
