@@ -43,7 +43,7 @@ export class ChatLandingComponent implements OnInit {
   ngOnInit():void 
   {
     this.searchText = "";
-    console.log('entered init');
+    
     let email:any;
     const userAuthObj =  Auth.currentUserInfo().then((res)=>{
       email = res.attributes.email;
