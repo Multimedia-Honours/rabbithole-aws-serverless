@@ -15,6 +15,7 @@ export class ClaimsService {
 
   private claimsEndpoint: any;
   private putRequestBody!: ClaimRequest;
+  private putAdminRequestBody!: ClaimRequest;
   email: any;
 
   constructor(private http: HttpClient, private authService: AuthService) { 
@@ -25,6 +26,16 @@ export class ClaimsService {
   async getClaims(){
     const email = await this.authService.returnLoggedUserEmail();
   
+    const path = this.claimsEndpoint+'/getClaimsByEmail';
+    const body = {
+      email: email
+    }
+    
+    return this.http.post<any>(path, body);
+  }
+
+  async getClaimsForAdmin(email: string){
+    console.log(email);
     const path = this.claimsEndpoint+'/getClaimsByEmail';
     const body = {
       email: email
@@ -49,5 +60,25 @@ export class ClaimsService {
       "claimStatus": body.claimStatus
     };
     return this.http.put(path, this.putRequestBody);
+  }
+
+  async updateClaimAdmin(body: any, newStatus: string){
+    const path = this.claimsEndpoint;
+  
+    this.putAdminRequestBody = {
+      "email": body.email,
+      "claimID": body.ID,
+      "claimDate": body.date,
+      "claimDescription": body.description,
+      "claimNotes": body.notes,
+      "claimTotal": body.total,
+      "claimType": body.type,
+      "claimVendorName": body.vendorName,
+      "claimStatus": newStatus
+    };
+    console.log(this.putAdminRequestBody);
+    this.http.put(path, this.putAdminRequestBody).subscribe(res => {
+      console.log(res);
+    });
   }
 }

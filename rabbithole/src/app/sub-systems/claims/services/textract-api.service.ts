@@ -88,9 +88,7 @@ export class TextractApiService {
       });
     } catch (error) {
      
-
       return error;
     }
   }
-
 }

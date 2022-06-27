@@ -8,12 +8,16 @@ import { Auth, Amplify } from 'aws-amplify';
 import { ChatService } from './services/chat.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-// import Amplify from 'aws-amplify';
 import { Console } from 'console';
 import { NativeDateModule } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserApiService } from './services/user-api.service';
-
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { ClaimsService } from '../claims/services/claims.service';
+import { ClaimTable } from '../claims/models/claim-table';
+import { ClaimResponse } from '../claims/models/claim-responses';
+import { TextractApiService } from '../claims/services/textract-api.service';
 
 
 @Component({
@@ -24,7 +28,9 @@ import { UserApiService } from './services/user-api.service';
 
 export class AdminComponent implements OnInit {
   contacts:any = [];
-  constructor(public authenticator: AuthenticatorService, private http: HttpClient, private CS:ChatService, private userService:UserApiService) { }
+  CLAIMS_TABLE_DATA: ClaimTable[] = [];
+  displayedColumns: string[] = ['Type', 'Vendor', 'Description', 'Total', 'Date', 'Actions'];
+  dataSource!: MatTableDataSource<ClaimTable>;
   searchText!:string;
   currentUserEmail:string = "";
   contactSelected: boolean = false;
@@ -32,9 +38,21 @@ export class AdminComponent implements OnInit {
   name:string ="";
   isAdmin = false;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(
+    public authenticator: AuthenticatorService, 
+    private http: HttpClient, 
+    private CS:ChatService, 
+    private userService:UserApiService,
+    private claimsService: ClaimsService,
+    private awsAPI: TextractApiService
+    ) { }
+  
+
   @ViewChild('contactBox') contactBox!:ElementRef;
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.searchText = "";
 
     const emailObj = Auth.currentUserInfo().then((data) => {
@@ -59,11 +77,21 @@ export class AdminComponent implements OnInit {
       await this.userService.getUser(value).then(data=>{
         this.dUser = data;
       })
-      console.log(this.dUser);
+      
       this.name= this.dUser.Item.email;
+      await this.getPendingClaimsForUser(this.dUser.Item.email);
+     
       this.isAdmin = this.dUser.Item.isAdmin;
-    } 
+    }
 
+    updateClaim(claim: any, status: string){
+      console.log(JSON.stringify(claim) + " -- " + status);
+      const index = this.CLAIMS_TABLE_DATA.indexOf(claim, 0);
+      if (index > -1) {
+        this.CLAIMS_TABLE_DATA.splice(index, 1);
+      }
+      this.claimsService.updateClaimAdmin(claim, status);
+    }
 
     makeAdmin(email:any){
       this.dUser.Item.isAdmin = true;
@@ -83,5 +111,34 @@ export class AdminComponent implements OnInit {
     }
 
 
-
+    async getPendingClaimsForUser(email: string){
+      (await this.claimsService.getClaimsForAdmin(email)).subscribe(data => {
+        data.Items.forEach((claim: any) => {
+          if (claim.claimStatus == 'pending') {
+            let tableRow = {
+              email: claim.email,
+              ID: claim.ID,
+              type: claim.type,
+              vendor: claim.vendorName,
+              description: claim.description,
+              total: claim.total,
+              date: claim.date,
+              notes: claim.notes,
+              status: claim.claimStatus
+            };
+            this.CLAIMS_TABLE_DATA.push(tableRow);
+            this.dataSource = new MatTableDataSource<ClaimTable>(this.CLAIMS_TABLE_DATA);
+          }
+        });
+      })
+    }
+  
+    ngAfterViewInit() {
+      if(this.dataSource == undefined){
+        // nothing
+      }else{
+        this.dataSource.paginator = this.paginator;
+      }
+    }
+  
 }
