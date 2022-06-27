@@ -1,0 +1,22 @@
+$greyColour: #212121;
+$greenColour: #a7ff2d;
+$lightGreyColour: #3e3d3d;
+$lightestGreyColour: #ededed;
+
+::ng-deep.mat-dialog-container{
+  background-color: $lightGreyColour !important;
+  color: $greenColour !important;
+  text-align: center;
+}
+
+h1{ 
+    color: $greenColour;
+}
+
+body{ 
+    background-color: $greyColour;
+}
+
+mat-dialog-content{
+    color: $greenColour;
+}

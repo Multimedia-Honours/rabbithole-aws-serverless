@@ -4,6 +4,8 @@ import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '
 import { UserApiService } from './user-api.service';
 import { Auth } from 'aws-amplify';
 import { AuthService } from '../home/auth/services/auth.service';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class AuthGuardService implements CanActivate {
   public email: any;
   public admin: boolean = true;
 
-  constructor(private auth:AuthService, private authService: AuthGuardService,private router: Router, private service:UserApiService) {
+  constructor(public model: MatDialog, private auth:AuthService, private authService: AuthGuardService,private router: Router, private service:UserApiService) {
     let user:any;
     
   }
@@ -23,6 +25,23 @@ export class AuthGuardService implements CanActivate {
 
     let email = await this.auth.returnLoggedUserEmail();
     let admin = await this.auth.returnIsAdmin();
-    return admin.Item.isAdmin;
-   }
+
+    if(admin.Item.isAdmin){
+      return true;
+    }else{
+      console.log(admin.Item.isAdmin);
+      let modelRef = this.model.open(AccessDeniedComponent,{
+        width: '250px'
+      });
+  
+      modelRef.afterClosed().subscribe((result: string) => {
+        if(result == "close"){
+         return false;
+        }
+        return false;
+      });
+    }
+
+    return false;
+  }
 }
