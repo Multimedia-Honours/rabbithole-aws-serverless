@@ -1,3 +1,53 @@
+@font-face {
+    font-family: "Avenir";
+    src: local("Avenir"), url(../../../../assets/fonts/Avenir/AvenirLTStd-Book.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Avenir-roman";
+    src: local("Avenir-roman"), url(../../../../assets/fonts/Avenir/AvenirLTStd-Roman.otf) format("opentype");
+}
+
+$large: 1920px;
+$medium: 1400px;
+$small: 450px;
+$smallest: 0px;
+
+@media (max-width: $medium) 
+{
+    #homescreenImage1 img{
+        display: none;
+
+    }
+    
+    #homescreenImage2 img
+    {
+        display: none;
+    }
+    #homescreenImage3 img{
+        display: none;
+    
+    }
+
+    #homePageHeader{
+        font-family: "Avenir";
+        font-size: 25pt;
+        margin-top: 10%;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #212121, #A7FF2D, #212121);
+        letter-spacing: 3px;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-repeat: no-repeat;
+        background-size: 80%;
+        animation: shine 4.5s linear infinite;
+        position: relative;
+    }
+    
+}
+ 
+
 div{
     text-align: center;
 }
@@ -9,7 +59,8 @@ div{
 #homePageHeader{
     font-family: "Avenir";
     font-size: 25pt;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     text-transform: uppercase;
     background: linear-gradient(90deg, #212121, #A7FF2D, #212121);
     letter-spacing: 3px;
@@ -58,8 +109,8 @@ div{
 
 #homescreenImage1 img{
     position: absolute;
-    height: 30%;
-    width: 250px;
+    height: 25vh;
+    width: auto;
     left: 15%;
    
     animation: float 4s ease-in-out infinite;
@@ -68,8 +119,8 @@ div{
 #homescreenImage2 img
 {
     position: absolute;
-    height: 60%;
-    // width: 60%;
+    height: 55vh;
+    width: auto;
     left: 5%; 
     bottom: 5%;
 
@@ -78,8 +129,8 @@ div{
 
 #homescreenImage3 img{
     position: absolute;
-    height: 60%;
-    // width: 60%;
+    height: 60vh;
+    width: auto;
     right: 5%; 
     bottom: 10%;
 
@@ -92,5 +143,3 @@ div{
     50%  { transform: translate(0, 10px); }
     100%   { transform: translate(0, -0px); }  
 }
-
-// div {margin: auto;}
