@@ -22,7 +22,6 @@ export class AuthGuardService implements CanActivate {
     // return true if you want to navigate, otherwise return false
 
     let email = await this.auth.returnLoggedUserEmail();
-    console.log(email);
     let admin = await this.auth.returnIsAdmin();
     return admin.Item.isAdmin;
    }
